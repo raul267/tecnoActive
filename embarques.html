@@ -12,8 +12,8 @@
   <body>
     <div class="topnav" id="myTopnav">
       <a href="#">Inicio</a>
-      <a href="#"class="active">Compras</a>
-      <a href="#">Embarques</a>
+      <a href="#">Compras</a>
+      <a href="#" class="active">Embarques</a>
       <a href="#">Despacho</a>
       <a href="#">AGA</a>
       <a href="#">Contabilidad</a>
@@ -85,11 +85,16 @@
 
 
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#datatable').DataTable();
-            } );
-        </script>
+          <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+          <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+          <script type="text/javascript" src="assets/pagina/DataTables-1.10.18/css/datatables.min.js"></script>
+          <script type="text/javascript">
+              $(document).ready(function() {
+                  $('#datatable').dataTable();
+              } );
+          </script>
+
 
   </body>
 </html>

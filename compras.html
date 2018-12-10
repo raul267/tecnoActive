@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="assets/menu/pagina.css">
     <link rel="stylesheet" href="assets/pagina/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/pagina/DataTables/datatables.min.css"/>
 
 
     <meta charset="utf-8">
@@ -26,19 +27,25 @@
         <div class="col-md-6">
           <div class="col-md-3">
             <label>Rango de fechas</label>
+          </div>
+
+            <div class="col-md-1">
+              <label>Desde:</label>
+           </div>
+            <div class="col-md-3">
+                    <input type="date" name="fechaInicio" value="">
             </div>
 
+            <div class="col-md-1">
+              <label>Hasta:</label>
+           </div>
             <div class="col-md-3">
-              <label>Desde:</label>
-              <input type="date" name="fechaInicio" value="">
-          </div>
-
-          <div class="col-md-3">
-            <label>Hasta:</label>
-            <input type="date" name="fechaFin" value="">
-          </div>
+                    <input type="date" name="fechaFin" value="">
+            </div>
         </div>
       </div>
+      <br>
+
     <div class="row" style="margin-left:10px;">
         <div class="col-md-5">
             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
@@ -95,22 +102,24 @@
               <div class="col-md-7">
                  <img src="assets/pagina/images/grafico.jpg" alt="">
               </div>
-              <div class="col-md-4">
-                <a href="#" class="btn btn-primary">Agregar nueva compra</a>
-              </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-md-4">
+              <a href="#" class="btn btn-primary">Agregar nueva compra</a>
+            </div>
           </div>
 
 
-
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/pagina/DataTables-1.10.18/css/datatables.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#datatable').DataTable();
+                $('#datatable').dataTable();
             } );
         </script>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <scripr src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></scripr>
 
   </body>
 </html>
