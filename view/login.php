@@ -35,24 +35,26 @@
 				<div class="text-center">
 					<img src="assets/login/images/fondoLogin.jpg" alt="" style="height:300px; width:300px;">
 				</div>
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action="?c=Usuario&a=Ingresar">
 					<span class="login100-form-label p-b-43">
 						Bienvenidos al sistema de gestión de PDV CHILE
 					</span>
 
+
+
 					<div class="wrap-input100 rs1 validate-input" data-validate = "Debe ingresar su nombre de usuario">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" id="txtNombre" name="txtNombre">
 						<span class="label-input100">Usuario</span>
 					</div>
 
 
 					<div class="wrap-input100 rs2 validate-input" data-validate="Debe ingresar su contraseña">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" id="txtPassword"name="txtPassword">
 						<span class="label-input100">Clave</span>
 					</div>
 
 					<div class="container-login100-form-btn">
-					<a href="compras.html" class="login100-form-btn">Ingresar</a>
+						<input type="submit" class="login100-form-btn"name="btnIngresar" value="Ingresar">
 					</div>
 
 					<div class="text-center w-full p-t-23">
@@ -65,6 +67,11 @@
 		</div>
 	</div>
 
+<script type="text/javascript">
+	{function(
+		var
+	)}
+</script>
 
 
 
