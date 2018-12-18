@@ -81,6 +81,6 @@
       </div>
       <div class="row text-center">
         <div class="col-md-4">
-          <a href="ingresarCompra.html" class="btn btn-primary">Agregar nueva compra</a>
+          <a href="?c=Usuario&a=IngresarCompra" class="btn btn-primary">Agregar nueva compra</a>
         </div>
       </div>

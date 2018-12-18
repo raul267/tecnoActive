@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V20</title>
+	<title>PDVChile</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -43,13 +43,13 @@
 
 
 					<div class="wrap-input100 rs1 validate-input" data-validate = "Debe ingresar su nombre de usuario">
-						<input class="input100" type="text" id="txtNombre" name="txtNombre">
+						<input class="input100" type="text" id="txtNombre" name="txtNombre" required>
 						<span class="label-input100">Usuario</span>
 					</div>
 
 
 					<div class="wrap-input100 rs2 validate-input" data-validate="Debe ingresar su contraseña">
-						<input class="input100" type="password" id="txtPassword"name="txtPassword">
+						<input class="input100" type="password" id="txtPassword"name="txtPassword" required>
 						<span class="label-input100">Clave</span>
 					</div>
 
@@ -67,11 +67,6 @@
 		</div>
 	</div>
 
-<script type="text/javascript">
-	{function(
-		var
-	)}
-</script>
 
 
 
