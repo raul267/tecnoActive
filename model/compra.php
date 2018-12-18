@@ -1,10 +1,10 @@
 <?php
- Class Compras
+ Class Compra
  {
     private $conn;
     public $cantidadEntregas;
 
-    public __CONSTRUCT()
+    public function __CONSTRUCT()
     {
         try
         {
@@ -24,9 +24,10 @@
 
     public function Listar()
     {
-        $sql = $this->conn->prepare("SELECT * FROM compra");
+        $sql = $this->conn->prepare("SELECT * FROM compra c JOIN entrega e using(idCompra) JOIN producto p using(idProducto)");
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_OBJ);
+    }
 
         public function ListarID($id)
         {

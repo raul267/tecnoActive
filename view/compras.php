@@ -36,30 +36,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Galleta AP 40</td>
-                    <td>Sime Darby</td>
-                    <td>1000</td>
-                    <td>ene-19</td>
-                    <td>dic-19</td>
-                </tr>
-                <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
-                </tr>
-                <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009/01/12</td>
-                    <td>$86,000</td>
-                </tr>
+              <?php foreach ($c->Listar() as $row): ?>
+                  <tr>
+                    <td><?php echo $row->idCompra.'-'.$row->idEntrega ?></td>
+                    <td><?php echo $row->descripcion ?></td>
+                    <td>TecnoActive</td>
+                    <td><?php echo $row->total ?></td>
+                    <td><?php echo $row->fechaPedido ?></td>
+                    <td><?php echo $row->fechaEntrega?></td>
+                  </tr>
+              <?php endforeach; ?>
 
               </tbody>
               <tfoot>

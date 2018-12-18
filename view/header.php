@@ -13,12 +13,12 @@
   <body>
     <div class="topnav" id="myTopnav">
       <a href="#">Inicio</a>
-      <a href="compras.html" class="active">Compras</a>
-      <a href="embarques.html">Embarques</a>
-      <a href="inventario.html">Inventario</a>
-      <a href="despacho.html">Despacho</a>
-      <a href="aga.html">AGA</a>
-      <a href="proveedores.html">Proveedores</a>
+      <a href="?c=Usuario&a=Compras" class="active">Compras</a>
+      <a href="?c=Usuario&a=Embarques">Embarques</a>
+      <a href="?c=Usuario&a=Inventario">Inventario</a>
+      <a href="?c=Usuario&a=Despacho">Despacho</a>
+      <a href="?c=Usuario&a=AGA">AGA</a>
+      <a href="?c=Usuario&a=Proveedores">Proveedores</a>
       <a href="#">Contabilidad</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>

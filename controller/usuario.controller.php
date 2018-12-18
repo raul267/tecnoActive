@@ -1,16 +1,19 @@
 <?php
 require_once 'model/usuario.php';
 require_once 'model/producto.php';
+require_once 'model/compra.php';
 session_start();
 class UsuarioController
 {
 
   private $model_us;
   private $model_pro;
+  private $model_com;
   public function __CONSTRUCT()
     {
       $this->model_us = new Usuario();
       $this->model_pro = new Producto();
+      $this->model_com = new Compra();
     }
 
 
@@ -22,10 +25,46 @@ class UsuarioController
 
     public function Compras()
     {
+      $c = new Compra();
       require_once 'view/header.php';
       require_once 'view/compras.php';
       require_once 'view/footer.php';
     }
+
+    public function Despacho()
+    {
+      require_once 'view/header.php';
+      require_once 'view/despacho.php';
+      require_once 'view/footer.php';
+    }
+
+    public function Embarques()
+    {
+      require_once 'view/header.php';
+      require_once 'view/embarques.php';
+      require_once 'view/footer.php';
+    }
+
+    public function Inventario()
+    {
+      require_once 'view/header.php';
+      require_once 'view/inventario.php';
+      require_once 'view/footer.php';
+    }
+
+    public function Proveedores()
+    {
+      require_once 'view/header.php';
+      require_once 'view/proveedores.php';
+      require_once 'view/footer.php';
+    }
+    public function AGA()
+    {
+      require_once 'view/header.php';
+      require_once 'view/aga.php';
+      require_once 'view/footer.php';
+    }
+
 
     public function Ingresar()
     {
@@ -67,8 +106,6 @@ class UsuarioController
     {
       $co = new Compra();
       $en = new Entrega();
-
-      
     }
 
   }

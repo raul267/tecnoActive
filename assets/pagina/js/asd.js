@@ -2,11 +2,11 @@
     {
       var cant = document.getElementById('cantidadEntregas').value;
 
-      for (var i=0; i=cant; i++)
+      for (var i=1; i<cant; i++)
       {
 
         $("#sad").append('<br><label>Cant productos</label>');
-        $("#sad").append('<input style="margin-left:5px; height:10px; type="text" id="'+i+'"/>');
+        $("#sad").append('<input style="margin-left:5px;type="text" id="'+i+'"/>');
       }
       $('#btn').attr('disabled',true);
     }

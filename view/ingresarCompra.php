@@ -18,9 +18,8 @@
           <input type="text" id="cantidadEntregas" value="">
         </div>
 
-
-          <div id="sad"></div>
       </div>
+        <div class="row"id="sad"></div>
     </div>
   </form>
   <div class="col-md-6">
