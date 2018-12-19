@@ -2,6 +2,7 @@
 require_once 'model/usuario.php';
 require_once 'model/producto.php';
 require_once 'model/compra.php';
+require_once 'model/embarque.php';
 session_start();
 class UsuarioController
 {
@@ -9,11 +10,13 @@ class UsuarioController
   private $model_us;
   private $model_pro;
   private $model_com;
+  private $model_em;
   public function __CONSTRUCT()
     {
       $this->model_us = new Usuario();
       $this->model_pro = new Producto();
       $this->model_com = new Compra();
+      $this->model_em  = new Embarque();
     }
 
 
@@ -40,6 +43,7 @@ class UsuarioController
 
     public function Embarques()
     {
+      $em = new Embarque();
       require_once 'view/header.php';
       require_once 'view/embarques.php';
       require_once 'view/footer.php';
@@ -88,7 +92,7 @@ class UsuarioController
 
     }
 
-    public function logOut()
+    public function LogOut()
     {
       session_destroy();
       header('Location:index.php');
@@ -102,10 +106,47 @@ class UsuarioController
       require_once('view/footer.php');
     }
 
-    public function Guardarcompra()
+    public function GuardarCompra()
     {
       $co = new Compra();
-      $en = new Entrega();
+      $em = new Embarque();
+
+       $co->idCompra = $_REQUEST['idCompra'];
+       $co->idProducto = $_REQUEST['idProducto'];
+       $co->proveedor = $_REQUEST['proveedor'];
+       $co->cantidadPedido = $_REQUEST['cantidadPedido'];
+       $co->fechaInicio = $_REQUEST['fechaInicio'];
+       $co->fechaTermino = $_REQUEST['fechaTermino'];
+       $this->model_com->Insertar($co);
+
+
+       for ($i=1; $i <= $_REQUEST['cantidadEntregas'] ; $i++)
+       {
+           $em->idEmbarque = $_REQUEST['idCompra'].'-'.$i;
+           $em->cantContenedores = $_REQUEST['cant'.$i];
+           $em->bl = $_REQUEST['bl'.$i];
+           $em->linea = $_REQUEST['linea'.$i];
+           $em->motoNave = $_REQUEST['motoNave'.$i];
+           $em->fechaPedido = $_REQUEST['fechaPedido'.$i];
+           $em->fechaEntrega = $_REQUEST['fechaEntrega'.$i];
+          $this->model_em->Insertar($em);
+
+       }
+
+       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Compras";</script>';
+
+
+    }
+
+    public function Llego()
+    {
+      $em = new Embarque();
+      $id = $_REQUEST['id'];
+      $em->CambiarEstadoLlego($id);
+
+      Header('Location: index.php?c=Usuario&a=Embarques');
+
+
     }
 
   }

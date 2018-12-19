@@ -12,36 +12,31 @@
                     <th>M/N</th>
                     <th>ETD</th>
                     <th>ETA</th>
+                    <th>Estado</th>
+                    <th>¿Llego?</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Galleta AP 40</td>
-                    <td>Sime Darby</td>
-                    <td>1000</td>
-                    <td>ene-19</td>
-                    <td>dic-19</td>
-                    <td><input type="checkbox" name="estado" value="true"></td>
-                </tr>
-                <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-                    <td>2011/07/25</td>
-                    <td>$170,750</td>
-                    <td><input type="checkbox" name="estado" value="true"></td>
-                </tr>
-                <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-                    <td>2009/01/12</td>
-                    <td>$86,000</td>
-                    <td><input type="checkbox" name="estado" value="true"></td>
-                </tr>
+                <?php foreach ($em->Listar() as $row): ?>
+                  <tr>
+                      <td><?php echo $row->cantContenedores ?></td>
+                      <td><?php echo $row->idEmbarque ?></td>
+                      <td><?php echo $row->bl ?></td>
+                      <td><?php echo $row->linea ?></td>
+                      <td><?php echo $row->motoNave ?></td>
+                      <td><?php echo $row->fechaPedido ?></td>
+                      <th><?php echo $row->fechaEntrega ?></th>
+                      <td><?php if ($row->enPuerto == 1)
+                                {?>
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    <input type="hidden" name="" value="si">
+                          <?php } ?>
+                     </td>
+                     <th><a href="?c=Usuario&a=Llego&id=<?php echo $row->idEmbarque ?>"class="btn btn-primary">Llego</a></th>
+                  </tr>
+                <?php endforeach; ?>
+
+
               </tbody>
               <tfoot>
                  <tr>
@@ -52,6 +47,8 @@
                    <th>M/N</th>
                    <th>ETD</th>
                    <th>ETA</th>
+                   <th>Estado</th>
+                   <th>¿Llego?</th>
                  </tr>
               </tfoot>
               </table>

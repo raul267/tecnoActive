@@ -5,12 +5,19 @@
       for (var i=1; i<=cant; i++)
       {
 
-        $("#sad").append('<div class="col-md-2"><label>'+i+') Cant productos</label></div>');
+        $("#sad").append('<div class="col-md-2"><label>'+i+') Cant Contenedores</label></div>');
         $("#sad").append('<div class="col-md-2"><input type="text" onkeyup=""onclick="" name="cant'+i+'" id="cant'+i+'"/></div>');
         $("#sad").append('<div class="col-md-2"><label>Fecha Pedido</label></div>');
-        $("#sad").append('<div class="col-md-2"><input type="date" name="fechaPedido" id="fechaPedido'+i+'"/></div>');
+        $("#sad").append('<div class="col-md-2"><input type="date" name="fechaPedido'+i+'" id="fechaPedido'+i+'"/></div>');
         $("#sad").append('<div class="col-md-2"><label>Fecha Entrega</label></div>');
-        $("#sad").append('<div class="col-md-2"><input type="date" name="fechaEntrega" id="fechaEntrega'+i+'"/></div>');
+        $("#sad").append('<div class="col-md-2"><input type="date" name="fechaEntrega'+i+'" id="fechaEntrega'+i+'"/></div>');
+
+        $("#sad").append('<br><div class="col-md-2"><label>'+i+')bl</label></div>');
+        $("#sad").append('<div class="col-md-2"><input type="text" onkeyup=""onclick="" name="bl'+i+'" id="bl'+i+'"/></div>');
+        $("#sad").append('<div class="col-md-2"><label>Linea</label></div>');
+        $("#sad").append('<div class="col-md-2"><input type="date" name="linea'+i+'" id="linea'+i+'"/></div>');
+        $("#sad").append('<div class="col-md-2"><label>Moto Nave</label></div>');
+        $("#sad").append('<div class="col-md-2"><input type="date" name="motoNave'+i+'" id="motoNave'+i+'"/></div>');
 
       }
       $('#btn').attr('disabled',true);

@@ -23,27 +23,29 @@
   <br>
 
 <div class="row" style="margin-left:10px;">
-    <div class="col-md-5">
+    <div class="col-md-6">
         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Producto</th>
                     <th>Proveedor</th>
-                    <th>Cantidad(Toneladas)</th>
+                    <th>Cantidad(Ton)</th>
                     <th>Fecha Inicio</th>
                     <th>Fecha Termino</th>
+                    <th>Embarques</th>
                 </tr>
             </thead>
             <tbody>
               <?php foreach ($c->Listar() as $row): ?>
                   <tr>
-                    <td><?php echo $row->idCompra.'-'.$row->idEntrega ?></td>
+                    <td><?php echo $row->idCompra?></td>
                     <td><?php echo $row->descripcion ?></td>
-                    <td>TecnoActive</td>
-                    <td><?php echo $row->total ?></td>
-                    <td><?php echo $row->fechaPedido ?></td>
-                    <td><?php echo $row->fechaEntrega?></td>
+                    <td><?php echo $row->proveedor ?></td>
+                    <td><?php echo $row->cantidadPedido ?></td>
+                    <td><?php echo $row->fechaInicio ?></td>
+                    <td><?php echo $row->fechaTermino?></td>
+                    <td><a href="#"><span class="glyphicon glyphicon-plane"></span></a></td>
                   </tr>
               <?php endforeach; ?>
 
@@ -53,15 +55,16 @@
                    <th>ID</th>
                    <th>Producto</th>
                    <th>Proveedor</th>
-                   <th>Cantidad(Toneladas)</th>
+                   <th>Cantidad(Ton)</th>
                    <th>Fecha Inicio</th>
                    <th>Fecha Termino</th>
+                   <th>Embarques</th>
                  </tr>
               </tfoot>
               </table>
           </div>
 
-          <div class="col-md-7">
+          <div class="col-md-6">
              <img src="assets/pagina/images/grafico.jpg" alt="">
           </div>
       </div>

@@ -13,7 +13,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <a href="#">Inicio</a>
-      <a href="?c=Usuario&a=Compras" class="active">Compras</a>
+      <a href="?c=Usuario&a=Compras">Compras</a>
       <a href="?c=Usuario&a=Embarques">Embarques</a>
       <a href="?c=Usuario&a=Inventario">Inventario</a>
       <a href="?c=Usuario&a=Despacho">Despacho</a>
@@ -23,5 +23,5 @@
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
-          <button type="button" class="btn btn-success"style="float:right;" name="button" class="data-toggle="modal" data-target="#exampleModal">Bienvenido <?php echo $_SESSION['nombre_usuario'] ?></button>
+          <button type="button" class="btn btn-success"style="float:right; margin-top:8px;" name="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Bienvenido <?php echo $_SESSION['nombre_usuario'] ?></button>
         </div>

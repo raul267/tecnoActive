@@ -2,7 +2,12 @@
  Class Compra
  {
     private $conn;
-    public $cantidadEntregas;
+    public $idCompra;
+    public $idPedido;
+    public $proveedor;
+    public $cantidadPedido;
+    public $fechaInicio;
+    public $fechaTermino;
 
     public function __CONSTRUCT()
     {
@@ -18,13 +23,13 @@
 
     public function Insertar($co)
     {
-      $sql = $this->conn->prepare("INSERT INTO compra(cantidadEntregas) values(?)");
-      $sql->execute($co->cantidadEntregas);
+      $sql = $this->conn->prepare("INSERT INTO compra(idCompra,idProducto,proveedor,cantidadPedido,fechaInicio,fechaTermino) values(?,?,?,?,?,?)");
+      $sql->execute(array($co->idCompra,$co->idProducto,$co->proveedor,$co->cantidadPedido,$co->fechaInicio,$co->fechaTermino));
     }
 
     public function Listar()
     {
-        $sql = $this->conn->prepare("SELECT * FROM compra c JOIN entrega e using(idCompra) JOIN producto p using(idProducto)");
+        $sql = $this->conn->prepare("SELECT * FROM compra c JOIN producto p using(idProducto)");
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_OBJ);
     }
