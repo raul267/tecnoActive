@@ -44,7 +44,7 @@
 
 					<div class="wrap-input100 rs1 validate-input" data-validate = "Debe ingresar su nombre de usuario">
 						<input class="input100" type="text" id="txtNombre" name="txtNombre" required>
-						<span class="label-input100">Usuario</span>
+						<label for="txtNombre" class="label-input100">Usuario</label>
 					</div>
 
 

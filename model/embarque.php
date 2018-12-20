@@ -31,9 +31,16 @@ class Embarque
 
   public function Listar()
   {
-      $sql = $this->conn->prepare("SELECT * FROM embarque");
+      $sql = $this->conn->prepare("SELECT * FROM embarque order by idEmbarque");
       $sql->execute();
       return $sql->fetchAll(PDO::FETCH_OBJ);
+  }
+
+  public function ListarIDCompra($id)
+  {
+    $sql = $this->conn->prepare("SELECT * FROM embarque WHERE idCompra =?");
+    $sql->execute($id);
+    return $sql->fetchAll(PDO::FETCH_OBJ);
   }
 
     public function ListarFechaMayor()

@@ -1,7 +1,7 @@
   function prueba()
     {
       var cant = document.getElementById('cantidadEntregas').value;
-      $("#sad").apppend('<h1>Registrar Embarques</h1>');
+      //$("#sad").apppend('<h1>Registrar Embarques</h1>');
       for (var i=1; i<=cant; i++)
       {
 

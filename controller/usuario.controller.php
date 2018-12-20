@@ -69,6 +69,14 @@ class UsuarioController
       require_once 'view/footer.php';
     }
 
+    public function EmbarquesPorEntregar()
+    {
+      $em = new Embarque();
+      $id = $_REQUEST['id'];
+      require_once 'view/header.php';
+      require_once 'view/embarquesPorEntregar.php';
+      require_once 'view/footer.php';
+    }
 
     public function Ingresar()
     {
