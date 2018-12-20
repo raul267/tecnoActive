@@ -39,6 +39,20 @@
        return $sql->fetch(PDO::FETCH_OBJ);
      }
 
+     public function ListarPorInternar($idProducto)
+     {
+       $sql = $this->conn->prepare("SELECT porInternar porInternar FROM stock where idProducto =?");
+       $sql->execute(array($idProducto));
+       return $sql->fetch(PDO::FETCH_OBJ);
+     }
+
+     public function ListarInternado($idProducto)
+     {
+       $sql = $this->conn->prepare("SELECT internado insternado FROM stock where idProducto =?");
+       $sql->execute(array($idProducto));
+       return $sql->fetch(PDO::FETCH_OBJ);
+     }
+
      public function AgregarPorInternar($numero,$id)
      {
        $sql = $this->conn->prepare("UPDATE stock SET porInternar = ? WHERE idProducto = ?");

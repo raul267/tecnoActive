@@ -150,8 +150,9 @@ class UsuarioController
            $porInternar = $porInternar + $_REQUEST['cantidad'.$i];
 
        }
-
-      $this->model_s->AgregarPorInternar($porInternar, $_REQUEST['idProducto']);
+         $porInternarActual = $this->model_s->ListarPorInternar($_REQUEST['idProducto']);
+         $porInternarActual->porInternar + $porInternar ;
+         $this->model_s->AgregarPorInternar($porInternarActual, $_REQUEST['idProducto']);
 
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Compras";</script>';
 
@@ -162,11 +163,11 @@ class UsuarioController
     {
       $em = new Embarque();
       $id = $_REQUEST['id'];
-      //$em->CambiarEstadoLlego($id);
-      $em->ListarID($id);
+      $em->CambiarEstadoLlego($id);
+      /*$em->ListarID($id);
       echo $em->cantidad;
-      echo $em->producto;
-      //Header('Location: index.php?c=Usuario&a=Embarques');
+      echo $em->producto;*/
+      Header('Location: index.php?c=Usuario&a=Embarques');
 
 
     }
