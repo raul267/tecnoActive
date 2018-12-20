@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($em->ListarIDCompra($_REQUEST[$id]) as $row): ?>
+                <?php foreach ($em->ListarIDCompra($_REQUEST['id']) as $row): ?>
                   <tr>
                       <td><?php echo $row->cantContenedores ?></td>
                       <td><?php echo $row->idEmbarque ?></td>

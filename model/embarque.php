@@ -39,7 +39,7 @@ class Embarque
   public function ListarIDCompra($id)
   {
     $sql = $this->conn->prepare("SELECT * FROM embarque WHERE idCompra =?");
-    $sql->execute($id);
+    $sql->execute(array($id));
     return $sql->fetchAll(PDO::FETCH_OBJ);
   }
 
