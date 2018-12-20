@@ -18,6 +18,7 @@
         $("#sad").append('<div class="col-md-2"><input type="text" name="linea'+i+'" id="linea'+i+'"/></div>');
         $("#sad").append('<div class="col-md-2"><label>Moto Nave</label></div>');
         $("#sad").append('<div class="col-md-2"><input type="text" name="motoNave'+i+'" id="motoNave'+i+'"/></div>');
+        $("#sad").append('<br><div class="" style="margin-top:20px;"><div class="col-md-2"><label>'+i+')Cantidad</label></div><div class="col-md-2 text-center"><input type="text" name="cantidad'+i+'" id="cantidad'+i+'"/></div></div>');
 
                 $("#sad").append('<br><br><div class="row" style="background-color:black"></div>');
 

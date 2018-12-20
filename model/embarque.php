@@ -2,7 +2,9 @@
 class Embarque
 {
   private $conn;
+  public $idEmbarque;
   public $idCompra;
+  public $cantidad;
   public $cantContenedores;
   public $bl;
   public $linea;
@@ -25,8 +27,8 @@ class Embarque
 
   public function Insertar($em)
   {
-    $sql = $this->conn->prepare("INSERT INTO embarque(idEmbarque,cantContenedores,bl,linea,motoNave,fechaPedido,fechaEntrega) VALUES(?,?,?,?,?,?,?)");
-    $sql->execute(array($em->idEmbarque,$em->cantContenedores,$em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega));
+    $sql = $this->conn->prepare("INSERT INTO embarque(idEmbarque,idCompra,cantidad,cantContenedores,bl,linea,motoNave,fechaPedido,fechaEntrega) VALUES(?,?,?,?,?,?,?,?,?)");
+    $sql->execute(array($em->idEmbarque,$em->idCompra,$em->cantidad,$em->cantContenedores,$em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega));
   }
 
   public function Listar()
@@ -38,7 +40,7 @@ class Embarque
 
   public function ListarIDCompra($id)
   {
-    $sql = $this->conn->prepare("SELECT * FROM embarque WHERE idCompra =?");
+    $sql = $this->conn->prepare("SELECT * FROM embarque WHERE idCompra = ? and enPuerto = 0");
     $sql->execute(array($id));
     return $sql->fetchAll(PDO::FETCH_OBJ);
   }
@@ -60,8 +62,8 @@ class Embarque
 
       public function ListarID($id)
       {
-        $sql = $this->conn->prepare("SELECT * FROM embarque WHERE idEntrega =?");
-        $sql->execute($id);
+        $sql = $this->conn->prepare("select e.cantidad cantidad, idProducto producto from embarque e join compra c using(idCompra) JOIN producto USING(idProducto) WHERE idEmbarque = ?");
+        $sql->execute(array($id));
         return $sql->fetch(PDO::FETCH_OBJ);
       }
 

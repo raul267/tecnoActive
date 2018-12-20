@@ -16,26 +16,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Galleta AP 40</td>
-                <td>Sime Darby</td>
-
-
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-
-
-            </tr
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-
-            </tr>
+            <?php foreach ($s->Listar() as $row): ?>
+              <tr>
+                  <td><?php echo $row->descripcion ?></td>
+                  <td><?php echo $row->porInternar ?></td>
+                  <td><?php echo $row->internadas ?></td>
+              </tr>
+            <?php endforeach; ?>
 
           </tbody>
           <tfoot>
