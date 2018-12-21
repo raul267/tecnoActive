@@ -153,6 +153,33 @@ class UsuarioController
 
     }
 
+    public function GuardarEmbarque()
+    {
+      $e = new Embarque();
+      $cant = $_REQUEST['cantBl'];
+      for ($i=1; $i <= $cant ; $i++)
+      {
+        echo $e->linea = $_REQUEST['linea'];
+        echo $e->bl = $_REQUEST['bl'];
+        echo $e->motoNave = $_REQUEST['motoNave'];
+        echo $e->fechaPedido = $_REQUEST['fechaPedido'];
+        echo $e->fechaEntrega = $_REQUEST['fechaEntrega'];
+        echo $e->pSeguro = $_REQUEST['pSeguro'];
+        echo $e->puertoDestino = $_REQUEST['puertoDestino'];
+        echo $e->embarcador = $_REQUEST['embarcador'];
+        echo $e->consignee = $_REQUEST['consignee'];
+        echo $e->tMaritimo = $_REQUEST['tMaritimo'];
+        echo $e->coMODATO = $_REQUEST['coMODATO'];
+        echo $e->gateIn = $_REQUEST['gateIn'];
+        echo $e->diasLibres = $_REQUEST['diasLibres'];
+        echo $e->depositoDevVacio = $_REQUEST['depositoDevVacio'];
+
+      }
+
+      //$this->model_em->Insertar2($e);
+      //echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
+    }
+
     public function Llego()
     {
       $em = new Embarque();

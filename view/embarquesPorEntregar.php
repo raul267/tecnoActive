@@ -27,11 +27,11 @@
             <tbody>
                 <?php foreach ($em->Listar() as $row): ?>
                   <tr>
-                    <form action="" method="post">
-
+                    <form action="?c=Usuario&a=GuardarEmbarque" method="post">
+                      <input type="hidden" name="cantBl" id="cantBl" value="1">
                       <td><?php echo $row->cantContenedores ?></td>
                       <td><?php echo $row->idEmbarque ?></td>
-                      <td><div id="nBl"><div class="col-md-8"><input type="text" id="bl" name="bl"/></div><div class="col-md-4"><button class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div></div></td>
+                      <td><div id="nBl"><div class="col-md-8"><input type="text" id="bl1" name="bl1"/></div><div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div></div></td>
                       <td><input type="text" id="linea" name="linea"/></td>
                       <td><input type="text" id="motoNave" name="motoNave"/></td>
                       <td><input type="date" id="fechaPedido" name="fechaPedido"/></td>
@@ -41,6 +41,7 @@
                       <td><input type="text" id="embarcador" name="embarcador"/></td>
                       <td><input type="text" id="consignee" name="consignee"/></td>
                       <td><input type="text" id="tMaritimo" name="tMaritimo"/></td>
+                      <td><input type="text" id="coMODATO" name="coMODATO"/></td>
                       <td><input type="text" id="gateIn" name="gateIn"/></td>
                       <td><input type="text" id="diasLibres" name="diasLibres"/></td>
                       <td><input type="text" id="depositoDevVacio" name="depositoDevVacio"/></td>

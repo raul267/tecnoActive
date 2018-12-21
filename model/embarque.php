@@ -16,6 +16,7 @@ class Embarque
   public $embarcador;
   public $consignee;
   public $tMaritmo;
+  public $coMODATO;
   public $gateIn;
   public $diasLibres;
   public $depositoDevVacio;
@@ -47,8 +48,8 @@ class Embarque
 
   public function Insertar2($em)
   {
-    $sql = $this->conn->prepare("UPDATE embarque SET bl=?, linea=?, motoNave=?, fechaPedido =?, fechaEntrega =?, pSeguro =?, puertoDestino =?, embarcador =?, consignee =?, tMaritimo =?, gateIn =?, diasLibres =?, depositoDevVacio =? WHERE ?");
-    $sql->execute(array($em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega,$em->pSeguro,$em->puertoDestino,$em->embarcador,$em->consignee,$em->tMaritimo,$em->gateIn,$em->diasLibres,$em->depositoDevVacio,$em->idEmbarque));
+    $sql = $this->conn->prepare("UPDATE embarque SET bl=?, linea=?, motoNave=?, fechaPedido =?, fechaEntrega =?, pSeguro =?, puertoDestino =?, embarcador =?, consignee =?, tMaritimo =?, coMODATO =?, gateIn =?, diasLibres =?, depositoDevVacio =? WHERE ?");
+    $sql->execute(array($em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega,$em->pSeguro,$em->puertoDestino,$em->embarcador,$em->consignee,$em->tMaritimo,$em->coMODATO,$em->gateIn,$em->diasLibres,$em->depositoDevVacio,$em->idEmbarque));
   }
 
   public function Listar()
