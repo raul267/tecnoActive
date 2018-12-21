@@ -11,6 +11,13 @@ class Embarque
   public $motoNave;
   public $fechaPedido;
   public $fechaEntrega;
+  public $puertoDestino;
+  public $embarcador;
+  public $consignee;
+  public $tMaritmo;
+  public $gateIn;
+  public $diasLibres;
+  public $depositoDevVacio;
   public $enPuerto;
 
     public function __CONSTRUCT()
@@ -29,6 +36,18 @@ class Embarque
   {
     $sql = $this->conn->prepare("INSERT INTO embarque(idEmbarque,idCompra,cantidad,cantContenedores,bl,linea,motoNave,fechaPedido,fechaEntrega) VALUES(?,?,?,?,?,?,?,?,?)");
     $sql->execute(array($em->idEmbarque,$em->idCompra,$em->cantidad,$em->cantContenedores,$em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega));
+  }
+
+  public function Insertar1($em)
+  {
+    $sql = $this->conn->prepare("INSERT INTO embarque(idEmbarque,idCompra,cantContenedores) VALUES(?,?,?)");
+    $sql->execute(array($em->idEmbarque,$em->idCompra,$em->cantContenedores));
+  }
+
+  public function Insertar2($em)
+  {
+    $sql = $this->conn->prepare("UPDATE embarque SET bl=?, linea=?, motoNave=?, fechaPedido =?, fechaEntrega =?, pSeguro =?, puertoDestino =?, embarcador =?, consignee =?, tMaritimo =?, gateIn =?, diasLibres =?, depositoDevVacio =? WHERE ?");
+    $sql->execute(array($em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega,$em->pSeguro,$em->puertoDestino,$em->embarcador,$em->consignee,$em->tMaritimo,$em->gateIn,$em->diasLibres,$em->depositoDevVacio,$em->idEmbarque));
   }
 
   public function Listar()

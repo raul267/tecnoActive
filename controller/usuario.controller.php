@@ -138,21 +138,15 @@ class UsuarioController
 
            $em->idEmbarque = $_REQUEST['idCompra'].'-'.$i;
            $em->idCompra = $_REQUEST['idCompra'];
-           $em->cantidad = $_REQUEST['cantidad'.$i];
            $em->cantContenedores = $_REQUEST['cant'.$i];
-           $em->bl = $_REQUEST['bl'.$i];
-           $em->linea = $_REQUEST['linea'.$i];
-           $em->motoNave = $_REQUEST['motoNave'.$i];
-           $em->fechaPedido = $_REQUEST['fechaPedido'.$i];
-           $em->fechaEntrega = $_REQUEST['fechaEntrega'.$i];
-           $this->model_em->Insertar($em);
+           $this->model_em->Insertar1($em);
 
-           $porInternar = $porInternar + $_REQUEST['cantidad'.$i];
+           //$porInternar = $porInternar + $_REQUEST['cantidad'.$i];
 
        }
-         $porInternarActual = $this->model_s->ListarPorInternar($_REQUEST['idProducto']);
-         $porInternarActual->porInternar + $porInternar ;
-         $this->model_s->AgregarPorInternar($porInternarActual, $_REQUEST['idProducto']);
+         //$porInternarActual = $this->model_s->ListarPorInternar($_REQUEST['idProducto']);
+         //$porInternarActual->porInternar + $porInternar ;
+         //$this->model_s->AgregarPorInternar($porInternarActual, $_REQUEST['idProducto']);
 
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Compras";</script>';
 
