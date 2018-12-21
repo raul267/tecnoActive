@@ -4,6 +4,7 @@ require_once 'model/producto.php';
 require_once 'model/compra.php';
 require_once 'model/embarque.php';
 require_once 'model/stock.php';
+require_once 'model/bl.php';
 session_start();
 class UsuarioController
 {
@@ -13,6 +14,7 @@ class UsuarioController
   private $model_com;
   private $model_em;
   private $model_s;
+  private $model_bl;
   public function __CONSTRUCT()
     {
       $this->model_us = new Usuario();
@@ -20,6 +22,7 @@ class UsuarioController
       $this->model_com = new Compra();
       $this->model_em  = new Embarque();
       $this->model_s = new Stock();
+      $this->model_bl = new Bl();
     }
 
 
@@ -156,29 +159,35 @@ class UsuarioController
     public function GuardarEmbarque()
     {
       $e = new Embarque();
+      $bl = new Bl();
       $cant = $_REQUEST['cantBl'];
+
+      echo $e->linea = $_REQUEST['linea'];
+      echo $e->motoNave = $_REQUEST['motoNave'];
+      echo $e->fechaPedido = $_REQUEST['fechaPedido'];
+      echo $e->fechaEntrega = $_REQUEST['fechaEntrega'];
+      echo $e->pSeguro = $_REQUEST['pSeguro'];
+      echo $e->puertoDestino = $_REQUEST['puertoDestino'];
+      echo $e->embarcador = $_REQUEST['embarcador'];
+      echo $e->consignee = $_REQUEST['consignee'];
+      echo $e->tMaritimo = $_REQUEST['tMaritimo'];
+      echo $e->coMODATO = $_REQUEST['coMODATO'];
+      echo $e->gateIn = $_REQUEST['gateIn'];
+      echo $e->diasLibres = $_REQUEST['diasLibres'];
+      echo $e->depositoDevVacio = $_REQUEST['depositoDevVacio'];
+
       for ($i=1; $i <= $cant ; $i++)
       {
-        echo $e->linea = $_REQUEST['linea'];
-        echo $e->bl = $_REQUEST['bl'];
-        echo $e->motoNave = $_REQUEST['motoNave'];
-        echo $e->fechaPedido = $_REQUEST['fechaPedido'];
-        echo $e->fechaEntrega = $_REQUEST['fechaEntrega'];
-        echo $e->pSeguro = $_REQUEST['pSeguro'];
-        echo $e->puertoDestino = $_REQUEST['puertoDestino'];
-        echo $e->embarcador = $_REQUEST['embarcador'];
-        echo $e->consignee = $_REQUEST['consignee'];
-        echo $e->tMaritimo = $_REQUEST['tMaritimo'];
-        echo $e->coMODATO = $_REQUEST['coMODATO'];
-        echo $e->gateIn = $_REQUEST['gateIn'];
-        echo $e->diasLibres = $_REQUEST['diasLibres'];
-        echo $e->depositoDevVacio = $_REQUEST['depositoDevVacio'];
-
+        echo $bl->bl = $_REQUEST['bl'.$i];
+        echo $bl->idEmbarque = $_REQUEST['idEmbarque'];
+        //$this->model_bl->Insertar($bl);
       }
 
       //$this->model_em->Insertar2($e);
       //echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
+
     }
+
 
     public function Llego()
     {

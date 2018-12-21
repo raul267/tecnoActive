@@ -29,6 +29,7 @@
                   <tr>
                     <form action="?c=Usuario&a=GuardarEmbarque" method="post">
                       <input type="hidden" name="cantBl" id="cantBl" value="1">
+                      <input type="hidden" name="idEmbarque" id="idEmbarque" value="<?php echo $row->idEmbarque; ?>">
                       <td><?php echo $row->cantContenedores ?></td>
                       <td><?php echo $row->idEmbarque ?></td>
                       <td><div id="nBl"><div class="col-md-8"><input type="text" id="bl1" name="bl1"/></div><div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div></div></td>
@@ -46,7 +47,6 @@
                       <td><input type="text" id="diasLibres" name="diasLibres"/></td>
                       <td><input type="text" id="depositoDevVacio" name="depositoDevVacio"/></td>
                       <td><input type="submit" class="btn btn-success" value="Registra"/></td>
-
                     </form>
                   </tr>
                 <?php endforeach; ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 21-12-2018 a las 06:00:24
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-12-2018 a las 18:04:04
+-- Versión del servidor: 10.1.34-MariaDB
+-- Versión de PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tecnoActive`
+-- Base de datos: `tecnoactive`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bl`
+--
+
+CREATE TABLE `bl` (
+  `bl` varchar(100) NOT NULL,
+  `idEmbarque` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -42,7 +53,8 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`idCompra`, `idProducto`, `proveedor`, `cantidadPedido`, `fechaInicio`, `fechaTermino`) VALUES
-('Milk', 2, 'tecPro', 323, '2018-12-29', '2018-12-30');
+('1', 3, 'Fruna', 3000, '2018-12-20', '2019-06-22'),
+('2', 1, 'Trencito', 100, '2018-12-05', '2019-01-03');
 
 -- --------------------------------------------------------
 
@@ -55,7 +67,6 @@ CREATE TABLE `embarque` (
   `idCompra` varchar(30) NOT NULL,
   `cantidad` int(30) NOT NULL,
   `cantContenedores` int(11) NOT NULL,
-  `bl` varchar(30) DEFAULT NULL,
   `linea` varchar(11) DEFAULT NULL,
   `motoNave` varchar(30) DEFAULT NULL,
   `fechaPedido` date DEFAULT NULL,
@@ -65,6 +76,7 @@ CREATE TABLE `embarque` (
   `embarcador` varchar(60) DEFAULT NULL,
   `consignee` varchar(20) DEFAULT NULL,
   `tMaritimo` int(11) DEFAULT NULL,
+  `coMODATO` int(11) DEFAULT NULL,
   `gateIn` int(11) DEFAULT NULL,
   `diasLibres` int(11) DEFAULT NULL,
   `depositoDevVacio` int(11) DEFAULT NULL,
@@ -75,11 +87,13 @@ CREATE TABLE `embarque` (
 -- Volcado de datos para la tabla `embarque`
 --
 
-INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantidad`, `cantContenedores`, `bl`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `gateIn`, `diasLibres`, `depositoDevVacio`, `enPuerto`) VALUES
-('Milk-1', 'Milk', 900, 3, 'no/se/que/bl/poner', 'White Star', 'Titanic', '2018-12-21', '2018-12-27', NULL, '', '', '', 0, 0, 0, 0, 1),
-('Milk-2', 'Milk', 500, 3, 'ahora/tengo/bl', 'black star', 'Olimpic', '2018-12-14', '2018-12-30', NULL, '', '', '', 0, 0, 0, 0, 0),
-('Milk-3', 'Milk', 100, 2, 'ferer', 'Sparrow', 'Perla Negra', '0000-00-00', '0000-00-00', NULL, '', '', '', 0, 0, 0, 0, 1),
-('Milk-4', 'Milk', 50, 5, 'quiero/un/bl', 'Barbosa', 'Venganza', '2018-12-22', '2018-12-23', NULL, '', '', '', 0, 0, 0, 0, 0);
+INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantidad`, `cantContenedores`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `coMODATO`, `gateIn`, `diasLibres`, `depositoDevVacio`, `enPuerto`) VALUES
+('1-1', '1', 0, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('1-2', '1', 0, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('1-3', '1', 0, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('1-4', '1', 0, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+('2-1', '2', 0, 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('2-2', '2', 0, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -98,9 +112,9 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `descripcion`, `valor`) VALUES
-(1, 'mouse', 5000),
-(2, 'teclado', 10000),
-(3, 'galleta', 500);
+(1, 'Chocolatera', 5000),
+(2, 'Heladera', 10000),
+(3, 'Galletera', 500);
 
 -- --------------------------------------------------------
 
@@ -124,6 +138,12 @@ INSERT INTO `usuario` (`idUsuario`, `nombre`, `password`) VALUES
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `bl`
+--
+ALTER TABLE `bl`
+  ADD PRIMARY KEY (`bl`);
 
 --
 -- Indices de la tabla `compra`
