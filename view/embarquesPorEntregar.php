@@ -21,19 +21,32 @@
                     <th>GATE IN (U)</th>
                     <th>DIAS LIBRES (U)</th>
                     <th>DEPOSITO DEV.VACIO</th>
+                    <th>Registrar</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($em->Listar() as $row): ?>
                   <tr>
+                    <form action="" method="post">
+
                       <td><?php echo $row->cantContenedores ?></td>
                       <td><?php echo $row->idEmbarque ?></td>
                       <td><div id="nBl"><div class="col-md-8"><input type="text" id="bl" name="bl"/></div><div class="col-md-4"><button class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div></div></td>
                       <td><input type="text" id="linea" name="linea"/></td>
-                      <td><?php echo $row->motoNave ?></td>
-                      <td><?php echo $row->fechaPedido ?></td>
-                      <th><?php echo $row->fechaEntrega ?></th>
+                      <td><input type="text" id="motoNave" name="motoNave"/></td>
+                      <td><input type="date" id="fechaPedido" name="fechaPedido"/></td>
+                      <td><input type="date" id="fechaEntrega" name="fechaEntrega"/></td>
+                      <td><input type="text" id="pSeguro" name="pSeguro"/></td>
+                      <td><input type="text" id="puertoDestino" name="puertoDestino"/></td>
+                      <td><input type="text" id="embarcador" name="embarcador"/></td>
+                      <td><input type="text" id="consignee" name="consignee"/></td>
+                      <td><input type="text" id="tMaritimo" name="tMaritimo"/></td>
+                      <td><input type="text" id="gateIn" name="gateIn"/></td>
+                      <td><input type="text" id="diasLibres" name="diasLibres"/></td>
+                      <td><input type="text" id="depositoDevVacio" name="depositoDevVacio"/></td>
+                      <td><input type="submit" class="btn btn-success" value="Registra"/></td>
 
+                    </form>
                   </tr>
                 <?php endforeach; ?>
 
@@ -57,6 +70,7 @@
                    <th>GATE IN (U)</th>
                    <th>DIAS LIBRES (U)</th>
                    <th>DEPOSITO DEV.VACIO</th>
+                   <th>Registrar</th>
 
                  </tr>
               </tfoot>

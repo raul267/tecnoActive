@@ -11,6 +11,7 @@ class Embarque
   public $motoNave;
   public $fechaPedido;
   public $fechaEntrega;
+  public $pSeguro;
   public $puertoDestino;
   public $embarcador;
   public $consignee;

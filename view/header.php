@@ -11,7 +11,7 @@
     <title></title>
   </head>
   <body>
-    <div class="topnav" id="myTopnav" style="width:100%;">
+    <div class="topnav" id="myTopnav" style="width:100%; top: 0; position:fixed;">
       <a href="#">Inicio</a>
       <a href="?c=Usuario&a=Compras">Compras</a>
       <a href="?c=Usuario&a=Embarques">Embarques</a>
@@ -25,3 +25,4 @@
       </a>
           <button type="button" class="btn btn-success"style="float:right; margin-top:8px;" name="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Bienvenido <?php echo $_SESSION['nombre_usuario'] ?></button>
         </div>
+        <br><br><br>
