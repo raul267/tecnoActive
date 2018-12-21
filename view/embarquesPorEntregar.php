@@ -20,7 +20,7 @@
                   <tr>
                       <td><?php echo $row->cantContenedores ?></td>
                       <td><?php echo $row->idEmbarque ?></td>
-                      <td><?php echo $row->bl ?></td>
+                      <td><div id="nBl"><div class="col-md-8"><input type="text" id="bl" name="bl"/></div><div class="col-md-4"><button class="btn btn-primary btn-sm" onclick="agregarBL()"><span class="glyphicon glyphicon-plus"></span></button></div></div></td>
                       <td><?php echo $row->linea ?></td>
                       <td><?php echo $row->motoNave ?></td>
                       <td><?php echo $row->fechaPedido ?></td>
