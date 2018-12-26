@@ -76,15 +76,25 @@ class UsuarioController
       require_once 'view/footer.php';
     }
 
-    public function EmbarquesPorEntregar()
+    public function EmbarquesPorCompras()
     {
       $em = new Embarque();
       $id = $_REQUEST['id'];
       require_once 'view/header.php';
-      require_once 'view/embarquesPorEntregar.php';
+      require_once 'view/embarquesPorCompras.php';
       require_once 'view/footer.php';
     }
 
+    public function IngresarEmbarque()
+    {
+      $em = new Embarque();
+      $id = $_REQUEST['id'];
+      $em = $this->model_em->ListarID($id);
+      require_once 'view/header.php';
+      require_once 'view/ingresarEmbarque.php';
+      require_once 'view/footer.php';
+
+    }
     public function Ingresar()
     {
       $nombre = $_REQUEST['txtNombre'];
@@ -180,11 +190,11 @@ class UsuarioController
       {
         echo $bl->bl = $_REQUEST['bl'.$i];
         echo $bl->idEmbarque = $_REQUEST['idEmbarque'];
-        //$this->model_bl->Insertar($bl);
+        $this->model_bl->Insertar($bl);
       }
 
-      //$this->model_em->Insertar2($e);
-      //echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
+      $this->model_em->Insertar2($e,$_REQUEST['idEmbarque']);
+      echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
 
     }
 

@@ -46,37 +46,37 @@ class Embarque
     $sql->execute(array($em->idEmbarque,$em->idCompra,$em->cantContenedores));
   }
 
-  public function Insertar2($em,$bl)
+  public function Insertar2($em,$idEmbarque)
   {
-    $sql = $this->conn->prepare("UPDATE embarque SET  linea=?, motoNave=?, fechaPedido =?, fechaEntrega =?, pSeguro =?, puertoDestino =?, embarcador =?, consignee =?, tMaritimo =?, coMODATO =?, gateIn =?, diasLibres =?, depositoDevVacio =? WHERE ?");
-    $sql->execute(array($em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega,$em->pSeguro,$em->puertoDestino,$em->embarcador,$em->consignee,$em->tMaritimo,$em->coMODATO,$em->gateIn,$em->diasLibres,$em->depositoDevVacio,$em->idEmbarque));
+    $sql = $this->conn->prepare("UPDATE embarque SET  linea=?, motoNave=?, fechaPedido =?, fechaEntrega =?, pSeguro =?, puertoDestino =?, embarcador =?, consignee =?, tMaritimo =?, coMODATO =?, gateIn =?, diasLibres =?, depositoDevVacio =? WHERE idEmbarque=?");
+    $sql->execute(array($em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega,$em->pSeguro,$em->puertoDestino,$em->embarcador,$em->consignee,$em->tMaritimo,$em->coMODATO,$em->gateIn,$em->diasLibres,$em->depositoDevVacio,$idEmbarque));
   }
 
 
   public function Listar()
   {
-      $sql = $this->conn->prepare("SELECT * FROM embarque order by idEmbarque");
+      $sql = $this->conn->prepare("SELECT * FROM embarque e JOIN bl b USING(idEmbarque) order by idEmbarque");
       $sql->execute();
       return $sql->fetchAll(PDO::FETCH_OBJ);
   }
 
   public function ListarIDCompra($id)
   {
-    $sql = $this->conn->prepare("SELECT * FROM embarque WHERE idCompra = ? and enPuerto = 0");
+    $sql = $this->conn->prepare("SELECT * FROM embarque e LEFT JOIN bl b USING(idEmbarque) WHERE idCompra = ? and enPuerto = 0 and bl is null");
     $sql->execute(array($id));
     return $sql->fetchAll(PDO::FETCH_OBJ);
   }
 
     public function ListarFechaMayor()
     {
-      $sql = $this->conn->prepare("SELECT * FROM embarque WHERE fechaEntrega > sysdate()");
+      $sql = $this->conn->prepare("SELECT * FROM embarque e JOIN bl b USING(idEmbarque) WHERE fechaEntrega > sysdate()");
       $sql->execute();
       return $sql->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function ListarNoEntregadas()
     {
-      $sql = $this->conn->prepare("SELECT * FROM embarque WHERE enPuerto = 0");
+      $sql = $this->conn->prepare("SELECT * FROM embarque e JOIN bl b USING(idEmbarque) WHERE enPuerto = 0");
       $sql->execute();
       return $sql->fetchAll(PDO::FETCH_OBJ);
     }
@@ -84,7 +84,7 @@ class Embarque
 
       public function ListarID($id)
       {
-        $sql = $this->conn->prepare("select e.cantidad cantidad, idProducto producto from embarque e join compra c using(idCompra) JOIN producto USING(idProducto) WHERE idEmbarque = ?");
+        $sql = $this->conn->prepare("select e.cantidad cantidad, idProducto producto from embarque e join compra c using(idCompra) JOIN producto USING(idProducto) JOIN bl b USING(idEmbarque) WHERE idEmbarque = ?");
         $sql->execute(array($id));
         return $sql->fetch(PDO::FETCH_OBJ);
       }

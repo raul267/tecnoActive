@@ -45,7 +45,7 @@
                     <td><?php echo $row->cantidadPedido ?></td>
                     <td><?php echo $row->fechaInicio ?></td>
                     <td><?php echo $row->fechaTermino?></td>
-                    <td><a href="?c=Usuario&a=EmbarquesPorEntregar&id=<?php echo $row->idCompra ?>"><span class="glyphicon glyphicon-plane"></span></a></td>
+                    <td><a href="?c=Usuario&a=EmbarquesPorCompras&id=<?php echo $row->idCompra ?>"><span class="glyphicon glyphicon-plane"></span></a></td>
                   </tr>
               <?php endforeach; ?>
 

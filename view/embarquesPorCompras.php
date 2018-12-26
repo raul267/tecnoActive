@@ -25,28 +25,29 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($em->Listar() as $row): ?>
+                <?php foreach ($em->ListarIDCompra($id) as $row):?>
+
                   <tr>
                     <form action="?c=Usuario&a=GuardarEmbarque" method="post">
                       <input type="hidden" name="cantBl" id="cantBl" value="1">
                       <input type="hidden" name="idEmbarque" id="idEmbarque" value="<?php echo $row->idEmbarque; ?>">
                       <td><?php echo $row->cantContenedores ?></td>
                       <td><?php echo $row->idEmbarque ?></td>
-                      <td><div id="nBl"><div class="col-md-8"><input type="text" id="bl1" name="bl1"/></div><div class="col-md-4"><button type="button" class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div></div></td>
-                      <td><input type="text" id="linea" name="linea"/></td>
-                      <td><input type="text" id="motoNave" name="motoNave"/></td>
-                      <td><input type="date" id="fechaPedido" name="fechaPedido"/></td>
-                      <td><input type="date" id="fechaEntrega" name="fechaEntrega"/></td>
-                      <td><input type="text" id="pSeguro" name="pSeguro"/></td>
-                      <td><input type="text" id="puertoDestino" name="puertoDestino"/></td>
-                      <td><input type="text" id="embarcador" name="embarcador"/></td>
-                      <td><input type="text" id="consignee" name="consignee"/></td>
-                      <td><input type="text" id="tMaritimo" name="tMaritimo"/></td>
-                      <td><input type="text" id="coMODATO" name="coMODATO"/></td>
-                      <td><input type="text" id="gateIn" name="gateIn"/></td>
-                      <td><input type="text" id="diasLibres" name="diasLibres"/></td>
-                      <td><input type="text" id="depositoDevVacio" name="depositoDevVacio"/></td>
-                      <td><input type="submit" class="btn btn-success" value="Registra"/></td>
+                      <td><?php echo $row->bl ?></td>
+                      <td><?php echo $row->linea ?></td>
+                      <td><?php echo $row->motoNave ?></td>
+                      <td><?php echo $row->fechaPedido ?></td>
+                      <td><?php echo $row->fechaEntrega ?></td>
+                      <td><?php echo $row->pSeguro ?></td>
+                      <td><?php echo $row->puertoDestino ?></td>
+                      <td><?php echo $row->embarcador ?></td>
+                      <td><?php echo $row->consignee ?></td>
+                      <td><?php echo $row->tMaritimo ?></td>
+                      <td><?php echo $row->coMODATO ?></td>
+                      <td><?php echo $row->gateIn ?></td>
+                      <td><?php echo $row->diasLibres ?></td>
+                      <td><?php echo $row->depositoDevVacio ?></td>
+                      <td><a class="btn btn-primary" href="?c=Usuario&a=IngresarEmbarque&id=<?php echo $row->idEmbarque ?>">Editar</a></td>
                     </form>
                   </tr>
                 <?php endforeach; ?>

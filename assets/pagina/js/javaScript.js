@@ -16,10 +16,9 @@
     function AgregarBl()
     {
       var i = document.getElementById("cantBl").value;
-      i++;
-      
+      i = parseInt(i) + 1;
       document.getElementById("cantBl").value = i;
-      $("#nBl").append('<br><div class="col-md-8" style="margin-top:10px;"><input type="text" id="bl'+i+'" name="bl'+i+'"/></div>');
+        $("#nBl").append('<br><br><div class="col-md-8" style="margin-top:10px;"><input type="text" id="bl'+i+'" name="bl'+i+'"/></div>');
     }
 
     function calcularTotal()
