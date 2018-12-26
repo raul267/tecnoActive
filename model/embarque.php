@@ -21,7 +21,7 @@ class Embarque
   public $diasLibres;
   public $depositoDevVacio;
   public $enPuerto;
-
+  public $lote;
     public function __CONSTRUCT()
        {
            try
@@ -48,8 +48,8 @@ class Embarque
 
   public function Insertar2($em,$idEmbarque)
   {
-    $sql = $this->conn->prepare("UPDATE embarque SET  linea=?, motoNave=?, fechaPedido =?, fechaEntrega =?, pSeguro =?, puertoDestino =?, embarcador =?, consignee =?, tMaritimo =?, coMODATO =?, gateIn =?, diasLibres =?, depositoDevVacio =? WHERE idEmbarque=?");
-    $sql->execute(array($em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega,$em->pSeguro,$em->puertoDestino,$em->embarcador,$em->consignee,$em->tMaritimo,$em->coMODATO,$em->gateIn,$em->diasLibres,$em->depositoDevVacio,$idEmbarque));
+    $sql = $this->conn->prepare("UPDATE embarque SET  linea=?, motoNave=?, fechaPedido =?, fechaEntrega =?, pSeguro =?, puertoDestino =?, embarcador =?, consignee =?, tMaritimo =?, coMODATO =?, gateIn =?, diasLibres =?, depositoDevVacio =?, lote = ? WHERE idEmbarque=?");
+    $sql->execute(array($em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega,$em->pSeguro,$em->puertoDestino,$em->embarcador,$em->consignee,$em->tMaritimo,$em->coMODATO,$em->gateIn,$em->diasLibres,$em->depositoDevVacio,$em->lote,$idEmbarque));
   }
 
 
@@ -94,6 +94,8 @@ class Embarque
         $sql = $this->conn->prepare("UPDATE `embarque` SET `enPuerto` = '1' WHERE idEmbarque = ?");
         $sql->execute(array($id));
       }
+
   }
+
 
 ?>

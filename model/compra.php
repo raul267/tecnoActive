@@ -29,7 +29,7 @@
 
     public function Listar()
     {
-        $sql = $this->conn->prepare("SELECT * FROM compra c JOIN producto p using(idProducto)");
+        $sql = $this->conn->prepare("SELECT * FROM compra c left JOIN producto p using(idProducto)");
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_OBJ);
     }

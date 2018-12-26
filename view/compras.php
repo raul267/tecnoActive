@@ -40,7 +40,7 @@
               <?php foreach ($c->Listar() as $row): ?>
                   <tr>
                     <td><?php echo $row->idCompra?></td>
-                    <td><?php echo $row->descripcion ?></td>
+                    <td><?php echo $row->idProducto ?></td>
                     <td><?php echo $row->proveedor ?></td>
                     <td><?php echo $row->cantidadPedido ?></td>
                     <td><?php echo $row->fechaInicio ?></td>

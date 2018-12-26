@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="assets/menu/pagina.css">
     <link rel="stylesheet" href="assets/pagina/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/pagina/css/miCSS.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/pagina/DataTables/datatables.min.css"/>
 

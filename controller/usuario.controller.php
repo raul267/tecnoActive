@@ -136,6 +136,7 @@ class UsuarioController
       $co = new Compra();
       $em = new Embarque();
       $s = new Stock;
+      $porInternar = 0;
 
        $co->idCompra = $_REQUEST['idCompra'];
        $co->idProducto = $_REQUEST['idProducto'];
@@ -144,22 +145,25 @@ class UsuarioController
        $co->fechaInicio = $_REQUEST['fechaInicio'];
        $co->fechaTermino = $_REQUEST['fechaTermino'];
        $this->model_com->Insertar($co);
-
-
        for ($i=1; $i <= $_REQUEST['cantidadEntregas'] ; $i++)
        {
 
-           $em->idEmbarque = $_REQUEST['idCompra'].'-'.$i;
+           $em->idEmbarque = $_REQUEST['idCompra'].'/'.$i;
            $em->idCompra = $_REQUEST['idCompra'];
            $em->cantContenedores = $_REQUEST['cant'.$i];
            $this->model_em->Insertar1($em);
+           $this->model_s->InsertarEmbarque($_REQUEST['idCompra'].'/'.$i);
+           $this->model_s->AgregarPorInternar($_REQUEST['cant'.$i],$_REQUEST['idCompra'].'/'.$i);
+             //$porInternar = $porInternar + $_REQUEST['cant'.$i];
 
-           //$porInternar = $porInternar + $_REQUEST['cantidad'.$i];
+           //$porInternarActual = $this->model_s->ListarPorInternar($_REQUEST['idCompra'].'/'.$i);
+           //echo $porInternar;
+           //$porInternarActual->porInternar + $porInternar ;
+           //$this->model_s->AgregarPorInternar($porInternarActual->porInternar, $_REQUEST['idCompra'].'/'.$i);
 
        }
-         //$porInternarActual = $this->model_s->ListarPorInternar($_REQUEST['idProducto']);
-         //$porInternarActual->porInternar + $porInternar ;
-         //$this->model_s->AgregarPorInternar($porInternarActual, $_REQUEST['idProducto']);
+
+
 
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Compras";</script>';
 
@@ -172,28 +176,30 @@ class UsuarioController
       $bl = new Bl();
       $cant = $_REQUEST['cantBl'];
 
-      echo $e->linea = $_REQUEST['linea'];
-      echo $e->motoNave = $_REQUEST['motoNave'];
-      echo $e->fechaPedido = $_REQUEST['fechaPedido'];
-      echo $e->fechaEntrega = $_REQUEST['fechaEntrega'];
-      echo $e->pSeguro = $_REQUEST['pSeguro'];
-      echo $e->puertoDestino = $_REQUEST['puertoDestino'];
-      echo $e->embarcador = $_REQUEST['embarcador'];
-      echo $e->consignee = $_REQUEST['consignee'];
-      echo $e->tMaritimo = $_REQUEST['tMaritimo'];
-      echo $e->coMODATO = $_REQUEST['coMODATO'];
-      echo $e->gateIn = $_REQUEST['gateIn'];
-      echo $e->diasLibres = $_REQUEST['diasLibres'];
-      echo $e->depositoDevVacio = $_REQUEST['depositoDevVacio'];
+       $e->linea = $_REQUEST['linea'];
+       $e->motoNave = $_REQUEST['motoNave'];
+       $e->fechaPedido = $_REQUEST['fechaPedido'];
+       $e->fechaEntrega = $_REQUEST['fechaEntrega'];
+       $e->pSeguro = $_REQUEST['pSeguro'];
+       $e->puertoDestino = $_REQUEST['puertoDestino'];
+       $e->embarcador = $_REQUEST['embarcador'];
+       $e->consignee = $_REQUEST['consignee'];
+       $e->tMaritimo = $_REQUEST['tMaritimo'];
+       $e->coMODATO = $_REQUEST['coMODATO'];
+       $e->gateIn = $_REQUEST['gateIn'];
+       $e->diasLibres = $_REQUEST['diasLibres'];
+       $e->depositoDevVacio = $_REQUEST['depositoDevVacio'];
+       $e->lote = $_REQUEST['lote'];
 
       for ($i=1; $i <= $cant ; $i++)
       {
-        echo $bl->bl = $_REQUEST['bl'.$i];
-        echo $bl->idEmbarque = $_REQUEST['idEmbarque'];
+         $bl->bl = $_REQUEST['bl'.$i];
+         $bl->idEmbarque = $_REQUEST['idEmbarque'];
         $this->model_bl->Insertar($bl);
       }
 
       $this->model_em->Insertar2($e,$_REQUEST['idEmbarque']);
+
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
 
     }

@@ -34,13 +34,15 @@
 <script type="text/javascript" src="assets/pagina/DataTables-1.10.18/css/datatables.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#datatable').dataTable();
-    } );
+        $('#datatable').dataTable({language: {
+      url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'}
+    });});
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#datatable1').dataTable();
-    } );
+$(document).ready(function() {
+    $('#datatable1').dataTable({language: {
+  url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'}
+});});
 </script>
 
 

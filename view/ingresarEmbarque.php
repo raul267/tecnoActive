@@ -80,9 +80,13 @@
       </div>
 <br>
       <div class="col-md-7">
-        <div class="col-md-8">
+        <div class="col-md-6">
           <label>Deposito Dev.Vacio</label>
           <input type="text" id="depositoDevVacio" name="depositoDevVacio"/>
+        </div>
+        <div class="col-md-6" style="margin-top:10px;">
+          <label>Lote</label>
+          <input type="text" id="lote" name="lote"/>
         </div>
 <br><br>
       <div class="col-md-12 text-center">
