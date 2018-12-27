@@ -5,6 +5,7 @@ require_once 'model/compra.php';
 require_once 'model/embarque.php';
 require_once 'model/stock.php';
 require_once 'model/bl.php';
+require_once 'model/internacion.php';
 session_start();
 class UsuarioController
 {
@@ -15,6 +16,7 @@ class UsuarioController
   private $model_em;
   private $model_s;
   private $model_bl;
+  private $model_in;
   public function __CONSTRUCT()
     {
       $this->model_us = new Usuario();
@@ -23,6 +25,7 @@ class UsuarioController
       $this->model_em  = new Embarque();
       $this->model_s = new Stock();
       $this->model_bl = new Bl();
+      $this->$model_in = new Internacion();
     }
 
 
@@ -71,6 +74,7 @@ class UsuarioController
     }
     public function AGA()
     {
+      $in = new Internacion();
       require_once 'view/header.php';
       require_once 'view/aga.php';
       require_once 'view/footer.php';

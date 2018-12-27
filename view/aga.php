@@ -1,71 +1,57 @@
-<div class="col-md-12">
-  <div style="margin-top:25px;">
-    <label>Ultimos despachos</label>
-  </div>
-</div>
+<div style="margin-top:25px;">
 
-  <div class="row" style="margin-left:10px;">
-    <div class="col-md-7">
-      <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Order</th>
-                <th>BL</th>
-                <th>Fecha</th>
-                <th>Provision</th>
-                <th>Fecha internacion</th>
-                <th>BIN</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Galleta AP 40</td>
-                <td>Sime Darby</td>
-                <td>1000</td>
-                <td>Galleta AP 40</td>
-                <td>Sime Darby</td>
-                <td>1000</td>
+<div class="">
+    <div class="col-md-5">
+        <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                  <th>Contrato</th>
+                  <th>Fecha Provision</th>
+                  <th>Producto</th>
+                  <th>CNTS</th>
+                  <th>N° Provision</th>
+                  <th>$ Transferido a AGA</th>
+                  <th>N ident DI</th>
+                  <th>Fecha pago DI</th>
+                  <th>FA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($in->Listar() as $row): ?>
+                  <tr>
+                    <td><?php echo $row->bl ?></td>}
+                    <td><?php echo $row->fechaPedido ?></td>
+                    <th><?php echo $row->idProducto ?></th>
+                    <th><?php echo $row->cantContenedores ?></th>
+                    <th><?php echo $row->nProvision ?></th>
+                    <th><?php echo $row->transferido ?></th>
+                    <th><?php echo $row->nIdentDI ?></th>
+                    <th><?php echo $row->fechaPagoDI ?></th>
+                    <th>
+                      <?php if($row->idInternacion  = null)
+                            {?> <input type="text" name="" value=""> }
 
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>Galleta AP 40</td>
-                <td>Sime Darby</td>
-                <td>1000</td>
+                    </th>
+                  </tr>
+                <?php endforeach; ?>
 
-            </tr
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>Galleta AP 40</td>
-                <td>Sime Darby</td>
-                <td>1000</td>
 
-            </tr>
+              </tbody>
+              <tfoot>
+                 <tr>
+                   <th>Contrato</th>
+                   <th>Fecha Provision</th>
+                   <th>Producto</th>
+                   <th>CNTS</th>
+                   <th>N° Provision</th>
+                   <th>$ Transferido a AGA</th>
+                   <th>N ident DI</th>
+                   <th>Fecha pago DI</th>
+                   <th>FA</th>
+                  </tr>
+              </tfoot>
+              </table>
+          </div>
 
-          </tbody>
-          <tfoot>
-            <tr>
-              <th>ID</th>
-              <th>Order</th>
-              <th>BL</th>
-              <th>Fecha</th>
-              <th>Provision</th>
-              <th>Fecha internacion</th>
-              <th>BIN</th>
-            </tr>
-          </tfoot>
-      </table>
-    </div>
 
-    <div class="col-md-5" style="margin-top:60px;">
-      <a href="" class="btn btn-primary">Editar</a>
-    </div>
-  </div>
+      </div>
