@@ -25,7 +25,7 @@ class UsuarioController
       $this->model_em  = new Embarque();
       $this->model_s = new Stock();
       $this->model_bl = new Bl();
-      $this->$model_in = new Internacion();
+      $this->model_in = new Internacion();
     }
 
 

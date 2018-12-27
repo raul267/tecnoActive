@@ -29,7 +29,9 @@
                     <th><?php echo $row->fechaPagoDI ?></th>
                     <th>
                       <?php if($row->idInternacion  = null)
-                            {?> <input type="text" name="" value=""> }
+                            {?> <input type="text" name="" value=""> <?php }
+
+                            ?>
 
                     </th>
                   </tr>

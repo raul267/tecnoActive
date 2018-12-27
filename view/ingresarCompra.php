@@ -1,20 +1,20 @@
 <div class="container">
-  <h1>Registrar Compras</h1>
-  <form action="?c=Usuario&a=GuardarCompra" border="1" method="post">
+  <div class="col-md-12 text-center"><h1>Registrar Compras</h1></div>
+  <form action="?c=Usuario&a=GuardarCompra" border="1" style="" method="post">
     <div class="row" style="margin-top:10px;">
       <div class="row">
         <div class="col-md-3">
           <label>id Compra</label>
-          <input type="text" name="idCompra" id="idCompra" value="">
+          <input type="text" class=""name="idCompra" id="idCompra" value="">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label>Cantidad(toneladas)</label>
-          <input type="text" name="cantidadPedido" id="cantidadPedido" value="">
+          <input type="text" class=""name="cantidadPedido" id="cantidadPedido" value="">
         </div>
       </div>
 
       <div class="row" style="margin-top:10px;">
-        <div class="col-md-3">
+        <div class="col-md-2" style="margin-right:100px;">
           <label>Producto:</label>
           <select id="idProducto" name="idProducto">
             <option value="0">Selecciona un producto</option>
@@ -24,7 +24,7 @@
           </select>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label>Proveedor:</label>
           <input type="text" name="proveedor" value="">
         </div>
@@ -35,12 +35,12 @@
           <label>Fecha Inicio</label>
           <input type="date" name="fechaInicio" id="fechaInicio" value="">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label>Fecha Termino</label>
           <input type="date" name="fechaTermino" id="fechaTermino" value="">
         </div>
       </div>
-      <div class="col-md-12" style="background-color:black;"></div>
+      <div class="col-md-12" style="background-color:black; margin-top:10px; margin-bottom:15px;"></div>
       <div class="row" style="margin-top:10px;">
         <div class="col-md-1">
           <label>Cantidad de contratos</label>
