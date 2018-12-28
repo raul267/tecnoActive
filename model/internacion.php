@@ -7,6 +7,9 @@
     public $transferido;
     public $nIdentDI;
     public $fechaPagoDI;
+    public $fa;
+    public $faFile;
+    public $fechaProvision;
     public function __CONSTRUCT()
          {
              try
@@ -21,8 +24,8 @@
 
      public function Insertar($in)
      {
-         $sql = $this->conn->prepare("INSERT INTO internacion (nProvision,bl,transferido,nIdentDI,fechaPagoDI) values(?,?,?,?,?)");
-         $sql->execute(array($in->nProvision,$in->bl,$in->transferido,$in->nIdentDI,$in->fechaPagoDI));
+         $sql = $this->conn->prepare("INSERT INTO internacion (nProvision,bl,transferido,nIdentDI,fechaPagoDI, fa, faFile, fechaProvision) values(?,?,?,?,?,?,?,?)");
+         $sql->execute(array($in->nProvision,$in->bl,$in->transferido,$in->nIdentDI,$in->fechaPagoDI,$in->fa,$in->faFile,$in->fechaProvision));
      }
 
      public function Listar()

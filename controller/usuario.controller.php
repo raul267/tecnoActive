@@ -99,6 +99,17 @@ class UsuarioController
       require_once 'view/footer.php';
 
     }
+
+    public function IngresarInternacion()
+    {
+      $in = new Internacion();
+      require_once 'view/header.php';
+      require_once 'view/ingresarInternacion.php';
+
+      require_once 'view/footer.php';
+
+    }
+
     public function Ingresar()
     {
       $nombre = $_REQUEST['txtNombre'];
@@ -206,6 +217,33 @@ class UsuarioController
 
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
 
+    }
+
+    public function GuardarInternacion()
+    {
+      $in = new Internacion;
+
+      $in->nProvision = $_REQUEST['nProvision'];
+      $in->transferido = $_REQUEST['transferido'];
+      $in->fechaProvision = $_REQUEST['fechaProvision'];
+      $in->fechaPagoDI = $_REQUEST['fechaPagoDI'];
+      $in->nIdentDI = $_REQUEST['nIdentDI'];
+      $in->fa = $_REQUEST['fa'];
+      $in->bl = $_REQUEST['bl'];
+
+      //Insertar PDF
+      $nombreArchivo = $_REQUEST['bl'];
+      $i = $_FILES['faFile']['name'];
+      $ext = strtolower(pathinfo($i,PATHINFO_EXTENSION));
+      $archivo = $_FILES['faFile']['tmp_name'];
+      $ruta = "PDFS/";
+      $ruta = $ruta.$nombreArchivo.".".$ext;
+
+      move_uploaded_file($archivo, $ruta);
+      $in->faFile = $ruta;
+
+      $this->model_in->Insertar($in);
+      echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=AGA";</script>';
     }
 
 

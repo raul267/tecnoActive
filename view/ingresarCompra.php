@@ -1,7 +1,8 @@
+<div class="col-md-12 text-center"><h1>Registrar Compras</h1></div>
+  <div class="col-md-12" style="background-color:black;"></div>
 <div class="container">
-  <div class="col-md-12 text-center"><h1>Registrar Compras</h1></div>
   <form action="?c=Usuario&a=GuardarCompra" border="1" style="" method="post">
-    <div class="row" style="margin-top:10px;">
+    <div class="row" style="margin-top:80px;">
       <div class="row">
         <div class="col-md-3">
           <label>id Compra</label>

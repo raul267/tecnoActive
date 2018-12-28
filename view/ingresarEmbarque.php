@@ -1,8 +1,7 @@
+<div class="col-md-12 text-center"><h1>Registrar Embarque <?php echo $_REQUEST['id'] ?></h1></div>
+  <div class="col-md-12" style="background-color:black;"></div>
 <div class="container">
-  <h1>Registrar Embarques <?php echo $_REQUEST['id'] ?></h1>
-
-
-<div class="row">
+<div class="row" style="margin-top:80px;">
   <form action="?c=Usuario&a=GuardarEmbarque" method="post">
     <input type="hidden" name="cantBl" id="cantBl" value="1">
     <input type="hidden" name="idEmbarque" id="idEmbarque"value="<?php echo $_REQUEST['id']; ?>">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2018 a las 18:04:04
+-- Tiempo de generación: 28-12-2018 a las 07:55:43
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -33,6 +33,14 @@ CREATE TABLE `bl` (
   `idEmbarque` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `bl`
+--
+
+INSERT INTO `bl` (`bl`, `idEmbarque`) VALUES
+('bl1', 'PDV1/1'),
+('bl2', 'PDV1/1');
+
 -- --------------------------------------------------------
 
 --
@@ -41,7 +49,7 @@ CREATE TABLE `bl` (
 
 CREATE TABLE `compra` (
   `idCompra` varchar(20) NOT NULL,
-  `idProducto` int(255) NOT NULL,
+  `idProducto` varchar(11) NOT NULL,
   `proveedor` varchar(30) NOT NULL,
   `cantidadPedido` int(250) NOT NULL,
   `fechaInicio` date NOT NULL,
@@ -53,8 +61,7 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`idCompra`, `idProducto`, `proveedor`, `cantidadPedido`, `fechaInicio`, `fechaTermino`) VALUES
-('1', 3, 'Fruna', 3000, '2018-12-20', '2019-06-22'),
-('2', 1, 'Trencito', 100, '2018-12-05', '2019-01-03');
+('PDV1', 'AP 40', 'Fruna', 100, '2018-12-20', '2018-12-20');
 
 -- --------------------------------------------------------
 
@@ -80,6 +87,7 @@ CREATE TABLE `embarque` (
   `gateIn` int(11) DEFAULT NULL,
   `diasLibres` int(11) DEFAULT NULL,
   `depositoDevVacio` int(11) DEFAULT NULL,
+  `lote` varchar(10) NOT NULL,
   `enPuerto` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -87,13 +95,10 @@ CREATE TABLE `embarque` (
 -- Volcado de datos para la tabla `embarque`
 --
 
-INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantidad`, `cantContenedores`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `coMODATO`, `gateIn`, `diasLibres`, `depositoDevVacio`, `enPuerto`) VALUES
-('1-1', '1', 0, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-('1-2', '1', 0, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-('1-3', '1', 0, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-('1-4', '1', 0, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-('2-1', '2', 0, 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-('2-2', '2', 0, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantidad`, `cantContenedores`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `coMODATO`, `gateIn`, `diasLibres`, `depositoDevVacio`, `lote`, `enPuerto`) VALUES
+('PDV1/1', 'PDV1', 0, 10, 'White Star', 'Titanic', '2018-12-19', '2018-12-21', 'pol', 'pod', 'julio', 'consignee', 1, 2, 3, 4, 5, 'H30', 0),
+('PDV1/2', 'PDV1', 0, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
+('PDV1/3', 'PDV1', 0, 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0);
 
 -- --------------------------------------------------------
 
@@ -102,7 +107,7 @@ INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantidad`, `cantContenedores`
 --
 
 CREATE TABLE `producto` (
-  `idProducto` int(11) NOT NULL,
+  `idProducto` varchar(11) NOT NULL,
   `descripcion` varchar(30) NOT NULL,
   `valor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -112,9 +117,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `descripcion`, `valor`) VALUES
-(1, 'Chocolatera', 5000),
-(2, 'Heladera', 10000),
-(3, 'Galletera', 500);
+('AP 40', 'Galletera', 1000),
+('CF 40', 'Chocolatera', 1000),
+('KC 35', 'Chocolatera', 1000),
+('KK 32', 'Heladera', 1000);
 
 -- --------------------------------------------------------
 
@@ -172,12 +178,6 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `producto`
---
-ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
