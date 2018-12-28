@@ -21,5 +21,11 @@ public $idEmbarque;
       $sql2 = $this->conn->prepare("INSERT INTO bl(bl,idEmbarque) VALUES(?,?)");
       $sql2->execute(array($bl->bl,$bl->idEmbarque));
   }
+
+  public function CambiarEstadoInternar($bl)
+  {
+    $sql = $this->conn->prepare("UPDATE `bl` SET `internado` = '1' WHERE bl = ?");
+    $sql->execute(array($bl));
+  }
 }
  ?>

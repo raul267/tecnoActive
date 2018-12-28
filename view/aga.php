@@ -15,7 +15,7 @@
                   <th>Fecha pago DI</th>
                   <th>FA</th>
                   <th>PDF</th>
-                  <th>Agregar</th>
+                  <th>Accion</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,11 +31,22 @@
                     <th><?php echo $row->fechaPagoDI ?></th>
                     <th><?php echo $row->fa ?></th>
                     <th><a href="<?php echo $row->faFile ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a></th>
-                    <th><a href="?c=Usuario&a=IngresarInternacion&bl=<?php echo $row->bl ?>" class="btn btn-primary"><?php if ($row->nProvision !=null): ?>
-                      Editar
+                    <th><a href="<?php if ($row->nProvision !=null): ?>
+                      ?c=Usuario&a=Internar&bl=<?php echo $row->bl ?>
                     <?php endif; ?> <?php if ($row->nProvision == null): ?>
-                      Guardar
+                      ?c=Usuario&a=IngresarInternacion&bl=<?php echo $row->bl ?>
+                    <?php endif; ?>
+                    <?php if ($row->internado == 1): ?>
+                      #
+                    <?php endif; ?>" class="btn btn-primary"><?php if ($row->nProvision !=null && $row->internado ==0): ?>
+                      Internar
+                    <?php endif; ?> <?php if ($row->nProvision == null && $row->internado ==0): ?>
+                      Crear
+                    <?php endif; ?>
+                    <?php if ($row->internado == 1): ?>
+                      Internado!!
                     <?php endif; ?></a></th>
+
                   </tr>
                 <?php endforeach; ?>
 
@@ -52,7 +63,7 @@
                    <th>Fecha pago DI</th>
                    <th>FA</th>
                    <th>PDF</th>
-                   <th>Agregar</th>
+                   <th>Accion</th>
                   </tr>
               </tfoot>
               </table>

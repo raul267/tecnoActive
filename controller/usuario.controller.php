@@ -6,6 +6,7 @@ require_once 'model/embarque.php';
 require_once 'model/stock.php';
 require_once 'model/bl.php';
 require_once 'model/internacion.php';
+require_once 'model/despacho.php';
 session_start();
 class UsuarioController
 {
@@ -17,6 +18,7 @@ class UsuarioController
   private $model_s;
   private $model_bl;
   private $model_in;
+  private $model_des;
   public function __CONSTRUCT()
     {
       $this->model_us = new Usuario();
@@ -26,6 +28,7 @@ class UsuarioController
       $this->model_s = new Stock();
       $this->model_bl = new Bl();
       $this->model_in = new Internacion();
+      $this->model_des = new Despacho();
     }
 
 
@@ -146,6 +149,14 @@ class UsuarioController
       require_once('view/footer.php');
     }
 
+    public function IngresarDespacho()
+    {
+      $p = new Producto();
+      require_once('view/header.php');
+      require_once('view/ingresarDespacho.php');
+      require_once('view/footer.php');
+    }
+
     public function GuardarCompra()
     {
       $co = new Compra();
@@ -181,8 +192,6 @@ class UsuarioController
 
 
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Compras";</script>';
-
-
     }
 
     public function GuardarEmbarque()
@@ -246,6 +255,23 @@ class UsuarioController
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=AGA";</script>';
     }
 
+    public function GuardarDespacho()
+    {
+          $d = new Despacho();
+
+          echo $d->rutEmisor = $_REQUEST['rutEmisor'];
+          echo $d->rutReceptor = $_REQUEST['rutReceptor'];
+          echo $d->tipoDocumento = $_REQUEST['tipoDocumento'];
+          echo $d->facturaNro = $_REQUEST['facturaNro'];
+          echo $d->fechaEmision = $_REQUEST['fechaEmision'];
+          echo $d->montoTotal = $_REQUEST['montoTotal'];
+          echo $d->idProducto = $_REQUEST['idProducto'];
+          echo $d->cantidadKG = $_REQUEST['cantidadKG'];
+
+          $this->model_des->Insertar($d);
+          echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
+
+    }
 
     public function Llego()
     {
@@ -256,9 +282,19 @@ class UsuarioController
       echo $em->cantidad;
       echo $em->producto;*/
       Header('Location: index.php?c=Usuario&a=Embarques');
-
-
     }
+
+    public function Internar()
+    {
+      $bl = new Bl();
+      $id = $_REQUEST['bl'];
+      $bl->CambiarEstadoInternar($id);
+      /*$em->ListarID($id);
+      echo $em->cantidad;
+      echo $em->producto;*/
+      Header('Location: index.php?c=Usuario&a=AGA');
+    }
+
 
   }
 

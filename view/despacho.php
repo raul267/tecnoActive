@@ -55,6 +55,10 @@
               <div class="row" style="margin-left:10px;">
                 <a href="" class="btn btn-primary">Modificar status de cobro</a>
               </div>
+
+                            <div class="row" style="margin-left:10px;">
+                              <a href="?c=Usuario&a=IngresarDespacho" class="btn btn-primary">Modificar status de cobro</a>
+                            </div>
           </div>
       </div>
 
