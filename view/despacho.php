@@ -12,42 +12,34 @@
         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Producto</th>
-                    <th>Cantidad(Toneladas)</th>
-                    <th>Fecha Inicio</th>
+                    <th>Rut Emisor</th>
+                    <th>rut receptor</th>
+                    <th>Tipo documento</th>
+                    <th>Factura nro</th>
+                    <th>Fecha Emision</th>
+                    <th>Monto total</th>
+                    <th>Produto</th>
+                    <th>Cantida kg</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Galleta AP 40</td>
-                    <td>Sime Darby</td>
-                    <td>1000</td>
+                <?php foreach ($d->Listar() as $row): ?>
+                  <tr>
 
-                </tr>
-                <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                    <td>63</td>
-
-                </tr
-                <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                    <td>66</td>
-
-                </tr>
+                  </tr>
+                <?php endforeach; ?>
 
               </tbody>
               <tfoot>
                 <tr>
-                    <th>ID</th>
-                    <th>Producto</th>
-                    <th>Cantidad(Toneladas)</th>
-                    <th>Fecha Inicio</th>
+                  <th>Rut Emisor</th>
+                  <th>rut receptor</th>
+                  <th>Tipo documento</th>
+                  <th>Factura nro</th>
+                  <th>Fecha Emision</th>
+                  <th>Monto total</th>
+                  <th>Produto</th>
+                  <th>Cantida kg</th>
                 </tr>
               </tfoot>
               </table>

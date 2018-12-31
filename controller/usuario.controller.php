@@ -48,6 +48,7 @@ class UsuarioController
 
     public function Despacho()
     {
+      $d = new Despacho();
       require_once 'view/header.php';
       require_once 'view/despacho.php';
       require_once 'view/footer.php';
