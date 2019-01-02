@@ -7,6 +7,17 @@
           <input type="hidden" name="bl" value="<?php echo $_REQUEST['bl'] ?>">
           <div class="row">
             <div class="col-md-3">
+              <select class="" name="ddlBl">
+                <option value="">Seleccinoe un bl</option>
+                <?php foreach ($bl->ListarBlE() as $row): ?>
+                  <option value="<?php echo $row->idEmbarque ?>"><?php echo $row->bl." ".$row->idProducto ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+<br><br><br>
+          <div class="row">
+            <div class="col-md-3">
               <label>Rut emisor</label>
               <input type="text" class=""name="rutEmisor" id="rutEmisor" value="">
             </div>

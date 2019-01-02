@@ -153,6 +153,7 @@ class UsuarioController
     public function IngresarDespacho()
     {
       $p = new Producto();
+        $bl = new Bl();
       require_once('view/header.php');
       require_once('view/ingresarDespacho.php');
       require_once('view/footer.php');
@@ -179,15 +180,8 @@ class UsuarioController
            $em->idCompra = $_REQUEST['idCompra'];
            $em->cantContenedores = $_REQUEST['cant'.$i];
            $this->model_em->Insertar1($em);
-           $this->model_s->InsertarEmbarque($_REQUEST['idCompra'].'/'.$i);
-           $this->model_s->AgregarPorInternar($_REQUEST['cant'.$i],$_REQUEST['idCompra'].'/'.$i);
-             //$porInternar = $porInternar + $_REQUEST['cant'.$i];
-
-           //$porInternarActual = $this->model_s->ListarPorInternar($_REQUEST['idCompra'].'/'.$i);
-           //echo $porInternar;
-           //$porInternarActual->porInternar + $porInternar ;
-           //$this->model_s->AgregarPorInternar($porInternarActual->porInternar, $_REQUEST['idCompra'].'/'.$i);
-
+           //$this->model_s->InsertarEmbarque($_REQUEST['idCompra'].'/'.$i);
+           //$this->model_s->AgregarPorInternar($_REQUEST['cant'.$i],$_REQUEST['idCompra'].'/'.$i);
        }
 
 
@@ -287,12 +281,11 @@ class UsuarioController
 
     public function Internar()
     {
-      $bl = new Bl();
-      $id = $_REQUEST['bl'];
-      $bl->CambiarEstadoInternar($id);
-      /*$em->ListarID($id);
-      echo $em->cantidad;
-      echo $em->producto;*/
+      $b = new Bl();
+      $s = new Stock();
+      $bl = $_REQUEST['bl'];
+      $b->CambiarEstadoInternar($bl);
+      //echo $porInternr = $this->model_s->ListarPorInternar($bl);
       Header('Location: index.php?c=Usuario&a=AGA');
     }
 

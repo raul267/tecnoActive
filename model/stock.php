@@ -2,7 +2,7 @@
   class Stock
   {
     private $conn;
-    public $idEmbarque;
+    public $bl;
     public $internadas;
     public $porInternar;
     public $despachadas;
@@ -23,8 +23,8 @@
 
      public function Insertar($s)
      {
-        $sql = $this->conn->prepare("INSERT INTO stock(idEmbarque,internadas,porInternar,despachadas,stock,resolucion) values(?,?,?,?,?,?)");
-        $sql->execute(array($s->idEmbarque,$s->internadas,$s->porInternar,$s->despachadas,$s->stock,$s->resolucion));
+        $sql = $this->conn->prepare("INSERT INTO stock(bl,internadas,porInternar,despachadas,stock,resolucion) values(?,?,?,?,?,?)");
+        $sql->execute(array($s->bl,$s->internadas,$s->porInternar,$s->despachadas,$s->stock,$s->resolucion));
      }
 
      public function InsertarEmbarque($id)
@@ -39,37 +39,37 @@
        return $sql->fetchAll(PDO::FETCH_OBJ);
      }
 
-     public function ListarIDProducto($idEmbarque)
+     public function ListarIDProducto($bl)
      {
-       $sql = $this->conn->prepare("SELECT * FROM stock where idEmbarque =?");
-       $sql->execute($idEmbarque);
+       $sql = $this->conn->prepare("SELECT * FROM stock where bl =?");
+       $sql->execute($bl);
        return $sql->fetch(PDO::FETCH_OBJ);
      }
 
-     public function ListarPorInternar($idEmbarque)
+     public function ListarPorInternar($bl)
      {
-       $sql = $this->conn->prepare("SELECT porInternar porInternar FROM stock where idEmbarque =?");
-       $sql->execute(array($idEmbarque));
+       $sql = $this->conn->prepare("SELECT porInternar porInternar FROM stock where bl =?");
+       $sql->execute(array($bl));
        return $sql->fetch(PDO::FETCH_OBJ);
      }
 
-     public function ListarInternado($idEmbarque)
+     public function ListarInternado($bl)
      {
-       $sql = $this->conn->prepare("SELECT internado insternado FROM stock where idEmbarque =?");
-       $sql->execute(array($idEmbarque));
+       $sql = $this->conn->prepare("SELECT internado insternado FROM stock where bl =?");
+       $sql->execute(array($bl));
        return $sql->fetch(PDO::FETCH_OBJ);
      }
 
-     public function AgregarPorInternar($numero,$id)
+     public function AgregarPorInternar($numero,$bl)
      {
-       $sql = $this->conn->prepare("UPDATE stock SET porInternar = ? WHERE idEmbarque = ?");
-       $sql->execute(array($numero,$id));
+       $sql = $this->conn->prepare("UPDATE stock SET porInternar = ? WHERE bl = ?");
+       $sql->execute(array($numero,$bl));
      }
 
-     public function Internar($id, $numero)
+     public function Internar($numero,$bl)
      {
-       $sql = $this->conn->prepare("UPDATE stock SET internar = ? WHERE idEmbarque = ?");
-       $sql->execute(array($id,$numero));
+       $sql = $this->conn->prepare("UPDATE stock SET internar = ? WHERE bl = ?");
+       $sql->execute(array($numero,$bl));
      }
 
 
