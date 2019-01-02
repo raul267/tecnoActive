@@ -180,8 +180,7 @@ class UsuarioController
            $em->idCompra = $_REQUEST['idCompra'];
            $em->cantContenedores = $_REQUEST['cant'.$i];
            $this->model_em->Insertar1($em);
-           //$this->model_s->InsertarEmbarque($_REQUEST['idCompra'].'/'.$i);
-           //$this->model_s->AgregarPorInternar($_REQUEST['cant'.$i],$_REQUEST['idCompra'].'/'.$i);
+
        }
 
 
@@ -193,6 +192,7 @@ class UsuarioController
     {
       $e = new Embarque();
       $bl = new Bl();
+      $s = new Stocl();
       $cant = $_REQUEST['cantBl'];
 
        $e->linea = $_REQUEST['linea'];
@@ -214,7 +214,10 @@ class UsuarioController
       {
          $bl->bl = $_REQUEST['bl'.$i];
          $bl->idEmbarque = $_REQUEST['idEmbarque'];
-        $this->model_bl->Insertar($bl);
+         $this->model_bl->Insertar($bl);
+         //$this->model_s->InsertarEmbarque($bl);
+         //Falta hacer un metodo qwue traiga las cantidades para pdoer insertarlas en el sotck
+         //$this->model_s->AgregarPorInternar($_REQUEST['cant'.$i],$bl);
       }
 
       $this->model_em->Insertar2($e,$_REQUEST['idEmbarque']);
