@@ -192,7 +192,7 @@ class UsuarioController
     {
       $e = new Embarque();
       $bl = new Bl();
-      $s = new Stocl();
+      $s = new Stock();
       $cant = $_REQUEST['cantBl'];
 
        $e->linea = $_REQUEST['linea'];
@@ -213,16 +213,17 @@ class UsuarioController
       for ($i=1; $i <= $cant ; $i++)
       {
          $bl->bl = $_REQUEST['bl'.$i];
-         $bl->idEmbarque = $_REQUEST['idEmbarque'];
-         $this->model_bl->Insertar($bl);
+         //$bl->idEmbarque = $_REQUEST['idEmbarque'];
+         //$this->model_bl->Insertar($bl);
+         echo $s->porInternar = $this->model_bl->ListarCantidad($bl);
          //$this->model_s->InsertarEmbarque($bl);
          //Falta hacer un metodo qwue traiga las cantidades para pdoer insertarlas en el sotck
          //$this->model_s->AgregarPorInternar($_REQUEST['cant'.$i],$bl);
       }
 
-      $this->model_em->Insertar2($e,$_REQUEST['idEmbarque']);
+      //$this->model_em->Insertar2($e,$_REQUEST['idEmbarque']);
 
-      echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
+      //echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
 
     }
 

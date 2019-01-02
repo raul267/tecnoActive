@@ -34,5 +34,13 @@ public $idEmbarque;
     $sql->execute();
     return $sql->fetchAll(PDO::FETCH_OBJ);
   }
+
+  public function ListarCantidad($bl)
+  {
+    $sql = $this->conn->prepare("SELECT embarque.cantContenedores canti FROM bl RIGHT JOIN embarque using(idEmbarque) join compra using(idCompra) join producto using(idProducto) where bl = ?");
+    $sql->execute(array($bl));
+    return $sql->fetch(PDO::FETCH_OBJ);
+
+  }
 }
  ?>
