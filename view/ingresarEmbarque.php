@@ -6,7 +6,7 @@
     <input type="hidden" name="cantBl" id="cantBl" value="1">
     <input type="hidden" name="idEmbarque" id="idEmbarque"value="<?php echo $_REQUEST['id']; ?>">
     <label>BL</label>
-    <div id="nBl" class="col-md-12"><div class="col-md-2"><input type="text" id="bl1" name="bl1"/></div></div>
+    <div id="nBl" class="col-md-12"><div class="col-md-9"><input type="text" placeholder="bl"id="bl1" name="bl1"/> <input type="text" placeholder="cantidad" id="cantidad1" name="cantidad1"/></div></div>
     <div class="col-md-2 text-center" style="margin-top:10px;"><button type="button" class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div>
 
     <div class="col-md-12" style="background-color:black; margin-top:10px; margin-bottom:20px;"></div>

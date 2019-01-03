@@ -3,6 +3,7 @@ class Bl
 {
 public $bl;
 public $idEmbarque;
+public $cantidad;
 
   public function __CONSTRUCT()
      {
@@ -18,8 +19,8 @@ public $idEmbarque;
 
   public function Insertar($bl)
   {
-      $sql2 = $this->conn->prepare("INSERT INTO bl(bl,idEmbarque) VALUES(?,?)");
-      $sql2->execute(array($bl->bl,$bl->idEmbarque));
+      $sql2 = $this->conn->prepare("INSERT INTO bl(bl,idEmbarque,cantidad) VALUES(?,?,?)");
+      $sql2->execute(array($bl->bl,$bl->idEmbarque,$bl->cantidad));
   }
 
   public function CambiarEstadoInternar($bl)

@@ -75,31 +75,19 @@
                             <th>Producto</th>
                             <th>Cliente</th>
                             <th>Fecha Entrega</th>
+                            <th>Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Galleta AP 40</td>
-                            <td>Sime Darby</td>
-                            <td>1000</td>
-
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-
-                        </tr>
-
+                        <?php foreach ($ds->Listar() as $r): ?>
+                          <tr>
+                            <td><?php echo $r->id ?></td>
+                            <td><?php echo $r->descripcion ?></td>
+                            <td><?php echo $r->cliente ?></td>
+                            <td><?php echo $r->fechaEntrega ?></td>
+                            <td><?php echo $r->cantidad ?></td>
+                          </tr>
+                        <?php endforeach; ?>
                       </tbody>
                       <tfoot>
                         <tr>
@@ -107,11 +95,12 @@
                           <th>Producto</th>
                           <th>Cliente</th>
                           <th>Fecha Entrega</th>
+                          <th>Cantidad</th>
                         </tr>
                       </tfoot>
                       </table>
                       <div class="row" style="margin-left:10px;">
-                        <a href="" class="btn btn-primary">Modificar programacion</a>
+                        <a href="?c=Usuario&a=IngresarProgramacionDespacho" class="btn btn-primary">Modificar programacion</a>
                       </div>
                   </div>
               </div>

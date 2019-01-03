@@ -7,6 +7,7 @@ require_once 'model/stock.php';
 require_once 'model/bl.php';
 require_once 'model/internacion.php';
 require_once 'model/despacho.php';
+require_once 'model/despachosemanal.php';
 session_start();
 class UsuarioController
 {
@@ -19,6 +20,7 @@ class UsuarioController
   private $model_bl;
   private $model_in;
   private $model_des;
+  private $model_dese;
   public function __CONSTRUCT()
     {
       $this->model_us = new Usuario();
@@ -29,6 +31,7 @@ class UsuarioController
       $this->model_bl = new Bl();
       $this->model_in = new Internacion();
       $this->model_des = new Despacho();
+      $this->model_dese = new Despachosemanal();
     }
 
 
@@ -49,6 +52,7 @@ class UsuarioController
     public function Despacho()
     {
       $d = new Despacho();
+      $ds = new Despachosemanal();
       require_once 'view/header.php';
       require_once 'view/despacho.php';
       require_once 'view/footer.php';
@@ -109,9 +113,16 @@ class UsuarioController
       $in = new Internacion();
       require_once 'view/header.php';
       require_once 'view/ingresarInternacion.php';
-
       require_once 'view/footer.php';
+    }
 
+    public function IngresarProgramacionDespacho()
+    {
+      $de = new Despachosemanal();
+      $p = new Producto();
+      require_once 'view/header.php';
+      require_once 'view/ingresarProgramacionDespacho.php';
+      require_once 'view/footer.php';
     }
 
     public function Ingresar()
@@ -212,18 +223,21 @@ class UsuarioController
 
       for ($i=1; $i <= $cant ; $i++)
       {
-         $bl->bl = $_REQUEST['bl'.$i];
-         //$bl->idEmbarque = $_REQUEST['idEmbarque'];
-         //$this->model_bl->Insertar($bl);
-         echo $s->porInternar = $this->model_bl->ListarCantidad($bl);
-         //$this->model_s->InsertarEmbarque($bl);
-         //Falta hacer un metodo qwue traiga las cantidades para pdoer insertarlas en el sotck
-         //$this->model_s->AgregarPorInternar($_REQUEST['cant'.$i],$bl);
+          $cantidad = $_REQUEST['cantidad'.$i];
+          $bl->bl = $_REQUEST['bl'.$i];
+          $bl->cantidad = $cantidad;
+          $bl->idEmbarque = $_REQUEST['idEmbarque'];
+          $this->model_bl->Insertar($bl);
+          // recordatorio llamar un dato de una tabla $can = $this->model_bl->ListarCantidad($_REQUEST['bl'.$i]);
+
+         $this->model_s->InsertarEmbarque($bl->bl,$cantidad);
+
+         //$this->model_s->AgregarPorInternar($cantidad,$bl);
       }
 
-      //$this->model_em->Insertar2($e,$_REQUEST['idEmbarque']);
+      $this->model_em->Insertar2($e,$_REQUEST['idEmbarque']);
 
-      //echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
+      echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Embarques";</script>';
 
     }
 
@@ -269,6 +283,20 @@ class UsuarioController
 
           $this->model_des->Insertar($d);
           echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
+
+    }
+
+    public function GuardarDespachoSemanal()
+    {
+      $d = new Despachosemanal();
+
+       $d->idProducto = $_REQUEST['idProducto'];
+       $d->cliente = $_REQUEST['cliente'];
+       $d->fechaEntrega = $_REQUEST['fechaEntrega'];
+       $d->cantidad = $_REQUEST['cantidad'];
+
+       $this->model_dese->Insertar($d);
+       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
 
     }
 

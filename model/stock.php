@@ -27,14 +27,14 @@
         $sql->execute(array($s->bl,$s->internadas,$s->porInternar,$s->despachadas,$s->stock,$s->resolucion));
      }
 
-     public function InsertarEmbarque($id)
+     public function InsertarEmbarque($id,$numero)
      {
-        $sql = $this->conn->prepare("INSERT INTO stock(idEmbarque) values(?)");
-        $sql->execute(array($id));
+        $sql = $this->conn->prepare("INSERT INTO stock(bl,porInternar) values(?,?)");
+        $sql->execute(array($id,$numero));
      }
      public function Listar()
      {
-       $sql = $this->conn->prepare("SELECT * from stock s right join embarque using(idEmbarque) right join bl b using(idEmbarque) join compra using(idCompra) join producto p USING(idProducto)");
+       $sql = $this->conn->prepare("SELECT * from stock s right join bl using(bl) left join embarque b using(idEmbarque) join compra using(idCompra) join producto p USING(idProducto)");
        $sql->execute();
        return $sql->fetchAll(PDO::FETCH_OBJ);
      }
