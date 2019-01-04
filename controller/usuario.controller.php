@@ -271,17 +271,24 @@ class UsuarioController
     public function GuardarDespacho()
     {
           $d = new Despacho();
+          $s = new Stock();
 
-          echo $d->rutEmisor = $_REQUEST['rutEmisor'];
-          echo $d->rutReceptor = $_REQUEST['rutReceptor'];
-          echo $d->tipoDocumento = $_REQUEST['tipoDocumento'];
-          echo $d->facturaNro = $_REQUEST['facturaNro'];
-          echo $d->fechaEmision = $_REQUEST['fechaEmision'];
-          echo $d->montoTotal = $_REQUEST['montoTotal'];
-          echo $d->idProducto = $_REQUEST['idProducto'];
-          echo $d->cantidadKG = $_REQUEST['cantidadKG'];
+         $d->rutEmisor = $_REQUEST['rutEmisor'];
+         $d->rutReceptor = $_REQUEST['rutReceptor'];
+         $d->tipoDocumento = $_REQUEST['tipoDocumento'];
+         $d->facturaNro = $_REQUEST['facturaNro'];
+         $d->fechaEmision = $_REQUEST['fechaEmision'];
+         $d->montoTotal = $_REQUEST['montoTotal'];
+         $d->idProducto = $_REQUEST['idProducto'];
+         $d->cantidadKG = $_REQUEST['cantidadKG'];
+
+         $bl = $_REQUEST['ddlbl'];
+         $s = $this->model_s->ListarPorInternar($bl);
+         $s->despachadas = $s->despachadas + $_REQUEST['cantidadKG'];
+         $s->internadas = $s->internadas - $_REQUEST['cantidadKG'];
 
           $this->model_des->Insertar($d);
+          $this->model_s->Despachar($s->despachadas,$s->internadas,$bl);
           echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
 
     }
@@ -317,7 +324,10 @@ class UsuarioController
       $s = new Stock();
       $bl = $_REQUEST['bl'];
       $b->CambiarEstadoInternar($bl);
-      //echo $porInternr = $this->model_s->ListarPorInternar($bl);
+      $s = $this->model_s->ListarPorInternar($bl);
+      $s->internadas = $s->porInternar;
+      $s->porInternar = $s->porInternar - $s->porInternar;
+      $this->model_s->Internar($s->internadas,$s->porInternar,$bl);
       Header('Location: index.php?c=Usuario&a=AGA');
     }
 

@@ -8,7 +8,7 @@
                   <th>Contrato</th>
                   <th>Fecha Provision</th>
                   <th>Producto</th>
-                  <th>CNTS</th>
+                  <th>Cantidad</th>
                   <th>N° Provision</th>
                   <th>$ Transferido a AGA</th>
                   <th>N ident DI</th>
@@ -24,20 +24,22 @@
                     <td><?php echo $row->bl ?></td>}
                     <td><?php echo $row->fechaPedido ?></td>
                     <th><?php echo $row->idProducto ?></th>
-                    <th><?php echo $row->cantContenedores ?></th>
+                    <th><?php echo $row->cantidad ?></th>
                     <th><?php echo $row->nProvision ?></th>
                     <th><?php echo '$'.$row->transferido ?></th>
                     <th><?php echo $row->nIdentDI ?></th>
                     <th><?php echo $row->fechaPagoDI ?></th>
                     <th><?php echo $row->fa ?></th>
-                    <th><a href="<?php echo $row->faFile ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a></th>
+                    <th><?php if ($row->nProvision !=null): ?>
+                      <a href="<?php echo $row->faFile ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a>
+                    <?php endif; ?></th>
                     <th><a href="<?php if ($row->nProvision !=null): ?>
                       ?c=Usuario&a=Internar&bl=<?php echo $row->bl ?>
                     <?php endif; ?> <?php if ($row->nProvision == null): ?>
                       ?c=Usuario&a=IngresarInternacion&bl=<?php echo $row->bl ?>
                     <?php endif; ?>
                     <?php if ($row->internado == 1): ?>
-                      #
+                      ?c=Usuario&a=AGA
                     <?php endif; ?>" class="btn btn-primary"><?php if ($row->nProvision !=null && $row->internado ==0): ?>
                       Internar
                     <?php endif; ?> <?php if ($row->nProvision == null && $row->internado ==0): ?>
@@ -56,7 +58,7 @@
                    <th>Contrato</th>
                    <th>Fecha Provision</th>
                    <th>Producto</th>
-                   <th>CNTS</th>
+                   <th>Cantidad</th>
                    <th>N° Provision</th>
                    <th>$ Transferido a AGA</th>
                    <th>N ident DI</th>

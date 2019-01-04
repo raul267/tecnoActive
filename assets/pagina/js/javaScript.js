@@ -77,3 +77,24 @@
       x.className = "topnav";
     }
   }
+
+  $(function()
+    {
+       $("#ddlbl").on("change",function()
+       {
+			var bl = "";
+
+			bl = $(this).val();
+
+
+				$.post('acciones/accion_buscar_stock_bl.php',{bl:bl},function(datos)
+				{
+					$("#divStock").html(datos);
+
+
+				});
+
+
+
+       });
+    });

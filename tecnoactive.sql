@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2019 a las 18:24:24
+-- Tiempo de generación: 04-01-2019 a las 06:43:44
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -87,6 +87,20 @@ CREATE TABLE `despacho` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `despachosemanal`
+--
+
+CREATE TABLE `despachosemanal` (
+  `id` int(100) NOT NULL,
+  `idProducto` varchar(30) NOT NULL,
+  `cliente` varchar(30) NOT NULL,
+  `fechaEntrega` date NOT NULL,
+  `cantidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `embarque`
 --
 
@@ -117,7 +131,7 @@ CREATE TABLE `embarque` (
 --
 
 INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantidad`, `cantContenedores`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `coMODATO`, `gateIn`, `diasLibres`, `depositoDevVacio`, `lote`, `enPuerto`) VALUES
-('PDV-1/1', 'PDV-1', 0, 13, 'White Star', 'Titanic', '2019-01-11', '2019-01-25', 'pol', 'pod', 'Julio', 'consignee', 1, 2, 3, 4, 5, 'HR-78', 0),
+('PDV-1/1', 'PDV-1', 0, 13, 'White Star', 'Titanic', '2019-01-11', '2019-01-25', 'pol', 'pod', 'Julio', 'consignee', 1, 2, 3, 4, 5, 'HR-78', 1),
 ('PDV-1/2', 'PDV-1', 0, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
 ('PDV-1/3', 'PDV-1', 0, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0);
 
@@ -228,6 +242,12 @@ ALTER TABLE `despacho`
   ADD PRIMARY KEY (`idDespacho`);
 
 --
+-- Indices de la tabla `despachosemanal`
+--
+ALTER TABLE `despachosemanal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `embarque`
 --
 ALTER TABLE `embarque`
@@ -266,6 +286,12 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `despacho`
   MODIFY `idDespacho` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `despachosemanal`
+--
+ALTER TABLE `despachosemanal`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `internacion`

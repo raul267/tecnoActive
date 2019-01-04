@@ -7,12 +7,13 @@
           <input type="hidden" name="bl" value="<?php echo $_REQUEST['bl'] ?>">
           <div class="row">
             <div class="col-md-3">
-              <select class="" name="ddlBl">
+              <select class="" name="ddlbl" id="ddlbl">
                 <option value="">Seleccinoe un bl</option>
                 <?php foreach ($bl->ListarBlE() as $row): ?>
-                  <option value="<?php echo $row->idEmbarque ?>"><?php echo $row->bl." ".$row->idProducto ?></option>
+                  <option value="<?php echo $row->bl?>"><?php echo $row->bl." ".$row->idProducto ?></option>
                 <?php endforeach; ?>
               </select>
+              <div class="" id="divStock" name="divStock"></div>
             </div>
           </div>
 <br><br><br>

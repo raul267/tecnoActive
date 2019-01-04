@@ -39,7 +39,7 @@
        return $sql->fetchAll(PDO::FETCH_OBJ);
      }
 
-     public function ListarIDProducto($bl)
+     public function ListarBl($bl)
      {
        $sql = $this->conn->prepare("SELECT * FROM stock where bl =?");
        $sql->execute($bl);
@@ -48,7 +48,7 @@
 
      public function ListarPorInternar($bl)
      {
-       $sql = $this->conn->prepare("SELECT porInternar porInternar FROM stock where bl =?");
+       $sql = $this->conn->prepare("SELECT porInternar porInternar, internadas internadas, despachadas despachadas, stock stock  FROM stock where bl =?");
        $sql->execute(array($bl));
        return $sql->fetch(PDO::FETCH_OBJ);
      }
@@ -60,16 +60,16 @@
        return $sql->fetch(PDO::FETCH_OBJ);
      }
 
-     public function AgregarPorInternar($numero,$bl)
+     public function Internar($numero,$numero2,$bl)
      {
-       $sql = $this->conn->prepare("UPDATE stock SET porInternar = ? WHERE bl = ?");
-       $sql->execute(array($numero,$bl));
+       $sql = $this->conn->prepare("UPDATE stock SET internadas = ? , porInternar = ? WHERE bl = ?");
+       $sql->execute(array($numero,$numero2,$bl));
      }
 
-     public function Internar($numero,$bl)
+     public function Despachar($numero,$numero2,$bl)
      {
-       $sql = $this->conn->prepare("UPDATE stock SET internar = ? WHERE bl = ?");
-       $sql->execute(array($numero,$bl));
+       $sql = $this->conn->prepare("UPDATE stock SET despachadas = ?, internadas =? WHERE bl = ?");
+       $sql->execute(array($numero,$numero2,$bl));
      }
 
 

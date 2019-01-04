@@ -4,7 +4,6 @@ class Embarque
   private $conn;
   public $idEmbarque;
   public $idCompra;
-  public $cantidad;
   public $cantContenedores;
   public $bl;
   public $linea;
@@ -36,8 +35,8 @@ class Embarque
 
   public function Insertar($em)
   {
-    $sql = $this->conn->prepare("INSERT INTO embarque(idEmbarque,idCompra,cantidad,cantContenedores,bl,linea,motoNave,fechaPedido,fechaEntrega) VALUES(?,?,?,?,?,?,?,?,?)");
-    $sql->execute(array($em->idEmbarque,$em->idCompra,$em->cantidad,$em->cantContenedores,$em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega));
+    $sql = $this->conn->prepare("INSERT INTO embarque(idEmbarque,idCompra,cantContenedores,bl,linea,motoNave,fechaPedido,fechaEntrega) VALUES(?,?,?,?,?,?,?,?)");
+    $sql->execute(array($em->idEmbarque,$em->idCompra,$em->cantContenedores,$em->bl,$em->linea,$em->motoNave,$em->fechaPedido,$em->fechaEntrega));
   }
 
   public function Insertar1($em)
