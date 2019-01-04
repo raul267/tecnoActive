@@ -17,11 +17,17 @@ mysqli_set_charset($con, 'utf8');
 	}
 	else
 	{
-		$sql = mysqli_query($con, "SELECT internadas as 'internadas' from stock where bl = $bl");
+		$sql = mysqli_query($con, "SELECT internadas as 'internadas', producto.idProducto producto from stock s join bl using(bl) join embarque using(idEmbarque) JOIN compra using(idCompra) join producto using(idProducto) where bl = '$bl'");
 
     mysqli_close($con);
+		while ($r = mysqli_fetch_object($sql))
+		{
 
-    echo '<input type="text" name="disponible" id="disponible" readonly="readonly value="Disponible:'.$sql["internadas"].'">';
+			echo '<label>Hay '.$r->internadas.' disponibles</label>';
+			echo '<br><label>Producto</label><input style="margin-left:10px;"type="text" name="idProducto" id="idProducto" readonly value="'.$r->producto.'">';
+
+		}
+
   }
 
 ?>

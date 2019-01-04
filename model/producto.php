@@ -20,8 +20,8 @@
 
      public function Insertar($pro)
      {
-         $sql = $this->conn->prepare("INSERT INTO producto (descripcion,valor) values(?,?)");
-         $sql->execute(array($pro->descripcion, $pro->valor));
+         $sql = $this->conn->prepare("INSERT INTO producto (idProducto,descripcion,valor) values(?,?,?)");
+         $sql->execute(array($pro->idProducto,$pro->descripcion, $pro->valor));
      }
 
      public function Listar()
@@ -37,4 +37,17 @@
        $sql->execute(array($id));
        return $sql->fetch(PDO::FETCH_OBJ);
      }
+
+     public function Update($pro)
+     {
+         $sql = $this->conn->prepare("UPDATE `producto` SET `descripcion`=?,`valor`=? WHERE idProducto = ?");
+         $sql->execute(array($pro->descripcion, $pro->valor,$pro->idProducto));
+     }
+
+     public function Delete($id)
+           {
+             $sql = $this->conn->prepare("DELETE FROm producto WHERE idProducto = ?");
+             $sql->execute(array($id));
+           }
+
 }

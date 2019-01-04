@@ -57,22 +57,12 @@
             </div>
             <div class="col-md-2">
               <label>Producto</label>
-              <select class="" name="idProducto">
-                <option value="">Seleccione un producto</option>
-                <?php foreach ($p->Listar() as $row): ?>
-                  <option value="<?php echo $row->idProducto ?>"><?php echo $row->descripcion ?></option>
-                <?php endforeach; ?>
-              </select>
+              <label>Cantidad</label>
+              <input type="text" name="cantidadKG" id="cantidadKG">
             </div>
           </div>
 
-          <div class="row" style="margin-top:10px;">
 
-              <div class="col-md-3">
-                <label>Cantidad de kg</label>
-                <input type="text" name="cantidadKG" id="cantidadKG">
-              </div>
-          </div>
 
             <div class="row" style="margin-top:20px;">
               <div class="col-md-12 text-center">

@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="topnav" id="myTopnav" style="width:100%; top: 0; position:fixed;">
-      <a href="#">Inicio</a>
+      <a href="?c=Usuario&a=AdminProductos">Productos</a>
       <a href="?c=Usuario&a=Compras">Compras</a>
       <a href="?c=Usuario&a=Embarques">Embarques</a>
       <a href="?c=Usuario&a=Inventario">Inventario</a>

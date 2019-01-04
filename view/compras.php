@@ -8,7 +8,7 @@
         <div class="col-md-1">
           <label>Desde:</label>
        </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
                 <input type="date" name="fechaInicio" value="">
         </div>
 

@@ -74,6 +74,15 @@ class UsuarioController
       require_once 'view/footer.php';
     }
 
+    public function AdminProductos()
+    {
+      $p = new Producto();
+      require_once 'view/header.php';
+      require_once 'view/listarProductos.php';
+      require_once 'view/footer.php';
+    }
+
+
     public function Proveedores()
     {
       require_once 'view/header.php';
@@ -104,6 +113,15 @@ class UsuarioController
       $em = $this->model_em->ListarID($id);
       require_once 'view/header.php';
       require_once 'view/ingresarEmbarque.php';
+      require_once 'view/footer.php';
+
+    }
+
+    public function IngresarProducto()
+    {
+      $p = new Producto();
+      require_once 'view/header.php';
+      require_once 'view/ingresarProducto.php';
       require_once 'view/footer.php';
 
     }
@@ -164,10 +182,20 @@ class UsuarioController
     public function IngresarDespacho()
     {
       $p = new Producto();
-        $bl = new Bl();
+      $bl = new Bl();
       require_once('view/header.php');
       require_once('view/ingresarDespacho.php');
       require_once('view/footer.php');
+    }
+
+    public function ModificarProducto()
+    {
+      $p = new Producto();
+      $p = $this->model_pro->ListarNombre($_REQUEST['id']);
+      require_once('view/header.php');
+      require_once('view/modificarProducto.php');
+      require_once('view/footer.php');
+
     }
 
     public function GuardarCompra()
@@ -306,6 +334,37 @@ class UsuarioController
        echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
 
     }
+
+    public function InsertarProducto()
+    {
+      $p = new Producto();
+
+       $p->idProducto = $_REQUEST['idProducto'];
+       $p->descripcion = $_REQUEST['descripcion'];
+       $p->valor = $_REQUEST['valor'];
+
+       $this->model_pro->Insertar($p);
+       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
+    }
+
+    public function CambiarProducto()
+    {
+      $p = new Producto();
+       $p->valor = $_REQUEST['valor'];
+       $p->descripcion = $_REQUEST['descripcion'];
+       $p->idProducto = $_REQUEST['id'];
+       $this->model_pro->Update($p);
+
+       echo '<script language="javascript">alert("Exito al modificar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
+    }
+
+    public function EliminarProducto()
+    {
+
+      $this->model_pro->Delete($_REQUEST['id']);
+      echo '<script language="javascript">alert("Exito al eliminar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
+    }
+
 
     public function Llego()
     {
