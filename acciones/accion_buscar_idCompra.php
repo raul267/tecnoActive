@@ -25,7 +25,7 @@ mysqli_set_charset($con, 'utf8');
 
   		if ($r->id = $idCompra)
       {
-        echo '<label style="color:red; float:left;">No disponible</label>';
+        echo '<label style="color:red; float:left;">No disponible!!</label>';
       }
 
       else
