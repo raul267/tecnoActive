@@ -88,7 +88,7 @@
 			bl = $(this).val();
 
 
-				$.post('acciones/accion_buscar_stock_bl.php',{idCompra:idCompra},function(datos)
+				$.post('acciones/accion_buscar_stock_bl.php',{bl:bl},function(datos)
 				{
 					$("#divStock").html(datos);
 
