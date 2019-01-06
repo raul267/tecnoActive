@@ -19,7 +19,7 @@
                     <th>Fecha Emision</th>
                     <th>Monto total</th>
                     <th>Produto</th>
-                    <th>Cantida kg</th>
+                    <th>Cantida</th>
                 </tr>
             </thead>
             <tbody>

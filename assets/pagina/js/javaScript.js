@@ -10,7 +10,8 @@
 
 
       }
-      $('#btn').attr('disabled',true);
+      //$('#btn').attr('disabled',true);
+        $('#btnRegistrar').attr('disabled',false);
     }
 
     function AgregarBl()
@@ -87,14 +88,27 @@
 			bl = $(this).val();
 
 
-				$.post('acciones/accion_buscar_stock_bl.php',{bl:bl},function(datos)
+				$.post('acciones/accion_buscar_stock_bl.php',{idCompra:idCompra},function(datos)
 				{
 					$("#divStock").html(datos);
 
 
 				});
-
-
-
        });
+    });
+
+ $(function()
+    {
+    $("#idCompra").on("keyup",function()
+    {
+  var idCompra = "";
+
+    idCompra = $(this).val();
+
+
+    $.post('acciones/accion_buscar_idCompra.php',{idCompra:idCompra},function(datos)
+    {
+      $("#divDisponible").html(datos);
+    });
+  });
     });

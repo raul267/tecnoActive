@@ -4,10 +4,11 @@
   <form action="?c=Usuario&a=GuardarCompra" border="1" style="" method="post">
     <div class="row" style="margin-top:80px;">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <label>id Compra</label>
           <input type="text" class=""name="idCompra" id="idCompra" value="">
         </div>
+        <div class="col-md-1" style="margin-left:5px;" id="divDisponible" name="divDisponible"></div>
         <div class="col-md-3">
           <label>Cantidad(toneladas)</label>
           <input type="text" class=""name="cantidadPedido" id="cantidadPedido" value="">
@@ -60,7 +61,7 @@
     </div>
     <br>
     <div class="col-md-4">
-      <button style="float:left;" class="btn btn-success" onclick=""  id="btnRegistrar">Registar Compra</button>
+      <button style="float:left;" class="btn btn-success" onclick="" disabled="true"  id="btnRegistrar">Registar Compra</button>
     </div>
   </form>
   <div class="col-md-4">
