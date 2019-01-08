@@ -65,7 +65,7 @@
           </div>
 
           <div class="col-md-6">
-             <img src="assets/pagina/images/grafico.jpg" alt="">
+              <canvas id="graficoEstadisticas"></canvas>
           </div>
       </div>
       <div class="row text-center">

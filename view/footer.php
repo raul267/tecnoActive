@@ -27,6 +27,7 @@
 </script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="assets/pagina/js/Chart.min.js"></script>
 <script src="assets/pagina/js/javaScript.js" charset="utf-8"></script>
 <script src="assets/pagina/js/bootstrap.js"></script>
 <script src="assets/pagina/js/rut.js"></script>

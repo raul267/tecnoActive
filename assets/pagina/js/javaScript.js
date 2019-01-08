@@ -112,3 +112,38 @@
     });
   });
     });
+
+    $(function(){
+
+        $.post("acciones/accion_grafico_estadisticas.php",function(data)
+        {
+            var producto = [];
+            var cantidad = [];
+            var fecha = [];
+            var datos = $.parseJSON(data);
+
+            for(var i in datos){
+                producto.push(datos[i].id);
+                cantidad.push(datos[i].cantidad);
+                fecha.push(datos[i].eta);
+            }
+
+            var chartdata = {
+                labels: producto,
+                datasets:[{
+                  label:'cantidad',
+                  backgroundColor: '#3366cc',
+                  borderColor:'#3366cc',
+                  hoverBackgroundColor:'#3366cc',
+                  data: cantidad
+                }]
+            }
+
+            var ctb = document.getElementById("graficoEstadisticas");
+
+            var graficoEstadisticas = new Chart(ctb,
+              {type:'line',data:chartdata}
+            );
+        }
+
+      );});

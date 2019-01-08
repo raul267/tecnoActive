@@ -83,7 +83,7 @@ class Embarque
 
       public function ListarID($id)
       {
-        $sql = $this->conn->prepare("select cantidad cantidad, idProducto producto from embarque e join compra c using(idCompra) JOIN producto USING(idProducto) JOIN bl b USING(idEmbarque) WHERE idEmbarque = ?");
+        $sql = $this->conn->prepare("select e.cantidad cantidad, idProducto producto from embarque e join compra c using(idCompra) JOIN producto USING(idProducto) JOIN bl b USING(idEmbarque) WHERE idEmbarque = ?");
         $sql->execute(array($id));
         return $sql->fetch(PDO::FETCH_OBJ);
       }

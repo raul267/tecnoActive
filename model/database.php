@@ -8,3 +8,8 @@ class Database
 		return $conn;
 	}
 }
+define('DB_HOST','localhost');
+define('DB_NAME','tecnoActive');
+define('DB_USER','root');
+define('DB_PASS','');
+?>
