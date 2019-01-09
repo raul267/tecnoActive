@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/pagina/DataTables/datatables.min.css"/>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <meta charset="utf-8">
     <title></title>

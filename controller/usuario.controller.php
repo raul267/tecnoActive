@@ -221,9 +221,7 @@ class UsuarioController
            $this->model_em->Insertar1($em);
 
        }
-
-
-
+          // echo '<script language="javascript">swal("Exito al Registrar"); window.location.href="index.php?c=Usuario&a=Compras";</script>';
       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Compras";</script>';
     }
 

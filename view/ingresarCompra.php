@@ -28,7 +28,7 @@
 
         <div class="col-md-3">
           <label>Proveedor:</label>
-          <input type="text" name="proveedor" value="">
+          <input type="text" name="proveedor" id="proveedor" value="">
         </div>
       </div>
 
@@ -61,15 +61,13 @@
     </div>
     <br>
     <div class="col-md-4">
-      <button style="float:left;" class="btn btn-success" onclick="" disabled="true"  id="btnRegistrar">Registar Compra</button>
+      <button style="float:left;" class="btn btn-success" onclick="ValidadCompras()" disabled="true"  id="btnRegistrar">Registar Compra</button>
     </div>
   </form>
   <div class="col-md-4">
-    <button style="float:left;" class="btn btn-primary" onclick="prueba()" id="btn">Agregar entregas</button>
+    <button style="float:left;" class="btn btn-primary" onclick="prueba()" disabled="true" id="btn">Agregar entregas</button>
   </div>
-  <div class="col-md-4">
-    <button style="float:left;" class="btn btn-primary" onclick="calcularTotal()" id="btnCalcular">Calcular total</button>
-  </div>
+
 
 
 

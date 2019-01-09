@@ -8,8 +8,7 @@ include ("../model/database.php");
 $bl = $_POST['bl'];
 //$data = array();
 
-$con = mysqli_connect('localhost', 'root', '');
-mysqli_select_db($con, 'tecnoactive');
+$con = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 mysqli_set_charset($con, 'utf8');
 // Check connection
 	if (!$con) {

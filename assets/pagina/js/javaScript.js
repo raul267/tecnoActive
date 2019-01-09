@@ -120,24 +120,45 @@
             var producto = [];
             var cantidad = [];
             var fecha = [];
+            var total =0;
+
             var datos = $.parseJSON(data);
 
             for(var i in datos){
                 producto.push(datos[i].id);
                 cantidad.push(datos[i].cantidad);
                 fecha.push(datos[i].eta);
+                total = i;
             }
 
-            var chartdata = {
-                labels: producto,
-                datasets:[{
-                  label:'cantidad',
-                  backgroundColor: '#3366cc',
-                  borderColor:'#3366cc',
-                  hoverBackgroundColor:'#3366cc',
-                  data: cantidad
-                }]
-            }
+              var chartdata = {
+                    labels: producto,
+                    datasets:[{
+                      label:'Productos',
+                      fill: false,
+                      lineTension: 0.1,
+                      borderColor: "blue", // The main line color
+                      backgroundColor:"blue",
+                      borderCapStyle: 'square',
+                      borderDash: [], // try [5, 15] for instance
+                      borderDashOffset: 0.0,
+                      borderJoinStyle: 'miter',
+                      pointBorderColor: "black",
+                      pointBackgroundColor: "white",
+                      pointBorderWidth: 1,
+                      pointHoverRadius: 8,
+                      pointHoverBackgroundColor: "red",
+                      pointHoverBorderColor: "brown",
+                      pointHoverBorderWidth: 2,
+                      pointRadius: 4,
+                      pointHitRadius: 10,
+                      // notice the gap in the data and the spanGaps: true
+                      data: cantidad,
+                      spanGaps: true,
+                                }]
+                                }
+
+
 
             var ctb = document.getElementById("graficoEstadisticas");
 
@@ -147,3 +168,77 @@
         }
 
       );});
+
+      function Registrar()
+      {
+        swal("Exito al Registrar");
+
+      }
+
+      // Para cambiar el estado del boton agreagar embarque
+      $(function()
+        {
+           $("#cantidadEntregas").on("change",function()
+           {
+              $('#btn').attr('disabled',false);
+           }
+         )});
+
+      function ValidadCompras()
+      {
+          var idCompra = document.getElementById('idCompra').value;
+          var cantidadPedido = document.getElementById('cantidadPedido').value;
+          var idProducto = document.getElementById('idProducto').value;
+          var proveedor = document.getElementById('proveedor').value;
+          var fechaInicio = document.getElementById('fechaInicio').value;
+          var fechaTermino = document.getElementById('fechaTermino').value;
+          var error = false;
+          if (idCompra =='')
+          {
+            error = true;
+            swal('error');
+
+          }
+          if (cantidadPedido =='' || isNaN(cantidadPedido))
+          {
+            error = true;
+            alert('Debe ingresar un numero');
+
+          }
+
+          if (proveedor =='')
+          {
+            error = true;
+            swal('error');
+
+          }
+
+
+         if (fechaInicio =='')
+         {
+           error = true;
+           swal('error');
+
+         }
+
+         if (fechaTermino =='')
+         {
+           error = true;
+           swal('error');
+         }
+
+          if (idProducto = 0)
+          {
+              error = true;
+          }
+
+          if (error){
+          event.preventDefault();
+            swal('Atencion','Debes ingresar todos los datos','warning')
+          }
+          else{
+            $.post('',{}, function(data){
+            });
+
+      }
+    }

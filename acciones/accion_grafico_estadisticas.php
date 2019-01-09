@@ -1,14 +1,14 @@
 <?php
 require_once('../model/database.php');
 
-$con = mysqli_connect('localhost','root','','tecnoActive');
+$con = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
 if(!$con){
   die("No conecta: ". $mysqli->error);
 
 }
 else {
-  $sql = mysqli_query($con,"SELECT idProducto id, sum(cantContenedores) cantidad, fechaEntrega eta FROM embarque JOIN compra USING(idCompra) JOIN producto USING(idProducto) WHERE fechaEntrega is not null group by(idProducto)");
+  $sql = mysqli_query($con,"SELECT idProducto id, cantContenedores cantidad, fechaEntrega eta FROM embarque JOIN compra USING(idCompra) JOIN producto USING(idProducto) WHERE fechaEntrega is not null");
 
   mysqli_close($con);
 
