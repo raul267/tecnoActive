@@ -72,6 +72,19 @@
        $sql->execute(array($numero,$numero2,$bl));
      }
 
+     public function ListarResumen()
+     {
+       $sql = $this->conn->prepare("SELECT p.idProducto producto, sum(internadas) internadas, sum(porInternar) porInternar from producto p join compra c on p.idProducto = c.idProducto join embarque e using(idCompra) join bl b using(idEmbarque) join stock s USING(bl) group by p.idProducto");
+       $sql ->execute();
+       return $sql->fetchAll(PDO::FETCH_OBJ);
+     }
+
+     public function Resolucion($idStock)
+     {
+       $sql = $this->conn->prepare("UPDATE stock SET resolucion = 1 WHERE idStock = ?");
+       $sql->execute(array($idStock));
+     }
+
 
    }
    ?>

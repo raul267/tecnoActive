@@ -388,6 +388,15 @@ class UsuarioController
       Header('Location: index.php?c=Usuario&a=AGA');
     }
 
+    public function Resolucion()
+    {
+      $s = new Stock();
+      $id = $_REQUEST['id'];
+      $this->model_s->Resolucion($id);
+      Header('Location: index.php?c=Usuario&a=Inventario');
+
+    }
+
 
   }
 

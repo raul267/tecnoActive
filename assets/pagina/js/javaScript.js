@@ -48,25 +48,25 @@
 
   function Mostrar()
     {
-      document.getElementById('foto').style.display ='block';
+      document.getElementById('resumen').style.display ='block';
     }
 
   function Ocultar()
     {
-      document.getElementById('foto').style.display ='none';
+      document.getElementById('resumen').style.display ='none';
     }
 
   function Ad()
     {
-      var grafico = document.getElementById('foto');
-      if (grafico.style.display =="none")
+      var resumen = document.getElementById('resumen');
+      if (resumen.style.display =="none")
       {
         Mostrar();
-        document.getElementById("btnMostrar").value = "Ocultar grafico";
+        document.getElementById("btnMostrar").value = "Ocultar Resumen";
       }
       else {
         Ocultar();
-        document.getElementById("btnMostrar").value = "Mostrar grafico";
+        document.getElementById("btnMostrar").value = "Mostrar Resumen";
       }
     }
 
