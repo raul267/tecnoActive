@@ -76,7 +76,7 @@
   </div>
 
   <div id="" class="row" style="margin-left:10px;">
-    <div class="col-md-4">
+    <div class="col-md-2">
       <table id="resumen" style="display:none;" border="1">
         <thead>
           <th>Producto</th>

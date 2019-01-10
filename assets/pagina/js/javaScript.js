@@ -242,3 +242,211 @@
 
       }
     }
+
+    function ValidarEmbarques()
+    {
+      var linea = document.getElementById('linea').value;
+      var motoNave = document.getElementById('motoNave').value;
+      var fechaPedido = document.getElementById('fechaPedido').value;
+      var fechaEntrega = document.getElementById('fechaEntrega').value;
+      var pSeguro = document.getElementById('pSeguro').value;
+      var puertoDestino = document.getElementById('puertoDestino').value;
+      var embarcador = document.getElementById('embarcador').value;
+      var consignee = document.getElementById('consignee').value;
+      var tMaritimo = document.getElementById('tMaritimo').value;
+      var coMODATO = document.getElementById('coMODATO').value;
+      var gateIn = document.getElementById('gateIn').value;
+      var diasLibres = document.getElementById('diasLibres').value;
+      var depositoDevVacio = document.getElementById('depositoDevVacio').value;
+      var lote = document.getElementById('lote').value;
+      var alerta = false;
+
+      if (linea == '')
+      {
+          alerta = true;
+          alert("Debe ingresar una linea");
+      }
+      if (motoNave == '')
+      {
+          alerta = true;
+          alert("Debe ingresar una moto nave");
+      }
+
+      if (fechaPedido == '')
+      {
+          alerta = true;
+          alert("Debe ingresar una fecha de pedido");
+      }
+
+      if (fechaEntrega == '')
+      {
+          alerta = true;
+          alert("Debe ingresar una fecha de entrega");
+      }
+
+      if (fechaPedido > fechaEntrega)
+      {
+        alerta = true;
+        Alert("La fecha de pedido no puede ser mayor a la fecha de entrega");
+      }
+
+      if (pSeguro == '')
+      {
+          alerta = true;
+          alert("Debe ingresar un seguro");
+      }
+
+      if (puertoDestino == '')
+      {
+          alerta = true;
+          alert("Debe ingresar un puerto");
+      }
+
+      if (consignee == '')
+      {
+          alerta = true;
+          alert("Debe ingresar un consignee");
+      }
+
+      if (embarcador == '')
+      {
+          alerta = true;
+          alert("Debe ingresar un embarcador");
+      }
+
+      if (tMaritimo == '' || isNaN(tMaritimo))
+      {
+          alerta = true;
+          alert("Debe ingresar un tMaritimo");
+      }
+
+      if (coMODATO == '' || isNaN(coMODATO))
+      {
+          alerta = true;
+          alert("Debe ingresar un coMODATO");
+      }
+
+      if (gateIn == '' || isNaN(gateIn))
+      {
+          alerta = true;
+          alert("Debe ingresar una puerta de embarque");
+      }
+
+      if (diasLibres == '' || isNaN(diasLibres))
+      {
+          alerta = true;
+          alert("Debe ingresar cantidad de dias libres");
+      }
+
+      if (depositoDevVacio == '' || isNaN(depositoDevVacio))
+      {
+          alerta = true;
+          alert("Debe ingresar un deposito");
+      }
+
+      if (lote == '')
+      {
+          alerta = true;
+          alert("Debe ingresar un lote");
+      }
+
+
+
+      if (alerta)
+      {
+        event.preventDefault();
+      }
+      else
+      {
+        $.post('',{}, function(data){
+        });
+      }
+  }
+
+  function ValidarDespacho()
+  {
+    var bl = document.getElementById('ddlbl').value;
+    var rutEmisor = document.getElementById('rutEmisor').value;
+    var rutReceptor = document.getElementById('rutReceptor').value;
+    var tipoDocumento = document.getElementById('tipoDocumento').value;
+    var facturaNro = document.getElementById('facturaNro').value;
+    var fechaEmision = document.getElementById('fechaEmision').value;
+    var montoTotal = document.getElementById('montoTotal').value;
+    var idProducto = document.getElementById('idProducto').value;
+    var cantidadKG = document.getElementById('cantidadKG').value;
+    var vCantidad = document.getElementById('vCantidad').value;
+    var alerta = false;
+
+    if (bl == '')
+    {
+        alerta = true;
+        alert("Debe seleccionar un bl");
+    }
+    if (rutEmisor == '')
+    {
+      alerta = true;
+      alert("Ingrese rut");
+    }
+    if (rutReceptor == '')
+    {
+        alerta = true;
+      alert("Ingrese rut");
+    }
+    if (tipoDocumento == '')
+    {
+        alerta = true;
+        alert("Seleccione un tipo de documento");
+    }
+    if (facturaNro == '')
+    {
+        alert("Ingrese un numero de factura");
+    }
+    if (isNaN(facturaNro))
+    {
+        alerta = true;
+        alert("Ingrese un valor numerico");
+    }
+    if (fechaEmision == '')
+    {
+        alerta = true;
+        alert("Ingrese una fecha");
+    }
+    if (montoTotal == '')
+    {
+        alerta = true;
+        alert("Ingrese monto total");
+    }
+    if (isNaN(montoTotal))
+    {
+        alerta = true;
+        alert("Debe ser un valor numerico");
+    }
+    if (cantidadKG == '')
+    {
+        alerta = true;
+        alert("Ingrese monto total");
+    }
+    if (isNaN(cantidadKG))
+    {
+        alerta = true;
+        alert("Debe ser un valor numerico");
+    }
+    if (cantidadKG > vCantidad)
+    {
+        alerta = true;
+      alert("No hay stock suficiente!!");
+    }
+
+
+
+
+    if (alerta)
+    {
+      event.preventDefault();
+    }
+    else
+    {
+      $.post('',{}, function(data){
+      });
+    }
+  }

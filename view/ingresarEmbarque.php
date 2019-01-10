@@ -90,7 +90,7 @@
         </div>
 <br><br>
       <div class="col-md-12 text-center">
-          <input type="submit" name="" value="Ingresar datos" class=" text-center btn btn-success">
+          <button  class="btn btn-success" onclick="ValidarEmbarques()" id="btnRegistrar">Ingresar datos</button>
       </div>
 
   </form>

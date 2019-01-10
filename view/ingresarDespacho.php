@@ -31,7 +31,7 @@
           <div class="row" style="margin-top:10px;">
             <div class="col-md-3">
               <label>Tipo Documento</label>
-              <select class="" name="tipoDocumento">
+              <select class="" id="tipoDocumento"name="tipoDocumento">
                 <option value="">Seleccione un tipo</option>
                 <option value="Factura Electronica">Factura Electronica</option>
                 <option value="Guia de despacho electronica">Guia de despacho electronica</option>
@@ -66,7 +66,7 @@
 
             <div class="row" style="margin-top:20px;">
               <div class="col-md-12 text-center">
-                <button type="submit" onclick="checkRut(rutEmisor); checkRut(rutReceptor)" class="btn btn-success" name="button">Ingresar Internacion</button>
+                <button type="submit" onclick=" ValidarDespacho(); checkRut(rutEmisor); checkRut(rutReceptor);" class="btn btn-success" name="button">Ingresar Internacion</button>
               </div>
             </div>
 

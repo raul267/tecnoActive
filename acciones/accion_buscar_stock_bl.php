@@ -24,7 +24,7 @@ mysqli_set_charset($con, 'utf8');
 
 			echo '<label>Hay '.$r->internadas.' disponibles</label>';
 			echo '<br><label>Producto</label><input style="margin-left:10px;"type="text" name="idProducto" id="idProducto" readonly value="'.$r->producto.'">';
-
+			echo '<input type="hidden" id="vCantidad" name="vCantidad" value="'.$r->internadas.'">';
 		}
 
   }
