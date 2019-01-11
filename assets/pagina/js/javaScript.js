@@ -134,7 +134,7 @@
               var chartdata = {
                     labels: producto,
                     datasets:[{
-                      label:'Productos',
+                      label:'Cantidad de productos',
                       fill: false,
                       lineTension: 0.1,
                       borderColor: "blue", // The main line color
@@ -169,6 +169,112 @@
 
       );});
 
+
+      $(function(){
+
+          $.post("acciones/accion_grafico_llego.php",function(data)
+          {
+              var compra = [];
+              var cantidad = [];
+              var datos = $.parseJSON(data);
+
+              for(var i in datos)
+              {
+                  compra.push(datos[i].compra);
+                  cantidad.push(datos[i].cantidad);
+              }
+
+                var chartdata = {
+                      labels: compra,
+                      datasets:[{
+                        label:"Embarques en puerto",
+                        fill: false,
+                        lineTension: 0.1,
+                        borderColor: "black", // The main line color
+                        backgroundColor:["blue","green","red"],
+                        borderCapStyle: 'square',
+                        borderDash: [], // try [5, 15] for instance
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "black",
+                        pointBackgroundColor: "white",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 8,
+                        pointHoverBackgroundColor: "red",
+                        pointHoverBorderColor: "brown",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHitRadius: 10,
+                        // notice the gap in the data and the spanGaps: true
+                        data: cantidad,
+                        spanGaps: true,
+                                  }]
+                                  }
+
+
+
+              var ctb = document.getElementById("graficoLlego");
+
+              var graficoEstadisticas = new Chart(ctb,
+                {type:'bar',data:chartdata}
+              );
+          }
+
+        );});
+
+      $(function(){
+
+          $.post("acciones/accion_grafico_despacho.php",function(data)
+          {
+              var producto = [];
+              var cantidad = [];
+              var datos = $.parseJSON(data);
+
+              for(var i in datos)
+              {
+                  producto.push(datos[i].id);
+                  cantidad.push(datos[i].cantidad);
+              }
+
+                var chartdata = {
+                      labels: producto,
+                      datasets:[
+                        {
+                        label:'Productos despachados',
+                        fill: false,
+                        lineTension: 0.1,
+                        borderColor: "black", // The main line color
+                        backgroundColor:["blue","green","red"],
+                        borderCapStyle: 'square',
+                        borderDash: [], // try [5, 15] for instance
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "black",
+                        pointBackgroundColor: "white",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 8,
+                        pointHoverBackgroundColor: "red",
+                        pointHoverBorderColor: "brown",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHitRadius: 10,
+                        // notice the gap in the data and the spanGaps: true
+                        data: cantidad,
+                        spanGaps: true,
+                        }
+                      ]}
+
+
+
+              var ctb = document.getElementById("graficoDespacho");
+
+              var graficoEstadisticas = new Chart(ctb,
+                {type:'pie',data:chartdata}
+              );
+          }
+
+        );});
+
       function Registrar()
       {
         swal("Exito al Registrar");
@@ -187,17 +293,23 @@
       function ValidadCompras()
       {
           var idCompra = document.getElementById('idCompra').value;
+          var vID = document.getElementById('validacionId').value;
           var cantidadPedido = document.getElementById('cantidadPedido').value;
           var idProducto = document.getElementById('idProducto').value;
           var proveedor = document.getElementById('proveedor').value;
           var fechaInicio = document.getElementById('fechaInicio').value;
           var fechaTermino = document.getElementById('fechaTermino').value;
           var error = false;
+
           if (idCompra =='')
           {
             error = true;
-            swal('error');
-
+            alert('Debe ingresar una compra');
+          }
+          if (idCompra = vID)
+          {
+              error = true;
+              alert('El id de compra ya esta registrado en la base de datos');
           }
           if (cantidadPedido =='' || isNaN(cantidadPedido))
           {
@@ -209,7 +321,7 @@
           if (proveedor =='')
           {
             error = true;
-            swal('error');
+            alert('debe ingresar un proveedor');
 
           }
 
@@ -217,24 +329,24 @@
          if (fechaInicio =='')
          {
            error = true;
-           swal('error');
-
+          alert('Debe ingresar una fecha de inicio');
          }
 
          if (fechaTermino =='')
          {
            error = true;
-           swal('error');
+           alert('Debe seleccionar una fecha de termino');
          }
 
           if (idProducto = 0)
           {
               error = true;
+              alert('Debe seleccionar un producto');
           }
 
           if (error){
           event.preventDefault();
-            swal('Atencion','Debes ingresar todos los datos','warning')
+
           }
           else{
             $.post('',{}, function(data){
@@ -245,6 +357,7 @@
 
     function ValidarEmbarques()
     {
+      var bl = documento.getElementById('nBl').value;
       var linea = document.getElementById('linea').value;
       var motoNave = document.getElementById('motoNave').value;
       var fechaPedido = document.getElementById('fechaPedido').value;
@@ -259,7 +372,11 @@
       var diasLibres = document.getElementById('diasLibres').value;
       var depositoDevVacio = document.getElementById('depositoDevVacio').value;
       var lote = document.getElementById('lote').value;
+      var cantidad = document.getElementById('cantBl').value;
       var alerta = false;
+
+
+
 
       if (linea == '')
       {
@@ -424,7 +541,7 @@
     if (cantidadKG == '')
     {
         alerta = true;
-        alert("Ingrese monto total");
+        alert("Ingrese una cantidad");
     }
     if (isNaN(cantidadKG))
     {

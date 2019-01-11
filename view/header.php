@@ -4,16 +4,17 @@
     <link rel="stylesheet" href="assets/menu/pagina.css">
     <link rel="stylesheet" href="assets/pagina/css/bootstrap.css">
     <link rel="stylesheet" href="assets/pagina/css/miCSS.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/pagina/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/pagina/DataTables/datatables.min.css"/>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="assets/pagina/js/sweet-alert.js"></script>
 
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <div class="topnav" id="myTopnav" style="width:100%; top: 0; position:fixed;">
+    <div class="topnav" id="myTopnav" style="width:100%; ">
       <a href="?c=Usuario&a=AdminProductos">Productos</a>
       <a href="?c=Usuario&a=Compras">Compras</a>
       <a href="?c=Usuario&a=Embarques">Embarques</a>

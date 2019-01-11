@@ -1,4 +1,4 @@
-<div class="col-md-12 text-center"><h1>Registrar Despacho</h1></div>
+<div class="col-md-12 text-center" style="margin-top:20px;"><h1>Registrar Despacho</h1></div>
   <div class="col-md-12" style="background-color:black;"></div>
     <div class="container">
      <div class="" style="margin-top:30px;">
@@ -44,10 +44,6 @@
               <label>factura nro</label>
               <input type="text" class=""name="facturaNro" id="facturaNro" value="">
             </div>
-            <div class="col-md-3">
-              <label>Fecha Emision</label>
-              <input type="date" name="fechaEmision" id="fechaEmision" value="">
-            </div>
           </div>
 
           <div class="row" style="margin-top:10px;">
@@ -66,7 +62,7 @@
 
             <div class="row" style="margin-top:20px;">
               <div class="col-md-12 text-center">
-                <button type="submit" onclick=" ValidarDespacho(); checkRut(rutEmisor); checkRut(rutReceptor);" class="btn btn-success" name="button">Ingresar Internacion</button>
+                <button type="submit" onclick="ValidarDespacho()" class="btn btn-success" name="button">Ingresar Internacion</button>
               </div>
             </div>
 

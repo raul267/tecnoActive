@@ -1,3 +1,5 @@
+<div style=" margin-top: 30px">
+<div class="row" style="margin-left:10px;" >
 <div class="col-md-8">
   <div style="margin-top:25px;">
     <div class="row">
@@ -19,7 +21,7 @@
                     <th>Fecha Emision</th>
                     <th>Monto total</th>
                     <th>Produto</th>
-                    <th>Cantida</th>
+                    <th>Cantidad</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,17 +48,24 @@
                   <th>Fecha Emision</th>
                   <th>Monto total</th>
                   <th>Produto</th>
-                  <th>Cantida kg</th>
+                  <th>Cantidad</th>
                 </tr>
               </tfoot>
               </table>
 
-            <div class="row" style="margin-left:10px;">
+            <div class="row text-center" style="margin-left:10px;">
               <a href="?c=Usuario&a=IngresarDespacho" class="btn btn-primary">Agregar despacho  </a>
             </div>
           </div>
       </div>
-      <div class="row">
+      <div style="margin-top:50px;">
+        <div class="col-md-4">
+          <canvas  id="graficoDespacho"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" style="margin-top:15px;background-color:black;"></div>
+      <div class="row" style="margin-left:10px;">
         <div class="col-md-4">
           <div style="margin-top:25px;">
             <div class="row">
@@ -76,6 +85,8 @@
                             <th>Cliente</th>
                             <th>Fecha Entrega</th>
                             <th>Cantidad</th>
+                            <th>Agregar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,6 +97,8 @@
                             <td><?php echo $r->cliente ?></td>
                             <td><?php echo $r->fechaEntrega ?></td>
                             <td><?php echo $r->cantidad ?></td>
+                            <td><a href="?c=Usuario&a=ModificarDespachoSemanal&idD=<?php echo $r->id ?>"><span class="glyphicon glyphicon-floppy-saved"></span></a></td>
+                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
                           </tr>
                         <?php endforeach; ?>
                       </tbody>
@@ -96,6 +109,8 @@
                           <th>Cliente</th>
                           <th>Fecha Entrega</th>
                           <th>Cantidad</th>
+                          <th>Agregar</th>
+                          <th>Eliminar</th>
                         </tr>
                       </tfoot>
                       </table>
@@ -105,3 +120,4 @@
                   </div>
               </div>
             </div>
+</div>

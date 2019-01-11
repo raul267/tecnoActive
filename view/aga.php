@@ -26,7 +26,7 @@
                     <th><?php echo $row->idProducto ?></th>
                     <th><?php echo $row->cantidad ?></th>
                     <th><?php echo $row->nProvision ?></th>
-                    <th><?php echo '$'.$row->transferido ?></th>
+                    <th><?php if($row->transferido !=null){echo '$'.$row->transferido;} ?></th>
                     <th><?php echo $row->nIdentDI ?></th>
                     <th><?php echo $row->fechaPagoDI ?></th>
                     <th><?php echo $row->fa ?></th>

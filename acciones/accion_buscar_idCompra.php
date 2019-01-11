@@ -25,6 +25,7 @@ mysqli_set_charset($con, 'utf8');
   		if ($r->id = $idCompra)
       {
         echo '<label style="color:red; float:left;">No disponible!!</label>';
+				echo '<input type="hidden" id="validacionId" name="validacionId" value="'.$r->id.'">';
       }
 
       else

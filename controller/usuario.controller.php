@@ -198,6 +198,17 @@ class UsuarioController
 
     }
 
+    public function ModificarDespachoSemanal()
+    {
+      $bl = new Bl();
+      $de = new Despachosemanal();
+      $de = $this->model_dese->ListarID($_REQUEST['idD']);
+      require_once('view/header.php');
+      require_once('view/modificarDespachoSemanal.php');
+      require_once('view/footer.php');
+
+    }
+
     public function GuardarCompra()
     {
       $co = new Compra();
@@ -344,6 +355,8 @@ class UsuarioController
        $this->model_pro->Insertar($p);
        echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
     }
+
+
 
     public function CambiarProducto()
     {

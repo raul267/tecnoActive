@@ -31,5 +31,12 @@
          $sql->execute();
          return $sql->fetchAll(PDO::FETCH_OBJ);
      }
+
+     public function ListarID($id)
+     {
+         $sql = $this->conn->prepare("SELECT * FROM despachosemanal join producto p using(idProducto) where id = ?");
+         $sql->execute(array($id));
+         return $sql->fetch(PDO::FETCH_OBJ);
+     }
 }
 ?>

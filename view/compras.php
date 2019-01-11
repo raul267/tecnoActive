@@ -63,10 +63,19 @@
               </tfoot>
               </table>
           </div>
-
           <div class="col-md-6">
-              <canvas id="graficoEstadisticas"></canvas>
+            <div class="row">
+              <div class="col-md-8">
+                  <canvas id="graficoEstadisticas"></canvas>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <canvas id="graficoLlego"></canvas>
+              </div>
+            </div>
           </div>
+
       </div>
       <div class="row text-center">
         <div class="col-md-4">
