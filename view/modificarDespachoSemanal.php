@@ -1,4 +1,4 @@
-<div class="" style=" margin-top: 30px">
+<div class="">
   <div class="col-md-12 text-center"><h1>Registrar Despacho</h1></div>
     <div class="col-md-12" style="background-color:black;"></div>
       <div class="container">
@@ -34,16 +34,21 @@
         <option value="Guia de despacho electronica">Guia de despacho electronica</option>
       </select>
     </div>
-  </div>
-
-  <div class="row" style="margin-top:10px;">
     <div class="col-md-3" style="">
       <label>factura nro</label>
       <input type="text" class=""name="facturaNro" id="facturaNro" value="">
     </div>
+  </div>
+
+
+  <div class="row" style="margin-top:10px;">
     <div class="col-md-3">
       <label>Fecha Emision</label>
       <input type="date" name="fechaEmision" id="fechaEmision" value="">
+    </div>
+    <div class="col-md-3">
+      <label>Fecha Entrega</label>
+      <input type="date" name="fechaEntrega" id="fechaEntrega" value="<?php echo $de->fechaEntrega ?>">
     </div>
   </div>
 
@@ -53,17 +58,16 @@
       <input type="text" name="montoTotal" id="montoTotal" value="">
     </div>
     <div class="col-md-2">
-      <label>Producto</label>
-      <label>Cantidad</label>
+      <label>Cantidad(toneladas)</label>
       <input type="text" name="cantidadKG" id="cantidadKG" value="<?php echo $de->cantidad ?>">
     </div>
   </div>
 
-
+  <input type="hidden" name="id" id="id"value="<?php echo $de->id ?>">
 
     <div class="row" style="margin-top:20px;">
       <div class="col-md-12 text-center">
-        <button type="submit" onclick=" ValidarDespacho(); checkRut(rutEmisor); checkRut(rutReceptor);" class="btn btn-success" name="button">Ingresar Internacion</button>
+        <button type="submit" onclick=" ValidarDespacho();" class="btn btn-success" name="button">Ingresar Internacion</button>
       </div>
     </div>
 

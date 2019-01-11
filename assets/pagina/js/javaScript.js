@@ -19,7 +19,7 @@
       var i = document.getElementById("cantBl").value;
       i = parseInt(i) + 1;
       document.getElementById("cantBl").value = i;
-        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" id="bl'+i+'" name="bl'+i+'"/><input placeholder="cantidad "type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
+        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" id="bl'+i+'" name="bl'+i+'"/><input placeholder="cantidad(toneladas)" type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
     }
 
     function calcularTotal()
@@ -483,11 +483,11 @@
   function ValidarDespacho()
   {
     var bl = document.getElementById('ddlbl').value;
-    var rutEmisor = document.getElementById('rutEmisor').value;
-    var rutReceptor = document.getElementById('rutReceptor').value;
+    var cliente = document.getElementById('cliente').value;
     var tipoDocumento = document.getElementById('tipoDocumento').value;
     var facturaNro = document.getElementById('facturaNro').value;
     var fechaEmision = document.getElementById('fechaEmision').value;
+    var fechaEntrega = document.getElementsById('fechaEntrega').value;
     var montoTotal = document.getElementById('montoTotal').value;
     var idProducto = document.getElementById('idProducto').value;
     var cantidadKG = document.getElementById('cantidadKG').value;
@@ -499,16 +499,12 @@
         alerta = true;
         alert("Debe seleccionar un bl");
     }
-    if (rutEmisor == '')
+    if (cliente == '')
     {
       alerta = true;
-      alert("Ingrese rut");
+      alert("Ingrese cliente");
     }
-    if (rutReceptor == '')
-    {
-        alerta = true;
-      alert("Ingrese rut");
-    }
+
     if (tipoDocumento == '')
     {
         alerta = true;
@@ -524,6 +520,11 @@
         alert("Ingrese un valor numerico");
     }
     if (fechaEmision == '')
+    {
+        alerta = true;
+        alert("Ingrese una fecha");
+    }
+    if (fechaEntrega == '')
     {
         alerta = true;
         alert("Ingrese una fecha");

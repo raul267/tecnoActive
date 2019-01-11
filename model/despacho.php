@@ -2,11 +2,11 @@
   class Despacho
   {
     private $conn;
-    public $rutEmisor;
-    public $rutReceptor;
+    public $cliente;
     public $tipoDocumento;
     public $facturaNro;
     public $fechaEmision;
+    public $fechaEntrega;
     public $montoTotal;
     public $idProducto;
     public $cantidadKG;
@@ -24,8 +24,8 @@
 
      public function Insertar($de)
      {
-         $sql = $this->conn->prepare("INSERT INTO despacho (rutEmisor,rutReceptor,tipoDocumento,facturaNro,fechaEmision,montoTotal,idProducto,cantidadKG) values(?,?,?,?,?,?,?,?)");
-         $sql->execute(array($de->rutEmisor,$de->rutReceptor,$de->tipoDocumento,$de->facturaNro,$de->fechaEmision,$de->montoTotal,$de->idProducto,$de->cantidadKG));
+         $sql = $this->conn->prepare("INSERT INTO despacho ( cliente,tipoDocumento,facturaNro,fechaEmision,fechaEntrega,montoTotal,idProducto,cantidadKG) values(?,?,?,?,?,?,?,?)");
+         $sql->execute(array($de->cliente,$de->tipoDocumento,$de->facturaNro,$de->fechaEmision,$de->fechaEntrega,$de->montoTotal,$de->idProducto,$de->cantidadKG));
      }
 
      public function Listar()

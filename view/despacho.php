@@ -14,24 +14,24 @@
         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Rut Emisor</th>
-                    <th>rut receptor</th>
+                    <th>Cliente</th>
                     <th>Tipo documento</th>
                     <th>Factura nro</th>
                     <th>Fecha Emision</th>
+                    <th>FechaEntrega</th>
                     <th>Monto total</th>
                     <th>Produto</th>
-                    <th>Cantidad</th>
+                    <th>Toneladas</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($d->Listar() as $row): ?>
                   <tr>
-                      <td><?php echo $row->rutEmisor ?></td>
-                      <td><?php echo $row->rutReceptor ?></td>
+                      <td><?php echo $row->cliente ?></td>
                       <td><?php echo $row->tipoDocumento ?></td>
                       <td><?php echo $row->facturaNro ?></td>
                       <td><?php echo $row->fechaEmision ?></td>
+                      <td><?php echo $row->fechaEntrega ?></td>
                       <td><?php echo $row->montoTotal ?></td>
                       <td><?php echo $row->idProducto ?></td>
                       <td><?php echo $row->cantidadKG ?></td>
@@ -41,14 +41,14 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th>Rut Emisor</th>
-                  <th>rut receptor</th>
+                  <th>Cliente</th>
                   <th>Tipo documento</th>
                   <th>Factura nro</th>
                   <th>Fecha Emision</th>
+                  <th>FechaEntrega</th>
                   <th>Monto total</th>
                   <th>Produto</th>
-                  <th>Cantidad</th>
+                  <th>Toneladas</th>
                 </tr>
               </tfoot>
               </table>
@@ -84,7 +84,7 @@
                             <th>Producto</th>
                             <th>Cliente</th>
                             <th>Fecha Entrega</th>
-                            <th>Cantidad</th>
+                            <th>Toneladas</th>
                             <th>Agregar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -108,7 +108,7 @@
                           <th>Producto</th>
                           <th>Cliente</th>
                           <th>Fecha Entrega</th>
-                          <th>Cantidad</th>
+                          <th>Toneladas</th>
                           <th>Agregar</th>
                           <th>Eliminar</th>
                         </tr>

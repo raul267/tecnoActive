@@ -8,6 +8,7 @@
                   <th>CNTR</th>
                   <th>ORDER</th>
                   <th>BL</th>
+                  <th>Toneladas</th>
                   <th>TT</th>
                   <th>M/N</th>
                   <th>ETD</th>
@@ -31,6 +32,7 @@
                     <td><?php echo $row->cantContenedores ?></td>
                     <td><?php echo $row->idEmbarque ?></td>
                     <td><?php echo $row->bl ?></td>
+                    <td><?php echo $row->cantidad ?></td>
                     <td><?php echo $row->linea ?></td>
                     <td><?php echo $row->motoNave ?></td>
                     <td><?php echo $row->fechaPedido ?></td>
@@ -61,6 +63,7 @@
                    <th>CNTR</th>
                    <th>ORDER</th>
                    <th>BL</th>
+                   <th>Toneladas</th>
                    <th>TT</th>
                    <th>M/N</th>
                    <th>ETD</th>
@@ -75,7 +78,8 @@
                    <th>DIAS LIBRES (U)</th>
                    <th>DEPOSITO DEV.VACIO</th>
                    <th>Estado</th>
-                   <th>Llego</th>                 </tr>
+                   <th>Llego</th>
+                 </tr>
               </tfoot>
               </table>
           </div>

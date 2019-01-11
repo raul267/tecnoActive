@@ -1,0 +1,18 @@
+Comras: 
+-Grafico de estadisticas arribos mensuales (productos, cantidades, eta)
+-graficos de pendientes(pendientes, llegdos de los contratos)
+
+Inventario:
+-resolucion
+-tabla resumen
+
+Despacho:
+-Grafico cantidades despachadas
+
+---------------Cosas nuevas arreglar----------------
+-agregar toneladas en cantidades (Check)
+-en embarques mostrar cantidad 
+- ordenar embarque por eta   (Semi Check)
+- Agrea e en resolucon de inventario
+-Cambiar colores boton internado  (Check)
+-despacho sacar rut	

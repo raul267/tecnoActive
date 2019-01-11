@@ -38,5 +38,11 @@
          $sql->execute(array($id));
          return $sql->fetch(PDO::FETCH_OBJ);
      }
+
+     public function Delete($id)
+     {
+       $sql = $this->conn->prepare("DELETE FROM despachosemanal WHERE id = ?");
+       $sql->execute(array($id));
+     }
 }
 ?>

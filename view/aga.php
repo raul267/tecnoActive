@@ -8,7 +8,7 @@
                   <th>Contrato</th>
                   <th>Fecha Provision</th>
                   <th>Producto</th>
-                  <th>Cantidad</th>
+                  <th>Toneladas</th>
                   <th>N° Provision</th>
                   <th>$ Transferido a AGA</th>
                   <th>N ident DI</th>
@@ -40,7 +40,16 @@
                     <?php endif; ?>
                     <?php if ($row->internado == 1): ?>
                       ?c=Usuario&a=AGA
-                    <?php endif; ?>" class="btn btn-primary"><?php if ($row->nProvision !=null && $row->internado ==0): ?>
+                    <?php endif; ?>" class="<?php if ($row->nProvision !=null && $row->internado ==0): ?>
+                      btn btn-danger
+                    <?php endif; ?>
+                    <?php if ($row->nProvision == null && $row->internado ==0): ?>
+                      btn btn-primary
+                    <?php endif; ?>
+                    <?php if ($row->internado == 1): ?>
+                      btn btn-success
+
+                    <?php endif; ?>"><?php if ($row->nProvision !=null && $row->internado ==0): ?>
                       Internar
                     <?php endif; ?> <?php if ($row->nProvision == null && $row->internado ==0): ?>
                       Crear
@@ -58,7 +67,7 @@
                    <th>Contrato</th>
                    <th>Fecha Provision</th>
                    <th>Producto</th>
-                   <th>Cantidad</th>
+                   <th>Toneladas</th>
                    <th>N° Provision</th>
                    <th>$ Transferido a AGA</th>
                    <th>N ident DI</th>

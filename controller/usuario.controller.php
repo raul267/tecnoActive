@@ -309,12 +309,13 @@ class UsuarioController
     {
           $d = new Despacho();
           $s = new Stock();
+          $de = new Despachosemanal();
 
-         $d->rutEmisor = $_REQUEST['rutEmisor'];
-         $d->rutReceptor = $_REQUEST['rutReceptor'];
+         $d->cliente = $_REQUEST['cliente'];
          $d->tipoDocumento = $_REQUEST['tipoDocumento'];
          $d->facturaNro = $_REQUEST['facturaNro'];
          $d->fechaEmision = $_REQUEST['fechaEmision'];
+         $d->fechaEntrega = $_REQUEST['fechaEntrega'];
          $d->montoTotal = $_REQUEST['montoTotal'];
          $d->idProducto = $_REQUEST['idProducto'];
          $d->cantidadKG = $_REQUEST['cantidadKG'];
@@ -326,6 +327,7 @@ class UsuarioController
 
           $this->model_des->Insertar($d);
           $this->model_s->Despachar($s->despachadas,$s->internadas,$bl);
+          $this->model_dese->Delete($_REQUEST['id']);
           echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
 
     }

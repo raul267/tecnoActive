@@ -19,12 +19,8 @@
 <br><br><br>
           <div class="row">
             <div class="col-md-3">
-              <label>Rut emisor</label>
-              <input type="text" class=""name="rutEmisor" id="rutEmisor" value="">
-            </div>
-            <div class="col-md-3">
-              <label>Rut receptor</label>
-              <input type="text" class=""name="rutReceptor" id="rutReceptor" value="">
+              <label>Cliente</label>
+              <input type="text" class=""name="cliente" id="cliente" value="">
             </div>
           </div>
 
@@ -52,8 +48,8 @@
               <input type="text" name="montoTotal" id="montoTotal" value="">
             </div>
             <div class="col-md-2">
-              <label>Producto</label>
-              <label>Cantidad</label>
+
+              <label>Cantidad(toneladas)</label>
               <input type="text" name="cantidadKG" id="cantidadKG">
             </div>
           </div>

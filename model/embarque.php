@@ -54,7 +54,7 @@ class Embarque
 
   public function Listar()
   {
-      $sql = $this->conn->prepare("SELECT * FROM embarque e JOIN bl b USING(idEmbarque) order by idEmbarque");
+      $sql = $this->conn->prepare("SELECT * FROM embarque e JOIN bl b USING(idEmbarque) order by fechaEntrega DESC");
       $sql->execute();
       return $sql->fetchAll(PDO::FETCH_OBJ);
   }
