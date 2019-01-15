@@ -8,7 +8,7 @@ if(!$con){
 
 }
 else {
-  $sql = mysqli_query($con,"SELECT idProducto id, sum(cantContenedores) cantidad, fechaEntrega eta FROM embarque JOIN compra USING(idCompra) JOIN producto USING(idProducto) WHERE fechaEntrega is not null group by idProducto");
+  $sql = mysqli_query($con,"SELECT idProducto id, cantContenedores cantidad, fechaPedido eta FROM embarque JOIN compra USING(idCompra) JOIN producto USING(idProducto) WHERE fechaEntrega is not nulL ORDER BY ETA asc");
 
   mysqli_close($con);
 

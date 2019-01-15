@@ -20,7 +20,7 @@
                 <th>POR INTERNAR</th>
                 <th>DESPACHADAS</th>
                 <th>STOCK</th>
-                <th>RSOLUCION</th>
+                <th>RESOLUCION</th>
 
             </tr>
         </thead>
@@ -62,41 +62,36 @@
               <th>POR INTERNAR</th>
               <th>DESPACHADAS</th>
               <th>STOCK</th>
-              <th>RSOLUCION</th>
+              <th>RESOLUCION</th>
             </tr>
           </tfoot>
       </table>
+      <div id="" class="row" style="margin-left:10px;">
+          <div class="col-md-2">
+            <table id="resumen" style="display:none;" border="0.1">
+              <thead>
+                <th>Producto</th>
+                <th>Internadas</th>
+                <th>Por Internar</th>
+              </thead>
+              <tbody>
+                <?php foreach ($s->ListarResumen() as $row): ?>
+                  <tr>
+                    <td><?php echo $row->producto ?></td>
+                    <td><?php echo $row->internadas ?></td>
+                    <td><?php echo $row->porInternar ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-5 text-center">
       <input type="submit" name="btnMostrar" value="Mostrar Resumen" id="btnMostrar" onclick="Ad()"class="btn btn-primary">
-    </div>
-  </div>
-
-  <div id="" class="row" style="margin-left:10px;">
-    <div class="col-md-2">
-      <table id="resumen" style="display:none; border-collapse: collapse;" border="1">
-        <thead>
-          <th>Producto</th>
-          <th>Internadas</th>
-          <th>Por Internar</th>
-        </thead>
-        <tbody>
-          <?php foreach ($s->ListarResumen() as $row): ?>
-            <tr>
-              <td><?php echo $row->producto ?></td>
-              <td><?php echo $row->internadas ?></td>
-              <td><?php echo $row->porInternar ?></td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
-        <tfoot>
-          <th>Producto</th>
-          <th>Internadas</th>
-          <th>Por Internar</th>
-        </tfoot>
-      </table>
     </div>
   </div>

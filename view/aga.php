@@ -23,14 +23,14 @@
                   <tr>
                     <td><?php echo $row->bl ?></td>}
                     <td><?php echo $row->fechaPedido ?></td>
-                    <th><?php echo $row->idProducto ?></th>
-                    <th><?php echo $row->cantidad ?></th>
-                    <th><?php echo $row->nProvision ?></th>
-                    <th><?php if($row->transferido !=null){echo '$'.$row->transferido;} ?></th>
-                    <th><?php echo $row->nIdentDI ?></th>
-                    <th><?php echo $row->fechaPagoDI ?></th>
-                    <th><?php echo $row->fa ?></th>
-                    <th><?php if ($row->nProvision !=null): ?>
+                    <td><?php echo $row->idProducto ?></td>
+                    <td><?php echo $row->cantidad ?></td>
+                    <td><?php echo $row->nProvision ?></td>
+                    <td><?php if($row->transferido !=null){echo '$'.$row->transferido;} ?></td>
+                    <td><?php echo $row->nIdentDI ?></td>
+                    <td><?php echo $row->fechaPagoDI ?></td>
+                    <td><?php echo $row->fa ?></td>
+                    <td><?php if ($row->nProvision !=null): ?>
                       <a href="<?php echo $row->faFile ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a>
                     <?php endif; ?></th>
                     <th><a href="<?php if ($row->nProvision !=null): ?>

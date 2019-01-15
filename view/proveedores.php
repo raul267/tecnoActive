@@ -18,34 +18,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Galleta AP 40</td>
-                <td>Sime Darby</td>
-                <th>4525</th>
-                <th><a href="#"><span class="glyphicon glyphicon-file"></span></a></th>
-
-
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <th>4525</th>
-                <th><a href="#"><span class="glyphicon glyphicon-file"></span></a></th>
-
-
-
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <th>4525</th>
-                <th><a href="#"><span class="glyphicon glyphicon-file"></span></a></th>
-
-
-            </tr>
+            <?php foreach ($p->Listar() as $r): ?>
+              <tr>
+                <td><?php echo $r->proveedor ?></td>
+                <td><?php echo $r->fechaGeneracion ?></td>
+                <td><?php echo $r->fechaPago ?></td>
+                <td><?php echo $r->valor ?></td>
+                <td><a href="<?php echo $r->factura ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a></td>
+              </tr>
+            <?php endforeach; ?>
 
           </tbody>
           <tfoot>
@@ -60,6 +41,6 @@
       </table>
     </div>
     <div class="col-md-5 col-sm-12 col-xd-12" style="margin-top:100px;">
-      <a href="#" class="btn btn-primary">Editar facturas</a>
+      <a href="?c=Usuario&a=IngresarProveedores" class="btn btn-primary">Agregar facturas</a>
     </div>
   </div>

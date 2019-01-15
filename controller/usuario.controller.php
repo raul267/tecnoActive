@@ -8,6 +8,7 @@ require_once 'model/bl.php';
 require_once 'model/internacion.php';
 require_once 'model/despacho.php';
 require_once 'model/despachosemanal.php';
+require_once 'model/proveedores.php';
 session_start();
 class UsuarioController
 {
@@ -21,6 +22,7 @@ class UsuarioController
   private $model_in;
   private $model_des;
   private $model_dese;
+  private $model_p;
   public function __CONSTRUCT()
     {
       $this->model_us = new Usuario();
@@ -32,6 +34,7 @@ class UsuarioController
       $this->model_in = new Internacion();
       $this->model_des = new Despacho();
       $this->model_dese = new Despachosemanal();
+      $this->model_p = new Proveedores();
     }
 
 
@@ -85,6 +88,7 @@ class UsuarioController
 
     public function Proveedores()
     {
+      $p = new Proveedores();
       require_once 'view/header.php';
       require_once 'view/proveedores.php';
       require_once 'view/footer.php';
@@ -185,6 +189,14 @@ class UsuarioController
       $bl = new Bl();
       require_once('view/header.php');
       require_once('view/ingresarDespacho.php');
+      require_once('view/footer.php');
+    }
+
+    public function IngresarProveedores()
+    {
+      $p = new Proveedores();
+      require_once('view/header.php');
+      require_once('view/ingresarProveedores.php');
       require_once('view/footer.php');
     }
 
@@ -343,6 +355,31 @@ class UsuarioController
 
        $this->model_dese->Insertar($d);
        echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
+
+    }
+
+    public function GuardarProveedores()
+    {
+      $p = new Proveedores();
+
+       $p->proveedor = $_REQUEST['proveedor'];
+       $p->fechaGeneracion = $_REQUEST['fechaGeneracion'];
+       $p->fechaPago = $_REQUEST['fechaPago'];
+       $p->valor = $_REQUEST['valor'];
+
+      //Insertar PDF
+      $nombreArchivo = $_REQUEST['proveedor'];
+      $i = $_FILES['factura']['name'];
+      $ext = strtolower(pathinfo($i,PATHINFO_EXTENSION));
+      $archivo = $_FILES['factura']['tmp_name'];
+      $ruta = "FACTURAS/";
+      $ruta = $ruta.$nombreArchivo.".".$ext;
+
+      move_uploaded_file($archivo, $ruta);
+       $p->factura = $ruta;
+       $this->model_p->Insertar($p);
+
+       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Proveedores";</script>';
 
     }
 

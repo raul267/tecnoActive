@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-01-2019 a las 17:39:33
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.2.5
+-- Tiempo de generación: 15-01-2019 a las 21:15:51
+-- Versión del servidor: 10.1.34-MariaDB
+-- Versión de PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,15 +40,11 @@ CREATE TABLE `bl` (
 --
 
 INSERT INTO `bl` (`bl`, `idEmbarque`, `cantidad`, `internado`) VALUES
-('', 'PDV-1/3', 0, 0),
-('b2', 'pdv-4/1', 0, 0),
-('b6', 'pdv-3/1', 1556, 0),
-('b71', 'pdv-3/2', 42, 0),
-('bl1', 'PDV-1/1', 10, 1),
-('bl2', 'PDV-1/1', 40, 1),
-('bl3', 'PDV-1/1', 100, 1),
-('bl34', 'pdv-2/1', 900, 1),
-('bl4', 'PDV-1/2', 220, 1);
+('bl1', 'PDV-1/1', 45, 0),
+('bl2', 'PDV-2/2', 10, 0),
+('bl3', 'PDV-2/2', 60, 0),
+('bl5', 'PDV-3/1', 2, 1),
+('blll', 'PDV-2/1', 60, 0);
 
 -- --------------------------------------------------------
 
@@ -70,10 +66,9 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`idCompra`, `idProducto`, `proveedor`, `cantidadPedido`, `fechaInicio`, `fechaTermino`) VALUES
-('PDV-1', 'KK 32', 'Fruna', 20, '2019-01-04', '2019-02-02'),
-('pdv-2', 'AP 40', 'fruna', 15, '2019-01-09', '2019-01-16'),
-('pdv-4', 'CF 40', 'fruna', 100, '2019-01-04', '2019-01-18'),
-('pdv-5', 'CF 40', 'Fruna', 90, '2019-01-18', '2019-01-30');
+('PDV-1', 'AP 40', 'Fruna', 10, '2019-01-15', '2019-01-31'),
+('PDV-2', 'CF 40', 'Costa', 10, '2019-01-25', '2019-04-12'),
+('PDV-3', 'AP 40', 'Fruna', 100, '2019-01-02', '2019-01-02');
 
 -- --------------------------------------------------------
 
@@ -98,7 +93,21 @@ CREATE TABLE `despacho` (
 --
 
 INSERT INTO `despacho` (`cliente`, `tipoDocumento`, `facturaNro`, `fechaEmision`, `fechaEntrega`, `montoTotal`, `idProducto`, `cantidadKG`, `idDespacho`) VALUES
-('Burguer Kin', 'Factura Electronica', 2, '2019-01-26', '2019-01-17', 23, 'KK 32', 5, 7);
+('Yo', '', 1, '0000-00-00', '2019-01-03', 500, 'AP 40', 565, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `despachosemanal`
+--
+
+CREATE TABLE `despachosemanal` (
+  `id` int(100) NOT NULL,
+  `idProducto` varchar(30) NOT NULL,
+  `cliente` varchar(30) NOT NULL,
+  `fechaEntrega` date NOT NULL,
+  `cantidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -132,13 +141,10 @@ CREATE TABLE `embarque` (
 --
 
 INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantContenedores`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `coMODATO`, `gateIn`, `diasLibres`, `depositoDevVacio`, `lote`, `enPuerto`) VALUES
-('PDV-1/1', 'PDV-1', 13, 'White Star', 'Titanic', '2019-01-11', '2019-01-25', 'pol', 'pod', 'Julio', 'consignee', 1, 2, 3, 4, 5, 'HR-78', 1),
-('PDV-1/2', 'PDV-1', 13, 'White Star', 'Titanic', '2019-01-24', '2019-01-26', 'pol', 'POd', 'julio', 'consignee', 1, 2, 3, 4, 5, 'H56', 0),
-('pdv-2/1', 'pdv-2', 200, 'White Star', 'Titanic', '2019-01-10', '2019-01-26', 'pol', 'pod', 'Julio Cesar', 'Consignee', 1, 2, 3, 4, 5, 'HH56', 1),
-('pdv-3/1', 'pdv-3', 13, 'White Star', 'Titanic', '2019-01-17', '2019-01-26', 'pol', 'pod', 'julio,', 'Raul Jose Strappa Le', 1, 3, 4, 5, 6, 'FF5', 1),
-('pdv-3/2', 'pdv-3', 13, 'White Star', 'Titanic', '2019-01-18', '2019-01-18', 'pol', 'pod', 'julio', 'consignee', 1, 2, 3, 4, 5, 'FFGF6', 1),
-('pdv-3/3', 'pdv-3', 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0),
-('pdv-5/1', 'pdv-5', 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0);
+('PDV-1/1', 'PDV-1', 40, 'White Star', 'Titanic', '2019-01-15', '2019-01-31', 'pol', 'pod', 'julio', 'consignee', 1, 2, 3, 4, 5, 'HH54', 1),
+('PDV-2/1', 'PDV-2', 12, 'White Star', 'Titanic', '2019-01-09', '2019-01-11', 'pol', 'pod', '3', 'consignee', 1, 0, 2, 3, 4, '56s', 0),
+('PDV-2/2', 'PDV-2', 14, 'White Star', 'Titanic', '2019-01-15', '2019-01-27', 'pol', 'pod', 'Julkio', 'consignee', 1, 2, 3, 4, 5, 'HH54', 1),
+('PDV-3/1', 'PDV-3', 3, 'White Star', 'Titanic', '2019-01-03', '2019-01-04', 'pol', 'pod', 'julio', 'consignee', 1, 2, 3, 4, 5, 'HH54', 1);
 
 -- --------------------------------------------------------
 
@@ -163,11 +169,7 @@ CREATE TABLE `internacion` (
 --
 
 INSERT INTO `internacion` (`idInternacion`, `nProvision`, `bl`, `transferido`, `nIdentDI`, `fechaPagoDI`, `fa`, `faFile`, `fechaProvision`) VALUES
-(1, 1, 'bl1', 4111, '2', '2019-01-15', '32', 'PDFS/bl1.docx', '2019-01-17'),
-(2, 2, 'bl2', 5000, '12', '2019-01-25', '232', 'PDFS/bl2.pdf', '2019-01-19'),
-(3, 23, 'bl4', 2500, '84454', '2019-01-25', '23', 'PDFS/bl4.pdf', '2019-01-12'),
-(4, 2, 'bl34', 5000, '21', '2019-01-11', '21', 'PDFS/bl34.jfif', '2019-01-10'),
-(5, 45, 'bl3', 455, '23', '2019-01-18', '2323', 'PDFS/bl3.jpg', '2019-01-10');
+(1, 1, 'bl5', 2500, '84454', '2019-01-16', '32', 'PDFS/bl5.pdf', '2019-01-15');
 
 -- --------------------------------------------------------
 
@@ -194,6 +196,28 @@ INSERT INTO `producto` (`idProducto`, `descripcion`, `valor`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `idProveedor` int(11) NOT NULL,
+  `proveedor` varchar(30) NOT NULL,
+  `fechaGeneracion` date NOT NULL,
+  `fechaPago` date NOT NULL,
+  `valor` int(11) NOT NULL,
+  `factura` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`idProveedor`, `proveedor`, `fechaGeneracion`, `fechaPago`, `valor`, `factura`) VALUES
+(1, 'Fruna', '2019-01-15', '2019-01-17', 8500, 'FACTURAS/Fruna.pdf');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `stock`
 --
 
@@ -212,15 +236,11 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`idStock`, `bl`, `internadas`, `porInternar`, `despachadas`, `stock`, `resolucion`) VALUES
-(1, 'bl1', -95, 0, 105, 0, 1),
-(2, 'bl2', 5, 0, 35, 0, 0),
-(3, 'bl3', 100, 0, 0, 0, 0),
-(4, 'bl4', 120, 0, 100, 0, 1),
-(5, 'bl34', 634, 0, 266, 0, 0),
-(6, 'b6', 0, 1556, 0, 0, 0),
-(7, 'b71', 0, 42, 0, 0, 0),
-(8, '', 0, 0, 0, 0, 0),
-(9, 'b2', 0, 0, 0, 0, 0);
+(1, 'bl1', 0, 45, 0, 0, 0),
+(2, 'bl2', 0, 10, 0, 0, 0),
+(3, 'bl3', 0, 60, 0, 0, 0),
+(4, 'blll', 0, 60, 0, 0, 0),
+(5, 'bl5', -563, 0, 565, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -264,6 +284,12 @@ ALTER TABLE `despacho`
   ADD PRIMARY KEY (`idDespacho`);
 
 --
+-- Indices de la tabla `despachosemanal`
+--
+ALTER TABLE `despachosemanal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `embarque`
 --
 ALTER TABLE `embarque`
@@ -280,6 +306,12 @@ ALTER TABLE `internacion`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`);
+
+--
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`idProveedor`);
 
 --
 -- Indices de la tabla `stock`
@@ -301,19 +333,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `despacho`
 --
 ALTER TABLE `despacho`
-  MODIFY `idDespacho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idDespacho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `despachosemanal`
+--
+ALTER TABLE `despachosemanal`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `internacion`
 --
 ALTER TABLE `internacion`
-  MODIFY `idInternacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idInternacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `idStock` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idStock` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
