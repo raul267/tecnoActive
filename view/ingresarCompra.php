@@ -21,7 +21,7 @@
           <select id="idProducto" name="idProducto">
             <option value="0">Selecciona un producto</option>
             <?php foreach ($producto->Listar() as $row): ?>
-              <option value="<?php echo $row->idProducto; ?>"><?php echo $row->descripcion; ?></option>
+              <option value="<?php echo $row->idProducto; ?>"><?php echo $row->idProducto; ?></option>
             <?php endforeach; ?>
           </select>
         </div>

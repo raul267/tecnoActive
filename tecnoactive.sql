@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 15-01-2019 a las 21:15:51
--- Versión del servidor: 10.1.34-MariaDB
--- Versión de PHP: 7.2.7
+-- Servidor: localhost:3306
+-- Tiempo de generación: 16-01-2019 a las 12:41:34
+-- Versión del servidor: 5.7.23-cll-lve
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tecnoactive`
+-- Base de datos: `cha45787_tecnoactive`
 --
 
 -- --------------------------------------------------------
@@ -40,11 +40,13 @@ CREATE TABLE `bl` (
 --
 
 INSERT INTO `bl` (`bl`, `idEmbarque`, `cantidad`, `internado`) VALUES
-('bl1', 'PDV-1/1', 45, 0),
-('bl2', 'PDV-2/2', 10, 0),
-('bl3', 'PDV-2/2', 60, 0),
-('bl5', 'PDV-3/1', 2, 1),
-('blll', 'PDV-2/1', 60, 0);
+('', 'PDV/21K/1819/1', 0, 0),
+('APU4501', 'PDV/9JK/1718/1', 150, 1),
+('PGU/VAP/EXP53316F', 'PDV/3DI/1718/1', 189, 0),
+('PGU/VAP/EXP53387F', 'PDV/2DB/1718/1', 132, 0),
+('PGU/VAP/EXP53387FA', 'PDV/2DB/1718/2', 132, 0),
+('PGU/VAP/EXP53389F', 'PDV/7FI/1718/1', 231, 0),
+('PKG/VAP/EXP54203F', 'PDV/7FI/1718/2', 126, 0);
 
 -- --------------------------------------------------------
 
@@ -66,9 +68,12 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`idCompra`, `idProducto`, `proveedor`, `cantidadPedido`, `fechaInicio`, `fechaTermino`) VALUES
-('PDV-1', 'AP 40', 'Fruna', 10, '2019-01-15', '2019-01-31'),
-('PDV-2', 'CF 40', 'Costa', 10, '2019-01-25', '2019-04-12'),
-('PDV-3', 'AP 40', 'Fruna', 100, '2019-01-02', '2019-01-02');
+('PDV/21K/1819', 'KK 32', 'SIME DARUY', 10, '2019-01-01', '2019-02-22'),
+('PDV/2DB/1718', 'AP 40', 'SIME DARUY', 6, '2018-10-22', '2019-01-05'),
+('PDV/3DI/1718', 'KK 32', 'SIME DARUY', 9, '2018-10-22', '2019-01-05'),
+('PDV/6FI/1718', 'KK 32', 'SIME DARUY', 10, '2019-01-06', '2019-02-22'),
+('PDV/7FI/1718', 'KK 32', 'SIME DARUY', 11, '2018-11-28', '2019-01-18'),
+('PDV/9JK/1718', 'KK 32', 'SIME DARUY', 15, '2019-01-24', '2019-03-15');
 
 -- --------------------------------------------------------
 
@@ -93,7 +98,7 @@ CREATE TABLE `despacho` (
 --
 
 INSERT INTO `despacho` (`cliente`, `tipoDocumento`, `facturaNro`, `fechaEmision`, `fechaEntrega`, `montoTotal`, `idProducto`, `cantidadKG`, `idDespacho`) VALUES
-('Yo', '', 1, '0000-00-00', '2019-01-03', 500, 'AP 40', 565, 1);
+('Fruna', 'Factura Electronica', 321, '2019-01-16', '2019-01-16', 767643, 'KK 32', 28, 1);
 
 -- --------------------------------------------------------
 
@@ -116,11 +121,11 @@ CREATE TABLE `despachosemanal` (
 --
 
 CREATE TABLE `embarque` (
-  `idEmbarque` varchar(11) NOT NULL,
+  `idEmbarque` varchar(30) NOT NULL,
   `idCompra` varchar(30) NOT NULL,
   `cantContenedores` int(11) NOT NULL,
   `linea` varchar(11) DEFAULT NULL,
-  `motoNave` varchar(30) DEFAULT NULL,
+  `motoNave` varchar(100) DEFAULT NULL,
   `fechaPedido` date DEFAULT NULL,
   `fechaEntrega` date DEFAULT NULL,
   `pSeguro` varchar(30) DEFAULT NULL,
@@ -132,7 +137,7 @@ CREATE TABLE `embarque` (
   `gateIn` int(11) DEFAULT NULL,
   `diasLibres` int(11) DEFAULT NULL,
   `depositoDevVacio` int(11) DEFAULT NULL,
-  `lote` varchar(10) NOT NULL,
+  `lote` varchar(10) DEFAULT NULL,
   `enPuerto` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -141,10 +146,17 @@ CREATE TABLE `embarque` (
 --
 
 INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantContenedores`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `coMODATO`, `gateIn`, `diasLibres`, `depositoDevVacio`, `lote`, `enPuerto`) VALUES
-('PDV-1/1', 'PDV-1', 40, 'White Star', 'Titanic', '2019-01-15', '2019-01-31', 'pol', 'pod', 'julio', 'consignee', 1, 2, 3, 4, 5, 'HH54', 1),
-('PDV-2/1', 'PDV-2', 12, 'White Star', 'Titanic', '2019-01-09', '2019-01-11', 'pol', 'pod', '3', 'consignee', 1, 0, 2, 3, 4, '56s', 0),
-('PDV-2/2', 'PDV-2', 14, 'White Star', 'Titanic', '2019-01-15', '2019-01-27', 'pol', 'pod', 'Julkio', 'consignee', 1, 2, 3, 4, 5, 'HH54', 1),
-('PDV-3/1', 'PDV-3', 3, 'White Star', 'Titanic', '2019-01-03', '2019-01-04', 'pol', 'pod', 'julio', 'consignee', 1, 2, 3, 4, 5, 'HH54', 1);
+('PDV/21K/1819/1', 'PDV/21K/1819', 10, '', '', '2019-01-16', '2019-01-16', '', '', '', '', 0, 0, 0, 0, 0, 'I580', 0),
+('PDV/2DB/1718/1', 'PDV/2DB/1718', 6, '75', 'MOL BRIGHTNESS847E', '2018-10-22', '2019-01-05', '', '', '', '', 0, 0, 0, 0, 0, '', 1),
+('PDV/2DB/1718/2', 'PDV/2DB/1718', 6, '44', 'MOL BRIGHTNESS847E', '2018-10-22', '2019-01-05', '', '', '', '', 0, 0, 0, 0, 0, '', 1),
+('PDV/3DI/1718/1', 'PDV/3DI/1718', 9, '75', 'MOL BRIGHTNESS847E', '2018-10-22', '2019-01-05', '', '', '', '', 0, 0, 0, 0, 0, '', 1),
+('PDV/3DI/1718/2', 'PDV/3DI/1718', 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('PDV/6FI/1718/1', 'PDV/6FI/1718', 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('PDV/6FI/1718/2', 'PDV/6FI/1718', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('PDV/7FI/1718/1', 'PDV/7FI/1718', 11, '51', 'COPIAPO 849E', '2018-11-28', '2019-01-18', '', '', '', '', 0, 0, 0, 0, 0, '', 0),
+('PDV/7FI/1718/2', 'PDV/7FI/1718', 6, '45', 'COYHAIQUE 852E', '2018-12-25', '2019-02-08', '', '', '', '', 0, 0, 0, 0, 0, '', 0),
+('PDV/7FI/1718/3', 'PDV/7FI/1718', 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+('PDV/9JK/1718/1', 'PDV/9JK/1718', 15, '', '', '2019-01-16', '2019-01-16', '', '', '', '', 0, 0, 0, 0, 0, 'I580', 1);
 
 -- --------------------------------------------------------
 
@@ -169,7 +181,7 @@ CREATE TABLE `internacion` (
 --
 
 INSERT INTO `internacion` (`idInternacion`, `nProvision`, `bl`, `transferido`, `nIdentDI`, `fechaPagoDI`, `fa`, `faFile`, `fechaProvision`) VALUES
-(1, 1, 'bl5', 2500, '84454', '2019-01-16', '32', 'PDFS/bl5.pdf', '2019-01-15');
+(1, 321, 'APU4501', 421434, '41412412', '2019-01-16', '432', 'PDFS/APU4501.pdf', '2019-01-15');
 
 -- --------------------------------------------------------
 
@@ -208,13 +220,6 @@ CREATE TABLE `proveedores` (
   `factura` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `proveedores`
---
-
-INSERT INTO `proveedores` (`idProveedor`, `proveedor`, `fechaGeneracion`, `fechaPago`, `valor`, `factura`) VALUES
-(1, 'Fruna', '2019-01-15', '2019-01-17', 8500, 'FACTURAS/Fruna.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -236,11 +241,13 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`idStock`, `bl`, `internadas`, `porInternar`, `despachadas`, `stock`, `resolucion`) VALUES
-(1, 'bl1', 0, 45, 0, 0, 0),
-(2, 'bl2', 0, 10, 0, 0, 0),
-(3, 'bl3', 0, 60, 0, 0, 0),
-(4, 'blll', 0, 60, 0, 0, 0),
-(5, 'bl5', -563, 0, 565, 0, 0);
+(1, 'PGU/VAP/EX', 0, 9, 0, 0, 0),
+(2, 'PGU/VAP/EX', 0, 6, 0, 0, 0),
+(3, 'PGU/VAP/EX', 0, 6, 0, 0, 0),
+(4, 'PGU/VAP/EX', 0, 11, 0, 0, 0),
+(5, 'PKG/VAP/EX', 0, 6, 0, 0, 0),
+(6, '', 0, 0, 0, 0, 0),
+(7, 'APU4501', 122, 0, 28, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -351,13 +358,13 @@ ALTER TABLE `internacion`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `idStock` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idStock` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

@@ -16,3 +16,9 @@ Despacho:
 - Agrea e en resolucon de inventario
 -Cambiar colores boton internado  (Check)
 -despacho sacar rut	
+
+MAs cosas para arrelgar
+-Mcuhas cosas en hosting, bajar esa carpeta
+-Cambiar stock dispobible, internado - despachado, dejar internado estatico
+-Cambiar numeros por dobles
+-Agregar comentario en proveedores

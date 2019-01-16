@@ -68,7 +68,7 @@
 
      public function Despachar($numero,$numero2,$bl)
      {
-       $sql = $this->conn->prepare("UPDATE stock SET despachadas = ?, internadas =? WHERE bl = ?");
+       $sql = $this->conn->prepare("UPDATE stock SET despachadas = ?, stock =? WHERE bl = ?");
        $sql->execute(array($numero,$numero2,$bl));
      }
 

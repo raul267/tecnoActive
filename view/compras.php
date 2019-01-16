@@ -30,7 +30,7 @@
                     <th>ID</th>
                     <th>Producto</th>
                     <th>Proveedor</th>
-                    <th>Cantidad(Ton)</th>
+                    <th>CNT</th>
                     <th>Fecha Inicio</th>
                     <th>Fecha Termino</th>
                     <th>Embarques</th>
@@ -55,7 +55,7 @@
                    <th>ID</th>
                    <th>Producto</th>
                    <th>Proveedor</th>
-                   <th>Cantidad(Ton)</th>
+                   <th>CNT</th>
                    <th>Fecha Inicio</th>
                    <th>Fecha Termino</th>
                    <th>Embarques</th>

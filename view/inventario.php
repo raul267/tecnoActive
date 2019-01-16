@@ -13,7 +13,7 @@
                 <th>BL</th>
                 <th>NAVE</th>
                 <th>PRODUCTO</th>
-                <th>CANT</th>
+                <th>CNT</th>
                 <th>LOTE</th>
                 <th>INGRESO ALMACEN</th>
                 <th>INTERNADAS</th>
@@ -55,7 +55,7 @@
               <th>BL</th>
               <th>NAVE</th>
               <th>PRODUCTO</th>
-              <th>CANT</th>
+              <th>CNT</th>
               <th>LOTE</th>
               <th>INGRESO ALMACEN</th>
               <th>INTERNADAS</th>

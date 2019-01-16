@@ -335,7 +335,7 @@ class UsuarioController
          $bl = $_REQUEST['ddlbl'];
          $s = $this->model_s->ListarPorInternar($bl);
          $s->despachadas = $s->despachadas + $_REQUEST['cantidadKG'];
-         $s->internadas = $s->internadas - $_REQUEST['cantidadKG'];
+         $s->stock = $s->stock - $_REQUEST['cantidadKG'];
 
           $this->model_des->Insertar($d);
           $this->model_s->Despachar($s->despachadas,$s->internadas,$bl);
