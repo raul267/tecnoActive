@@ -338,7 +338,7 @@ class UsuarioController
          $s->stock = $s->stock - $_REQUEST['cantidadKG'];
 
           $this->model_des->Insertar($d);
-          $this->model_s->Despachar($s->despachadas,$s->internadas,$bl);
+          $this->model_s->Despachar($s->despachadas,$s->stock,$bl);
           $this->model_dese->Delete($_REQUEST['id']);
           echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Despacho";</script>';
 

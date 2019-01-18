@@ -62,8 +62,8 @@
 
      public function Internar($numero,$numero2,$bl)
      {
-       $sql = $this->conn->prepare("UPDATE stock SET internadas = ? , porInternar = ? WHERE bl = ?");
-       $sql->execute(array($numero,$numero2,$bl));
+       $sql = $this->conn->prepare("UPDATE stock SET internadas = ? , porInternar = ?, stock = ?  WHERE bl = ?");
+       $sql->execute(array($numero,$numero2, $numero, $bl));
      }
 
      public function Despachar($numero,$numero2,$bl)

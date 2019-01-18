@@ -16,7 +16,7 @@ mysqli_set_charset($con, 'utf8');
 	}
 	else
 	{
-		$sql = mysqli_query($con, "SELECT internadas as 'internadas', producto.idProducto producto from stock s join bl using(bl) join embarque using(idEmbarque) JOIN compra using(idCompra) join producto using(idProducto) where bl = '$bl'");
+		$sql = mysqli_query($con, "SELECT stock as 'internadas', producto.idProducto producto from stock s join bl using(bl) join embarque using(idEmbarque) JOIN compra using(idCompra) join producto using(idProducto) where bl = '$bl'");
 
     mysqli_close($con);
 		while ($r = mysqli_fetch_object($sql))

@@ -48,7 +48,7 @@
           <label>Cantidad de contratos</label>
         </div>
         <div class="col-md-1">
-          <input style="margin-top:15px;"type="text" id="cantidadEntregas" name="cantidadEntregas" value="">
+          <input style="margin-top:15px;"type="text" id="cantidadEntregas" name="cantidadEntregas" required value="">
         </div>
         <div class="col-md-4">
             <label id="lblTotal"></label>
@@ -61,7 +61,7 @@
     </div>
     <br>
     <div class="col-md-4">
-      <button style="float:left;" class="btn btn-success" onclick="ValidadCompras()"  id="btnRegistrar">Registar Compra</button>
+      <button style="float:left;" class="btn btn-success" onclick="ValidadCompras()" disabled="true" id="btnRegistrar">Registar Compra</button>
     </div>
   </form>
   <div class="col-md-4">
