@@ -19,7 +19,7 @@
       var i = document.getElementById("cantBl").value;
       i = parseInt(i) + 1;
       document.getElementById("cantBl").value = i;
-        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" onkeyup="verificar()" required id="bl'+i+'" name="bl'+i+'"/><div id="divDisponiblee" name="divDisponiblee"></div><input placeholder="cantidad(toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
+        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" required id="bl'+i+'" name="bl'+i+'"/><div id="divDisponiblee" name="divDisponiblee"></div><input placeholder="cantidad(toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
     }
 
     function calcularTotal()
@@ -148,7 +148,7 @@
 
   function ValidarEmbarques()
   {
-    var bl = documento.getElementById('nBl').value;
+    var bl = document.getElementById('nBl').value;
     var linea = document.getElementById('linea').value;
     var motoNave = document.getElementById('motoNave').value;
     var fechaPedido = document.getElementById('fechaPedido').value;
@@ -387,6 +387,7 @@ function ValidarDespacho()
        });
     });
 
+//id compra
  $(function()
     {
     $("#idCompra").on("keyup",function()
@@ -403,21 +404,24 @@ function ValidarDespacho()
   });
     });
 
-    function verificar()
-      {
-         $("#idCompra").on("keyup",function()
-       {
-         var idCompra = "";
+//bl
+$(function()
+   {
+   $("#bl1").on("keyup",function()
+   {
+ var bl = "";
 
-         idCompra = $(this).val();
+   bl = $(this).val();
 
 
-       $.post('acciones/accion_buscar_idCompra.php',{idCompra:idCompra},function(datos)
-       {
-         $("#divDisponiblee").html(datos);
-       });
-       });
-      }
+   $.post('acciones/accion_buscar_bl.php',{bl:bl},function(datos)
+   {
+     $("#blDisponible").html(datos);
+   });
+ });
+   });
+
+
 
     $(function(){
 
