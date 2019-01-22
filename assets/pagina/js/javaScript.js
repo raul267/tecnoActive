@@ -19,7 +19,7 @@
       var i = document.getElementById("cantBl").value;
       i = parseInt(i) + 1;
       document.getElementById("cantBl").value = i;
-        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" required id="bl'+i+'" name="bl'+i+'"/><input placeholder="cantidad(toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
+        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" onkeyup="verificar()" required id="bl'+i+'" name="bl'+i+'"/><div id="divDisponiblee" name="divDisponiblee"></div><input placeholder="cantidad(toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
     }
 
     function calcularTotal()
@@ -402,6 +402,22 @@ function ValidarDespacho()
     });
   });
     });
+
+    function verificar()
+      {
+         $("#idCompra").on("keyup",function()
+       {
+         var idCompra = "";
+
+         idCompra = $(this).val();
+
+
+       $.post('acciones/accion_buscar_idCompra.php',{idCompra:idCompra},function(datos)
+       {
+         $("#divDisponiblee").html(datos);
+       });
+       });
+      }
 
     $(function(){
 

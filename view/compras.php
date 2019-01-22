@@ -65,13 +65,13 @@
           </div>
           <div class="col-md-6">
             <div class="row">
-              <div class="col-md-8 text-center">
+              <div class="col-md-6 text-center">
                   <label>Productos comprados</label>
                   <canvas id="graficoEstadisticas"></canvas>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8 text-center" style="margin-top:15px;">
+              <div class="col-md-6 text-center" style="margin-top:15px;">
                 <label>Embarques en puerto</label>
                 <canvas id="graficoLlego"></canvas>
               </div>
