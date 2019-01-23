@@ -1,4 +1,4 @@
-Comras: 
+Comras:
 -Grafico de estadisticas arribos mensuales (productos, cantidades, eta)
 -graficos de pendientes(pendientes, llegdos de los contratos)
 
@@ -11,14 +11,21 @@ Despacho:
 
 ---------------Cosas nuevas arreglar----------------
 -agregar toneladas en cantidades (Check)
--en embarques mostrar cantidad 
+-en embarques mostrar cantidad
 - ordenar embarque por eta   (Semi Check)
 - Agrea e en resolucon de inventario
 -Cambiar colores boton internado  (Check)
--despacho sacar rut	
+-despacho sacar rut
 
 MAs cosas para arrelgar
 -Mcuhas cosas en hosting, bajar esa carpeta
 -Cambiar stock dispobible, internado - despachado, dejar internado estatico
 -Cambiar numeros por dobles
 -Agregar comentario en proveedores
+
+mas ocsa:
+-Eliminar bl (https://www.anerbarrena.com/jquery-remove-4440/)
+-nProvision cambiar a varchar (check)
+-nDin varchar (check)
+-Internar por partes(Importante, complicado)
+-Ver tema double no funciona
