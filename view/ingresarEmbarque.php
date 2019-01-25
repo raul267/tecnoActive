@@ -8,6 +8,7 @@
     <label>BL</label>
     <div id="nBl" class="col-md-12"><div class="col-md-9"><input type="text" placeholder="bl"id="bl1" required  name="bl1"/> <input type="text" required placeholder="cantidad(toneladas)" id="cantidad1" name="cantidad1"/></div></div><div id="blDisponible"></div>
     <div class="col-md-2 text-center" style="margin-top:10px;"><button type="button" class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div>
+    <div class="col-md-2 text-center" style="margin-top:10px;"><button type="button" class="btn btn-primary btn-sm" onclick="EliminarBl()"><span class="glyphicon glyphicon-minus"></span></button></div>
 
     <div class="col-md-12" style="background-color:black; margin-top:10px; margin-bottom:20px;"></div>
 

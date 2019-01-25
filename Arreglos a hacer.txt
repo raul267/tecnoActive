@@ -24,7 +24,7 @@ MAs cosas para arrelgar
 -Agregar comentario en proveedores
 
 mas ocsa:
--Eliminar bl (https://www.anerbarrena.com/jquery-remove-4440/)
+-Eliminar bl (https://www.anerbarrena.com/jquery-remove-4440/) (check)
 -nProvision cambiar a varchar (check)
 -nDin varchar (check)
 -Internar por partes(Importante, complicado)

@@ -19,7 +19,19 @@
       var i = document.getElementById("cantBl").value;
       i = parseInt(i) + 1;
       document.getElementById("cantBl").value = i;
-        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" required id="bl'+i+'" name="bl'+i+'"/><div id="divDisponiblee" name="divDisponiblee"></div><input placeholder="cantidad(toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
+        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" required id="bl'+i+'" name="bl'+i+'"/><input placeholder="cantidad(toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
+    }
+    function EliminarBl()
+    {
+      var i = document.getElementById("cantBl").value;
+      var bl =document.getElementById("bl"+i);
+      var cant = document.getElementById("cantidad"+i);
+      i = parseInt(i) - 1;
+      document.getElementById("cantBl").value = i;
+
+      bl.parentNode.removeChild(bl);
+      cant.parentNode.removeChild(cant);
+
     }
 
     function calcularTotal()
