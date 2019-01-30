@@ -39,11 +39,34 @@
        return $sql->fetchAll(PDO::FETCH_OBJ);
      }
 
+     public function ListarLote()
+     {
+       $sql = $this->conn->prepare("SELECT lote, idEmbarque,motoNave,idProducto, sum(cantContenedores) cantContenedores,
+                                      sum(cantContenedores), sum(internadas) internadas, sum(porInternar) porInternar,sum(despachadas) despachadas,sum(stock) stock
+                                      from stock s right join
+                                      bl using(bl)
+                                      left join embarque b using(idEmbarque)
+                                      left join compra using(idCompra)
+                                      left join producto p USING(idProducto)
+                                      where enPuerto = 1
+                                      group by lote;");
+       $sql->execute();
+       return $sql->fetchAll(PDO::FETCH_OBJ);
+
+     }
+
      public function ListarBl($bl)
      {
        $sql = $this->conn->prepare("SELECT * FROM stock where bl =?");
        $sql->execute($bl);
        return $sql->fetch(PDO::FETCH_OBJ);
+     }
+
+     public function ListarBlDespacho($bl)
+     {
+       $sql = $this->conn->prepare("SELECT bl bl FROM bl join embarque using(idEmbarque) where lote = ?");
+       $sql->execute(array($bl));
+       return $sql->fetchAll(PDO::FETCH_OBJ);
      }
 
      public function ListarPorInternar($bl)

@@ -383,16 +383,18 @@ function ValidarDespacho()
 
   $(function()
     {
-       $("#ddlbl").on("change",function()
+      var lote ="";
+      lote = document.getElementById('lote').value;
+       $('#ddlbl'+lote).on("change",function()
        {
 			var bl = "";
 
 			bl = $(this).val();
 
-
+      
 				$.post('acciones/accion_buscar_stock_bl.php',{bl:bl},function(datos)
 				{
-					$("#divStock").html(datos);
+					$('#divStock'+lote).html(datos);
 
 
 				});

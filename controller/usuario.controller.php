@@ -72,6 +72,7 @@ class UsuarioController
     public function Inventario()
     {
       $s = new Stock();
+      $bl = new Bl();
       require_once 'view/header.php';
       require_once 'view/inventario.php';
       require_once 'view/footer.php';
