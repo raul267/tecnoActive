@@ -100,7 +100,23 @@
                     <td><?php echo $row->porInternar ?></td>
                     <td><?php echo $row->despachadas ?></td>
                     <td><?php echo $row->stock ?></td>
-                    <td><a href="#" data-toggle="modal" data-target="#<?php echo $row->lote ?>exampleModall" class="btn btn-primary">Despachar</a></td>
+                    <td><a href="" <?php if($row->stock != 0): ?>
+
+                      data-toggle="modal" data-target="#<?php echo $row->lote ?>exampleModall"
+                    <?php endif; ?>
+                       class="<?php if ($row->stock != 0): ?>
+                      btn btn-primary
+                    <?php endif; ?>
+                    <?php if ($row->stock == 0): ?>
+                      btn btn-danger
+                    <?php endif; ?>
+                    "><?php if ($row->stock == 0): ?>
+                      NO hay stock para despachar
+                    <?php endif; ?>
+                    <?php if ($row->stock != 0): ?>
+                      Despachar
+                    <?php endif; ?>
+                  </a></td>
 
 
                     <!-- Modal -->
@@ -108,29 +124,34 @@
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
+                        <form action="?c=Usuario&a=GuardarDespacho"enctype="multipart/form-data" border="1" method="post">
                             <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Despacho lote <?php echo $row->lote ?></h5>
                             <label>Disponible para despachar: <?php echo $row->stock ?></label>
+                            <div style="text-align: center;">
+                              <input  type="text" name="idProducto" id="idProducto" disabled value="<?php echo $row->idProducto ?>">
+                            </div>
+
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form action="?c=Usuario&a=GuardarDespacho"enctype="multipart/form-data" border="1" method="post">
+
                               <div class="row" style="margin-left:5px;">
                                 <div class="row" style="margin-top:10px;">
-                                  <div class="col-md-3">
+                                  <div class="col-md-2">
                                     <label>Bl</label>
-                                    <select class="" name="ddlbl<?php echo $row->lote?>" id="ddlbl<?php echo $row->lote?>">
+                                    <select class="" name="ddlbl" id="ddlbl">
                                       <option value="">Seleccinoe un bl</option>
                                       <?php foreach ($s->ListarBlDespacho($row->lote) as $a): ?>
-                                        <option value="<?php echo $a->bl?>"><?php echo $a->bl?></option>
+                                        <option value="<?php echo $a->bl?>"><?php echo $a->bl.' || '.$a->cantidad.' Toneladas'?></option>
                                       <?php endforeach; ?>
                                     </select>
-                                    <div id="divStock<?php echo $row->lote?>"></div>
+
                                   </div>
                                 </div>
                                 <input type="hidden" name="lote" id="lote" value="<?php echo $row->lote ?>">
-
+                                <input type="hidden" name="idProducto" id="idProducto"value="<?php echo $row->idProducto ?>">
                                 <div class="row">
                                   <div class="col-md-3">
                                     <label>Cliente</label>
@@ -153,6 +174,19 @@
                                   <div class="col-md-3" style="">
                                     <label>factura nro</label>
                                     <input type="text" class=""name="facturaNro" id="facturaNro" value="">
+                                  </div>
+                                </div>
+
+                                <div class="row" style="margin-top:10px;">
+                                  <div class="col-md-3">
+                                    <label>Fecha Emision</label>
+                                    <input type="date" name="fechaEmision" id="fechaEmision" value="">
+                                  </div>
+                                </div>
+                                <div class="row" style="margin-top:10px;">
+                                  <div class="col-md-3">
+                                    <label>Fecha Entrega</label>
+                                    <input type="date" name="fechaEntrega" id="fechaEntrega">
                                   </div>
                                 </div>
 

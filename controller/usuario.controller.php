@@ -325,18 +325,19 @@ class UsuarioController
           $de = new Despachosemanal();
 
          $d->cliente = $_REQUEST['cliente'];
-         $d->tipoDocumento = $_REQUEST['tipoDocumento'];
-         $d->facturaNro = $_REQUEST['facturaNro'];
-         $d->fechaEmision = $_REQUEST['fechaEmision'];
-         $d->fechaEntrega = $_REQUEST['fechaEntrega'];
-         $d->montoTotal = $_REQUEST['montoTotal'];
-         $d->idProducto = $_REQUEST['idProducto'];
-         $d->cantidadKG = $_REQUEST['cantidadKG'];
+          $d->tipoDocumento = $_REQUEST['tipoDocumento'];
+          $d->facturaNro = $_REQUEST['facturaNro'];
+          $d->fechaEmision = $_REQUEST['fechaEmision'];
+          $d->fechaEntrega = $_REQUEST['fechaEntrega'];
+          $d->montoTotal = $_REQUEST['montoTotal'];
+          $d->idProducto = $_REQUEST['idProducto'];
+          $d->cantidadKG = $_REQUEST['cantidadKG'];
 
          $bl = $_REQUEST['ddlbl'];
          $s = $this->model_s->ListarPorInternar($bl);
          $s->despachadas = $s->despachadas + $_REQUEST['cantidadKG'];
          $s->stock = $s->stock - $_REQUEST['cantidadKG'];
+
 
           $this->model_des->Insertar($d);
           $this->model_s->Despachar($s->despachadas,$s->stock,$bl);

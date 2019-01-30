@@ -64,7 +64,7 @@
 
      public function ListarBlDespacho($bl)
      {
-       $sql = $this->conn->prepare("SELECT bl bl FROM bl join embarque using(idEmbarque) where lote = ?");
+       $sql = $this->conn->prepare("SELECT bl bl, cantidad cantidad FROM bl join embarque using(idEmbarque) where lote = ?");
        $sql->execute(array($bl));
        return $sql->fetchAll(PDO::FETCH_OBJ);
      }

@@ -389,9 +389,9 @@ function ValidarDespacho()
        {
 			var bl = "";
 
-			bl = $(this).val();
+			bl = $('#ddlbl'+lote).val();
+      alert(bl);
 
-      
 				$.post('acciones/accion_buscar_stock_bl.php',{bl:bl},function(datos)
 				{
 					$('#divStock'+lote).html(datos);
