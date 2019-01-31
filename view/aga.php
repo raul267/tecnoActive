@@ -1,7 +1,7 @@
 <div style="margin-top:25px;">
 
-<div class="container">
-    <div class="col-md-5">
+  <div class="row" style="margin-left:10px;">
+    <div class="col-md-7">
         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -33,32 +33,38 @@
                     <td><?php if ($row->nProvision !=null): ?>
                       <a href="<?php echo $row->faFile ?>" target="_blank"><span class="glyphicon glyphicon-file"></span></a>
                     <?php endif; ?></th>
-                    <th><a href="<?php if ($row->nProvision !=null): ?>
-                      ?c=Usuario&a=Internar&bl=<?php echo $row->bl ?>
+
+                    <td><?php if ($row->nProvision !=null && $row->internado ==0): ?>
+                     <form class="" action="?c=Usuario&a=InternarPartes&bl=<?php echo $row->bl ?>&total=<?php echo $row->porInternar ?>" method="post">
+                      <label>Puedes internar hasta <?php echo $row->porInternar ?>:</label>
+                      <input type="text" name="cantidadInternar" value=""><br>
+                    <?php endif; ?> <?php if ($row->nProvision !=null && $row->internado ==0): ?>
+                      <input style="margin-top:10px;" type="submit" name="" value="Internar" class="btn btn-danger">
+                    <?php endif; ?>
+                  </form>
+                    <a href="<?php if ($row->nProvision !=null): ?>
+
                     <?php endif; ?> <?php if ($row->nProvision == null): ?>
                       ?c=Usuario&a=IngresarInternacion&bl=<?php echo $row->bl ?>
                     <?php endif; ?>
                     <?php if ($row->internado == 1): ?>
                       ?c=Usuario&a=AGA
-                    <?php endif; ?>" class="<?php if ($row->nProvision !=null && $row->internado ==0): ?>
-                      btn btn-danger
-                    <?php endif; ?>
+                    <?php endif; ?>" class="
                     <?php if ($row->nProvision == null && $row->internado ==0): ?>
                       btn btn-primary
                     <?php endif; ?>
                     <?php if ($row->internado == 1): ?>
                       btn btn-success
 
-                    <?php endif; ?>"><?php if ($row->nProvision !=null && $row->internado ==0): ?>
-                      Internar
-                    <?php endif; ?> <?php if ($row->nProvision == null && $row->internado ==0): ?>
+                    <?php endif; ?>"> <?php if ($row->nProvision == null && $row->internado ==0): ?>
                       Crear
                     <?php endif; ?>
                     <?php if ($row->internado == 1): ?>
                       Internado!!
-                    <?php endif; ?></a></th>
+                    <?php endif; ?></a></td>
 
                   </tr>
+
                 <?php endforeach; ?>
 
               </tbody>

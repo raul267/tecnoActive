@@ -29,6 +29,12 @@ public $cantidad;
     $sql->execute(array($bl));
   }
 
+  public function CambiarEstadoInternarUnaParte($bl)
+  {
+    $sql = $this->conn->prepare("UPDATE `bl` SET `internado` = '2' WHERE bl = ?");
+    $sql->execute(array($bl));
+  }
+
   public function ListarBlE()
   {
     $sql = $this->conn->prepare("SELECT * FROM bl RIGHT JOIN embarque using(idEmbarque) join compra using(idCompra) join producto using(idProducto) where enPuerto = 1 and internado = 1;");

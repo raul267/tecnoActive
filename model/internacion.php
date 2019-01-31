@@ -30,7 +30,7 @@
 
      public function Listar()
      {
-         $sql = $this->conn->prepare("SELECT * FROM internacion i right join bl b using(bl)  join embarque e using(idEmbarque)  join compra c using(idCompra) join producto p using(idProducto) where enPuerto =1");
+         $sql = $this->conn->prepare("SELECT * FROM internacion i right join bl b using(bl)  join embarque e using(idEmbarque)  join compra c using(idCompra) join producto p using(idProducto) join stock s using(bl) where enPuerto =1");
          $sql->execute();
          return $sql->fetchAll(PDO::FETCH_OBJ);
      }

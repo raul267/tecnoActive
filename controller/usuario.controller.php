@@ -442,6 +442,33 @@ class UsuarioController
       Header('Location: index.php?c=Usuario&a=AGA');
     }
 
+    public function InternarPartes()
+    {
+      $b = new Bl();
+      $s = new Stock();
+      $bl = $_REQUEST['bl'];
+        $s = $this->model_s->ListarPorInternar($bl);
+
+       $total = $_REQUEST['total'];
+       $cInternar = $_REQUEST['cantidadInternar'];
+       $_REQUEST['bl'];
+
+       //Cambiar estado dependiendo la cantidad de internacion
+       if ($s->porInternar = $cInternar)
+       {
+         $b->CambiarEstadoInternarUnaParte($bl);
+       }
+       if ($s->porInternar > $cInternar)
+       {
+           $b->CambiarEstadoInternar($bl);
+       }
+
+         $s->internadas = $s->internadas + $cInternar;
+         $s->porInternar = $s->porInternar - $cInternar;
+         $this->model_s->Internar($s->internadas,$s->porInternar,$bl);
+         Header('Location: index.php?c=Usuario&a=AGA');
+    }
+
     public function Resolucion()
     {
       $s = new Stock();
