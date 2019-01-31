@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-01-2019 a las 18:02:53
+-- Tiempo de generación: 31-01-2019 a las 19:33:21
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -54,7 +54,7 @@ CREATE TABLE `compra` (
   `idCompra` varchar(20) NOT NULL,
   `idProducto` varchar(11) NOT NULL,
   `proveedor` varchar(30) NOT NULL,
-  `cantidadPedido` double NOT NULL,
+  `cantidadPedido` decimal(5,1) NOT NULL,
   `fechaInicio` date NOT NULL,
   `fechaTermino` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -64,7 +64,7 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`idCompra`, `idProducto`, `proveedor`, `cantidadPedido`, `fechaInicio`, `fechaTermino`) VALUES
-('pdv-1', 'AP 40', 'proveedor', 50, '2019-01-11', '2019-01-25');
+('pdv-1', 'AP 40', 'proveedor', '50.0', '2019-01-11', '2019-01-25');
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,7 @@ CREATE TABLE `despacho` (
   `fechaEntrega` date NOT NULL,
   `montoTotal` double NOT NULL,
   `idProducto` varchar(200) NOT NULL,
-  `cantidadKG` double NOT NULL,
+  `cantidadKG` decimal(5,1) NOT NULL,
   `idDespacho` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,8 +89,8 @@ CREATE TABLE `despacho` (
 --
 
 INSERT INTO `despacho` (`cliente`, `tipoDocumento`, `facturaNro`, `fechaEmision`, `fechaEntrega`, `montoTotal`, `idProducto`, `cantidadKG`, `idDespacho`) VALUES
-('Yo', 'Factura Electronica', 1, '2019-01-09', '2019-01-18', 500, 'AP 40', 1, 1),
-('Yo', 'Factura Electronica', 1, '2019-01-03', '2019-01-26', 500, 'AP 40', 1, 2);
+('Yo', 'Factura Electronica', 1, '2019-01-09', '2019-01-18', 500, 'AP 40', '1.0', 1),
+('Yo', 'Factura Electronica', 1, '2019-01-03', '2019-01-26', 500, 'AP 40', '1.0', 2);
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE `despachosemanal` (
   `idProducto` varchar(30) NOT NULL,
   `cliente` varchar(200) NOT NULL,
   `fechaEntrega` date NOT NULL,
-  `cantidad` double NOT NULL
+  `cantidad` decimal(5,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -124,11 +124,11 @@ CREATE TABLE `embarque` (
   `puertoDestino` varchar(200) DEFAULT NULL,
   `embarcador` varchar(200) DEFAULT NULL,
   `consignee` varchar(200) DEFAULT NULL,
-  `tMaritimo` int(11) DEFAULT NULL,
-  `coMODATO` int(11) DEFAULT NULL,
-  `gateIn` int(11) DEFAULT NULL,
-  `diasLibres` int(11) DEFAULT NULL,
-  `depositoDevVacio` int(11) DEFAULT NULL,
+  `tMaritimo` decimal(30,0) DEFAULT NULL,
+  `coMODATO` decimal(30,0) DEFAULT NULL,
+  `gateIn` decimal(30,0) DEFAULT NULL,
+  `diasLibres` decimal(30,0) DEFAULT NULL,
+  `depositoDevVacio` decimal(30,0) DEFAULT NULL,
   `lote` varchar(200) DEFAULT NULL,
   `enPuerto` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -139,7 +139,7 @@ CREATE TABLE `embarque` (
 
 INSERT INTO `embarque` (`idEmbarque`, `idCompra`, `cantContenedores`, `linea`, `motoNave`, `fechaPedido`, `fechaEntrega`, `pSeguro`, `puertoDestino`, `embarcador`, `consignee`, `tMaritimo`, `coMODATO`, `gateIn`, `diasLibres`, `depositoDevVacio`, `lote`, `enPuerto`) VALUES
 ('pdv-1/1', 'pdv-1', 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-('pdv-1/2', 'pdv-1', 20, 'White Star', 'Titanic', '2019-01-04', '2019-01-12', 'pol', 'pod', 'julio', 'consignee', 1, 2, 3, 4, 5, 'HH33', 1);
+('pdv-1/2', 'pdv-1', 20, 'White Star', 'Titanic', '2019-01-04', '2019-01-12', 'pol', 'pod', 'julio', 'consignee', '1', '2', '3', '4', '5', 'HH33', 1);
 
 -- --------------------------------------------------------
 
@@ -191,16 +191,31 @@ INSERT INTO `producto` (`idProducto`, `descripcion`, `valor`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `idProveedor` int(11) NOT NULL,
+  `proveedor` varchar(30) NOT NULL,
+  `fechaGeneracion` date NOT NULL,
+  `fechaPago` date NOT NULL,
+  `valor` decimal(10,0) NOT NULL,
+  `factura` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `stock`
 --
 
 CREATE TABLE `stock` (
   `idStock` int(10) NOT NULL,
   `bl` varchar(10) NOT NULL,
-  `internadas` int(30) NOT NULL DEFAULT '0',
-  `porInternar` int(30) NOT NULL DEFAULT '0',
-  `despachadas` int(30) NOT NULL DEFAULT '0',
-  `stock` int(30) NOT NULL DEFAULT '0',
+  `internadas` decimal(5,1) NOT NULL DEFAULT '0.0',
+  `porInternar` decimal(5,1) NOT NULL DEFAULT '0.0',
+  `despachadas` decimal(5,1) NOT NULL DEFAULT '0.0',
+  `stock` decimal(5,1) NOT NULL DEFAULT '0.0',
   `resolucion` int(30) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -209,9 +224,9 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`idStock`, `bl`, `internadas`, `porInternar`, `despachadas`, `stock`, `resolucion`) VALUES
-(1, 'bl1', 90, 0, 2, 90, 0),
-(2, 'bl2', 0, 100, 0, 0, 0),
-(3, 'bl3', 0, 10, 0, 0, 0);
+(1, 'bl1', '90.0', '0.0', '2.0', '90.0', 0),
+(2, 'bl2', '0.0', '100.0', '0.0', '0.0', 0),
+(3, 'bl3', '0.0', '10.0', '0.0', '0.0', 0);
 
 -- --------------------------------------------------------
 
@@ -279,6 +294,12 @@ ALTER TABLE `producto`
   ADD PRIMARY KEY (`idProducto`);
 
 --
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`idProveedor`);
+
+--
 -- Indices de la tabla `stock`
 --
 ALTER TABLE `stock`
@@ -311,6 +332,12 @@ ALTER TABLE `despachosemanal`
 --
 ALTER TABLE `internacion`
   MODIFY `idInternacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `stock`
