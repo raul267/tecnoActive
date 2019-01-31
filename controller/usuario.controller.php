@@ -447,20 +447,16 @@ class UsuarioController
       $b = new Bl();
       $s = new Stock();
       $bl = $_REQUEST['bl'];
-        $s = $this->model_s->ListarPorInternar($bl);
+      $s = $this->model_s->ListarPorInternar($bl);
 
-       $total = $_REQUEST['total'];
-       $cInternar = $_REQUEST['cantidadInternar'];
-       $_REQUEST['bl'];
+        $total = $_REQUEST['total'];
+        $cInternar = $_REQUEST['cantidadInternar'];
 
        //Cambiar estado dependiendo la cantidad de internacion
-       if ($s->porInternar = $cInternar)
+       if ($s->porInternar == $cInternar)
        {
-         $b->CambiarEstadoInternarUnaParte($bl);
-       }
-       if ($s->porInternar > $cInternar)
-       {
-           $b->CambiarEstadoInternar($bl);
+          $b->CambiarEstadoInternar($bl);
+          "Internado";
        }
 
          $s->internadas = $s->internadas + $cInternar;

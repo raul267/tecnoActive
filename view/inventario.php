@@ -144,7 +144,7 @@
                                     <select class="" name="ddlbl" id="ddlbl">
                                       <option value="">Seleccinoe un bl</option>
                                       <?php foreach ($s->ListarBlDespacho($row->lote) as $a): ?>
-                                        <option value="<?php echo $a->bl?>"><?php echo $a->bl.' || '.$a->cantidad.' Toneladas'?></option>
+                                        <option value="<?php echo $a->bl?>"><?php echo $a->bl.' || '.$a->stock.' Toneladas'?></option>
                                       <?php endforeach; ?>
                                     </select>
 
