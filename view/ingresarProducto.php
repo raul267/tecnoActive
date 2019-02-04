@@ -6,17 +6,17 @@
       <div class="row">
         <div class="col-md-3">
           <label>id producto</label>
-          <input type="text" class=""name="idProducto" id="idProducto" value="">
+          <input type="text" class=""name="idProducto" id="idProducto" value="" required>
         </div>
         <div class="col-md-3">
           <label>Descripcion</label>
-          <input type="text" class=""name="descripcion" id="descripcion" value="">
+          <input type="text" class=""name="descripcion" id="descripcion" value="" required>
         </div>
       </div>
         <div class="row">
           <div class="col-md-2">
             <label>Valor:</label>
-            <input type="text" name="valor" id="valor" value="">
+            <input type="text" name="valor" id="valor" value="" required>
           </div>
         </div>
       </div>

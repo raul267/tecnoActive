@@ -1,4 +1,4 @@
-<div class="col-md-12 text-center"><h1>Registrar Internacion</h1></div>
+ required<div class="col-md-12 text-center"><h1>Registrar Internacion</h1></div>
   <div class="col-md-12" style="background-color:black;"></div>
     <div class="container">
      <div class="" style="margin-top:30px;">
@@ -8,40 +8,40 @@
           <div class="row">
             <div class="col-md-3">
               <label>N° Provision</label>
-              <input type="text" class=""name="nProvision" id="nProvision" value="">
+              <input type="text" class=""name="nProvision" id="nProvision" value="" required>
             </div>
             <div class="col-md-3">
               <label>Transeferido AGA</label>
-              <input type="text" class=""name="transferido" id="transferido" value="">
+              <input type="text" class=""name="transferido" id="transferido" value="" required>
             </div>
           </div>
 
           <div class="row" style="margin-top:10px;">
             <div class="col-md-3">
               <label>Fecha Provision</label>
-              <input type="date" class=""name="fechaProvision" id="fechaProvision" value="">
+              <input type="date" class=""name="fechaProvision" id="fechaProvision" value="" required>
             </div>
             <div class="col-md-3">
               <label>Fecha Pago DI</label>
-              <input type="date" class=""name="fechaPagoDI" id="fechaPagoDI" value="">
+              <input type="date" class=""name="fechaPagoDI" id="fechaPagoDI" value="" required>
             </div>
           </div>
 
           <div class="row" style="margin-top:10px;">
             <div class="col-md-3" style="">
               <label>N° Ident DI</label>
-              <input type="text" class=""name="nIdentDI" id="nIdentDI" value="">
+              <input type="text" class=""name="nIdentDI" id="nIdentDI" value="" required>
             </div>
           </div>
 
           <div class="row" style="margin-top:10px;">
             <div class="col-md-3">
               <label>N° Factura</label>
-              <input type="text" name="fa" id="fa" value="">
+              <input type="text" name="fa" id="fa" value="" required>
             </div>
             <div class="col-md-3">
               <label>Sube tu factura</label>
-              <input type="file" name="faFile" id="faFile" value="">
+              <input type="file" name="faFile" id="faFile" value="" required>
             </div>
           </div>
 

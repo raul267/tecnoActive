@@ -17,77 +17,77 @@
     <div class="col-md-7">
       <div class="col-md-6">
         <label>Linea</label>
-        <input type="text" id="linea" name="linea"  value=""/>
+        <input type="text" id="linea" name="linea"  value="" required/>
       </div>
       <div class="col-md-6" style="margin-top:10px;">
         <label>Moto Nave</label>
-        <input type="text" id="motoNave" name="motoNave"/>
+        <input type="text" id="motoNave" name="motoNave" required/>
       </div>
     </div>
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
           <label>ETD</label>
-          <input type="date" id="fechaPedido" name="fechaPedido"/>
+          <input type="date" id="fechaPedido" name="fechaPedido" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
           <label>ETA</label>
-          <input type="date" id="fechaEntrega" name="fechaEntrega"/>
+          <input type="date" id="fechaEntrega" name="fechaEntrega" required/>
         </div>
       </div>
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
           <label>POL</label>
-          <input type="text" id="pSeguro" name="pSeguro"/>
+          <input type="text" id="pSeguro" name="pSeguro" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
           <label>POD</label>
-          <input type="text" id="puertoDestino" name="puertoDestino"/>
+          <input type="text" id="puertoDestino" name="puertoDestino" required/>
         </div>
       </div>
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
           <label>consignee</label>
-          <td><input type="text" id="consignee" name="consignee"/></td>
+          <td><input type="text" id="consignee" name="consignee" required/></td>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
           <label>Embarcador</label>
-          <input type="text" id="embarcador" name="embarcador"/>
+          <input type="text" id="embarcador" name="embarcador" required/>
         </div>
       </div>
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
           <label>T Maritimo</label>
-          <input type="text" id="tMaritimo" name="tMaritimo"/>
+          <input type="text" id="tMaritimo" name="tMaritimo" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
           <label>coModato</label>
-          <td><input type="text" id="coMODATO" name="coMODATO"/></td>
+          <td><input type="text" id="coMODATO" name="coMODATO" required/></td>
         </div>
       </div>
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
           <label>Gate In</label>
-          <input type="text" id="gateIn" name="gateIn"/>
+          <input type="text" id="gateIn" name="gateIn" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
           <label>Dias Lbres</label>
-          <input type="text" id="diasLibres" name="diasLibres"/>
+          <input type="text" id="diasLibres" name="diasLibres" required/>
         </div>
       </div>
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
           <label>Deposito Dev.Vacio</label>
-          <input type="text" id="depositoDevVacio" name="depositoDevVacio"/>
+          <input type="text" id="depositoDevVacio" name="depositoDevVacio" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
           <label>Lote</label>
-          <input type="text" id="lote" name="lote"/>
+          <input type="text" id="lote" name="lote" required/>
         </div>
 <br><br>
       <div class="col-md-12 text-center">

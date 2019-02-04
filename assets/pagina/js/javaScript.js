@@ -88,8 +88,36 @@
          $("#cantidadEntregas").on("change",function()
          {
             $('#btn').attr('disabled',false);
-         }
-       )});
+         })
+
+         $("#cantidadKG").on("keyup",function()
+         {
+           var cantidad = 0;
+           var total = 0;
+
+           cantidad = $("#cantidadKG").val();
+           total = $("#ttotal").val();
+
+           if (total < cantidad)
+           {
+              alert("La cantidad no puede ser mayor al stock");
+           }
+         })
+
+         $("#cantidadInternar").on("keyup",function()
+         {
+            var cantidad = 0;
+            var porInternar = 0;
+
+            cantidad = $("#cantidadInternar").val();
+            porInternar = $("#vPorInternar").val();
+
+            if (porInternar < cantidad)
+            {
+                alert("No puede superar "+porInternar);
+            }
+         })
+       });
 
     function ValidadCompras()
     {

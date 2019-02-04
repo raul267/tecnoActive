@@ -37,9 +37,10 @@
                     <td><?php if ($row->nProvision !=null && $row->internado ==0): ?>
                      <form class="" action="?c=Usuario&a=InternarPartes&bl=<?php echo $row->bl ?>&total=<?php echo $row->porInternar ?>" method="post">
                       <label>Puedes internar hasta <?php echo $row->porInternar ?>:</label>
-                      <input type="text" name="cantidadInternar" value=""><br>
+                      <input type="hidden" id="vPorInternar" value="<?php echo $row->porInternar ?>">
+                      <input type="text" name="cantidadInternar" id="cantidadInternar"><br>
                     <?php endif; ?> <?php if ($row->nProvision !=null && $row->internado ==0): ?>
-                      <input style="margin-top:10px;" type="submit" name="" value="Internar" class="btn btn-danger">
+                      <input style="margin-top:10px;" type="submit" id="btnInternar" value="Internar" class="btn btn-danger">
                     <?php endif; ?>
                   </form>
                     <a href="<?php if ($row->nProvision !=null): ?>

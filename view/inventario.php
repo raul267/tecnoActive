@@ -88,8 +88,9 @@
               </tr>
           </thead>
           <tbody>
-              <?php foreach ($s->ListarLote() as $row): ?>
+              <?php $x = 0; foreach ($s->ListarLote() as $row): ?>
                 <tr>
+                  <?php $x++; ?>
                    <td><?php echo $row->lote ?></td>
                     <td><?php echo $row->idEmbarque ?></td>
                     <td><?php echo $row->motoNave ?></td>
@@ -102,7 +103,7 @@
                     <td><?php echo $row->stock ?></td>
                     <td><a href="" <?php if($row->stock != 0): ?>
 
-                      data-toggle="modal" data-target="#<?php echo $row->lote ?>exampleModall"
+                      data-toggle="modal" data-target="#<?php echo $x ?>exampleModall"
                     <?php endif; ?>
                        class="<?php if ($row->stock != 0): ?>
                       btn btn-primary
@@ -120,7 +121,7 @@
 
 
                     <!-- Modal -->
-                    <div class="modal fade" id="<?php echo $row->lote ?>exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="<?php echo $x ?>exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -141,7 +142,7 @@
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-2">
                                     <label>Bl</label>
-                                    <select class="" name="ddlbl" id="ddlbl">
+                                    <select class="" name="ddlbl" id="ddlbl" required>
                                       <option value="">Seleccinoe un bl</option>
                                       <?php foreach ($s->ListarBlDespacho($row->lote) as $a): ?>
                                         <option value="<?php echo $a->bl?>"><?php echo $a->bl.' || '.$a->stock.' Toneladas'?></option>
@@ -152,17 +153,18 @@
                                 </div>
                                 <input type="hidden" name="lote" id="lote" value="<?php echo $row->lote ?>">
                                 <input type="hidden" name="idProducto" id="idProducto"value="<?php echo $row->idProducto ?>">
+                                <input type="hidden" name="ttotal" id="ttotal" value="<?php echo $row->stock ?>">
                                 <div class="row">
                                   <div class="col-md-3">
                                     <label>Cliente</label>
-                                    <input type="text" class=""name="cliente" id="cliente" value="">
+                                    <input type="text" class=""name="cliente" id="cliente" value="" required>
                                   </div>
                                 </div>
 
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-3">
                                     <label>Tipo Documento</label>
-                                    <select class="" id="tipoDocumento"name="tipoDocumento">
+                                    <select class="" id="tipoDocumento"name="tipoDocumento" required>
                                       <option value="">Seleccione un tipo</option>
                                       <option value="Factura Electronica">Factura Electronica</option>
                                       <option value="Guia de despacho electronica">Guia de despacho electronica</option>
@@ -173,33 +175,33 @@
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-3" style="">
                                     <label>factura nro</label>
-                                    <input type="text" class=""name="facturaNro" id="facturaNro" value="">
+                                    <input type="text" class=""name="facturaNro" id="facturaNro" value="" required>
                                   </div>
                                 </div>
 
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-3">
                                     <label>Fecha Emision</label>
-                                    <input type="date" name="fechaEmision" id="fechaEmision" value="">
+                                    <input type="date" name="fechaEmision" id="fechaEmision" value="" required>
                                   </div>
                                 </div>
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-3">
                                     <label>Fecha Entrega</label>
-                                    <input type="date" name="fechaEntrega" id="fechaEntrega">
+                                    <input type="date" name="fechaEntrega" id="fechaEntrega" required>
                                   </div>
                                 </div>
 
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-3">
                                     <label>Monto Total</label>
-                                    <input type="text" name="montoTotal" id="montoTotal" value="">
+                                    <input type="text" name="montoTotal" id="montoTotal" value="" required>
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col-md-2">
                                     <label>Cantidad(toneladas)</label>
-                                    <input type="text" name="cantidadKG" id="cantidadKG">
+                                    <input type="text" name="cantidadKG" id="cantidadKG" required>
                                   </div>
                                 </div>
 

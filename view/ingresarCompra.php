@@ -6,19 +6,19 @@
       <div class="row">
         <div class="col-md-2">
           <label>id Compra</label>
-          <input type="text"  class=""name="idCompra" id="idCompra" value="" >
+          <input type="text"  required class=""name="idCompra" id="idCompra" value="" >
         </div>
         <div class="col-md-1" style="margin-left:5px;" id="divDisponible" name="divDisponible"></div>
         <div class="col-md-3">
           <label>Cantidad(toneladas)</label>
-          <input type="text" class=""name="cantidadPedido" id="cantidadPedido" value=""autocomplete="off" pattern="[0-9]+" >
+          <input type="text" required class=""name="cantidadPedido" id="cantidadPedido" value="" >
         </div>
       </div>
 
       <div class="row" style="margin-top:10px;">
         <div class="col-md-2" style="margin-right:100px;">
           <label>Producto:</label>
-          <select id="idProducto" name="idProducto">
+          <select  id="idProducto" name="idProducto" required>
             <option value="0">Selecciona un producto</option>
             <?php foreach ($producto->Listar() as $row): ?>
               <option value="<?php echo $row->idProducto; ?>"><?php echo $row->idProducto; ?></option>
@@ -28,18 +28,18 @@
 
         <div class="col-md-3">
           <label>Proveedor:</label>
-          <input type="text" name="proveedor" id="proveedor" value="" >
+          <input required type="text" name="proveedor" id="proveedor" value="" >
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-3">
           <label>Fecha Inicio</label>
-          <input type="date" name="fechaInicio" id="fechaInicio" value="" >
+          <input required type="date" name="fechaInicio" id="fechaInicio" value="" >
         </div>
         <div class="col-md-3">
           <label>Fecha Termino</label>
-          <input type="date" name="fechaTermino" id="fechaTermino" value="" >
+          <input required type="date" name="fechaTermino" id="fechaTermino" value="" >
         </div>
       </div>
       <div class="col-md-12" style="background-color:black; margin-top:10px; margin-bottom:15px;"></div>
