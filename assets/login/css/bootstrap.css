@@ -41,6 +41,21 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'stencil';
+  src:url('../fonts/stencil.ttf');
+  }
+
+}
+
+  .pruebaa
+  {
+    Font-family: stencil;
+    src:url('../assets/pagina/fonts/stencil.ttf');
+
+  }
+
+    
 html {
   font-family: sans-serif;
   line-height: 1.15;

@@ -27,10 +27,17 @@
 	<link rel="stylesheet" type="text/css" href="assets/login/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body>
-
+<body style="background-image: url('assets/login/images/fondoCortado.jpg');">
+<div class="col-md-12" style="">
+	<div class="col-md-6">
+		<h1 style="display:inline-block;">Desarrollado por:</h1>
+	</div>
+	<div class="col-md-6">
+		<a href="https://www.tecnoactive.cl"><img style="display:inline-block; width:501; height:60px;"src="assets/login/images/logotecno.png" alt=""></a>
+	</div>
+</div>
 	<div class="limiter">
-		<div class="container-login100">
+		<div class="container-login100"  style="opacity:0.9;">
 			<div class="wrap-login100 p-b-160 p-t-50">
 				<div class="text-center">
 					<img src="assets/login/images/fondoLogin.jpg" alt="" style="height:300px; width:300px;">
@@ -39,9 +46,6 @@
 					<span class="login100-form-label p-b-43">
 						Bienvenidos al sistema de gestión de PDV CHILE
 					</span>
-
-
-
 					<div class="wrap-input100 rs1 validate-input" data-validate = "Debe ingresar su nombre de usuario">
 						<input class="input100" type="text" id="txtNombre" name="txtNombre" required>
 						<label for="txtNombre" class="label-input100">Usuario</label>

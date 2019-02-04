@@ -74,7 +74,6 @@
               <tr>
 
                   <th>LOTE</th>
-                  <th>CONTRATO</th>
                   <th>NAVE</th>
                   <th>PRODUCTO</th>
                   <th>CNT</th>
@@ -92,7 +91,6 @@
                 <tr>
                   <?php $x++; ?>
                    <td><?php echo $row->lote ?></td>
-                    <td><?php echo $row->idEmbarque ?></td>
                     <td><?php echo $row->motoNave ?></td>
                     <td><?php echo $row->idProducto ?></td>
                     <td><?php echo $row->cantContenedores ?></td>
@@ -225,7 +223,6 @@
             <tfoot>
               <tr>
                 <th>LOTE</th>
-                <th>CONTRATO</th>
                 <th>NAVE</th>
                 <th>PRODUCTO</th>
                 <th>CNT</th>

@@ -95,12 +95,12 @@
            var cantidad = 0;
            var total = 0;
 
-           cantidad = $("#cantidadKG").val();
-           total = $("#ttotal").val();
+           cantidad = parseFloat($("#cantidadKG").val());
+           total = parseFloat($("#ttotal").val());
 
            if (total < cantidad)
            {
-              alert("La cantidad no puede ser mayor al stock");
+              alert("La cantidad no puede ser mayor que el stock");
            }
          })
 
@@ -109,12 +109,15 @@
             var cantidad = 0;
             var porInternar = 0;
 
-            cantidad = $("#cantidadInternar").val();
-            porInternar = $("#vPorInternar").val();
+            cantidad = parseFloat($("#cantidadInternar").val());
+            porInternar = parseFloat($("#vPorInternar").val());
 
-            if (porInternar < cantidad)
+            console.log(cantidad);
+            console.log(porInternar);
+            if (porInternar  < cantidad)
             {
                 alert("No puede superar "+porInternar);
+
             }
          })
        });
