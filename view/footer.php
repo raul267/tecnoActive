@@ -1,3 +1,9 @@
+<div class="page-header">
+  <label style="color:black; ">
+    Desarrollado por: <a href="https://www.tecnoactive.cl"><img style="display:inline-block; width:301; height:30px;"src="assets/pagina/images/logo.png" alt=""></a>
+  </label>
+
+</div>
 <!-- Modal -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -19,6 +25,7 @@
     </div>
   </div>
 </div>
+
 
 <script type="text/javascript">
   $('#myModal').on('shown.bs.modal', function () {

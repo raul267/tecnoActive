@@ -141,6 +141,20 @@ iframe {
   color: white;
 }
 
+.page-header {
+  padding-bottom:9px;
+  margin:40px 0 20px;
+  border-bottom:1px solid #eee;
+}
+
+.login-clean {
+  background:#f1f7fc;
+  padding:80px 0;
+}
+
+
+
+
 
 
 /*//////////////////////////////////////////////////////////////////
