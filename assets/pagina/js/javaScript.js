@@ -12,6 +12,7 @@
       }
       //$('#btn').attr('disabled',true);
         $('#btnRegistrar').attr('disabled',false);
+        $('#btn').attr('disabled',true);
     }
 
     function AgregarBl()

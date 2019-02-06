@@ -44,6 +44,17 @@ class UsuarioController
       require_once 'view/login.php';
     }
 
+    public function Admin()
+    {
+      $u = new Usuario();
+      $p = new Producto();
+
+      require_once 'view/headerAdmin.php';
+      require_once 'view/admin.php';
+      require_once 'view/footer.php';
+
+    }
+
     public function Compras()
     {
       $c = new Compra();
@@ -150,15 +161,34 @@ class UsuarioController
 
     public function Ingresar()
     {
+      date_default_timezone_set('America/Santiago');
       $nombre = $_REQUEST['txtNombre'];
       $password = $_REQUEST['txtPassword'];
+      $ultimaConexion = date('m/d/Y g:ia');
 
       $u = $this->model_us->ListarNombre($nombre);
 
       if ($nombre == $u->nombre && $password == $u->password)
       {
-          header('Location: index.php?c=Usuario&a=Compras');
-          $_SESSION['nombre_usuario'] = $u->nombre;
+          if ($u->tipoUsuario == 0 )
+          {
+
+            $_SESSION['nombre_usuario'] = $u->nombre;
+            $_SESSION['id_usuario'] = $u->idUsuario;
+            $_SESSION['ultima'] = $u->ultimaConexion;
+
+            header('Location: index.php?c=Usuario&a=Admin');
+
+
+          }
+          else
+          {
+            header('Location: index.php?c=Usuario&a=Compras');
+            $_SESSION['nombre_usuario'] = $u->nombre;
+            $_SESSION['id_usuario'] = $u->idUsuario;
+            $_SESSION['ultima'] = $u->ultimaConexion;
+            $this->model_us->ActualizarConeccion($ultimaConexion,$u->idUsuario);
+          }
 
       }
       else
@@ -175,6 +205,8 @@ class UsuarioController
       session_destroy();
       header('Location:index.php');
     }
+
+
 
     public function IngresarCompra()
     {
@@ -201,6 +233,14 @@ class UsuarioController
       require_once('view/footer.php');
     }
 
+    public function IngresarUsuario()
+    {
+      $u = new Usuario();
+      require_once('view/header.php');
+      require_once('view/ingresarUsuario.php');
+      require_once('view/footer.php');
+    }
+
     public function ModificarProducto()
     {
       $p = new Producto();
@@ -219,6 +259,17 @@ class UsuarioController
       require_once('view/header.php');
       require_once('view/modificarDespachoSemanal.php');
       require_once('view/footer.php');
+
+    }
+
+    public function InsertarUsuario()
+    {
+      $u = new Usuario();
+      $u->nombre = $_REQUEST['nombre'];
+      $u->password = $_REQUEST['password'];
+
+      $this->model_us->Insertar($u);
+        echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Admin";</script>';
 
     }
 
@@ -415,6 +466,13 @@ class UsuarioController
 
       $this->model_pro->Delete($_REQUEST['id']);
       echo '<script language="javascript">alert("Exito al eliminar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
+    }
+
+    public function EliminarUsuario()
+    {
+
+      $this->model_us->Delete($_REQUEST['id']);
+      echo '<script language="javascript">alert("Exito al eliminar"); window.location.href="index.php?c=Usuario&a=Admin";</script>';
     }
 
 

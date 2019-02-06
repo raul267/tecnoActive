@@ -25,7 +25,7 @@
 
      public function Listar()
      {
-         $sql = $this->conn->prepare("SELECT * FROM usuario");
+         $sql = $this->conn->prepare("SELECT * FROM usuario where tipoUsuario = 1");
          $sql->execute();
          return $sql->fetchAll(PDO::FETCH_OBJ);
      }
@@ -36,4 +36,16 @@
        $sql->execute(array($nombre));
        return $sql->fetch(PDO::FETCH_OBJ);
      }
+
+     public function ActualizarConeccion($ultimaConexion,$id)
+     {
+       $sql = $this->conn->prepare("UPDATE `usuario` SET `ultimaConexion`=? WHERE idUsuario = ?");
+       $sql->execute(array($ultimaConexion,$id));
+     }
+
+     public function Delete($id)
+           {
+             $sql = $this->conn->prepare("DELETE FROm usuario WHERE idUsuario = ?");
+             $sql->execute(array($id));
+           }
 }

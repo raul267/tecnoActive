@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="assets/pagina/css/miCSS.css">
     <link rel="stylesheet" href="assets/pagina/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="assets/pagina/DataTables/datatables.min.css"/>
-
+    <link rel="stylesheet" type="text/css" href="assets/pagina/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/pagina/datatables.min.js"/>
     <script src="assets/pagina/js/sweet-alert.js"></script>
 
     <meta charset="utf-8">
@@ -15,7 +15,6 @@
   </head>
   <body>
     <div class="topnav" id="myTopnav" style="width:100%; ">
-      <a href="?c=Usuario&a=AdminProductos">Productos</a>
       <a href="?c=Usuario&a=Compras">Compras</a>
       <a href="?c=Usuario&a=Embarques">Embarques</a>
       <a href="?c=Usuario&a=Inventario">Inventario</a>
@@ -26,6 +25,7 @@
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
+      <label style="color:white;">Tu ultima coneccíon fue : <?php echo $_SESSION['ultima']; ?></label>
           <button type="button" class="btn btn-success"style="float:right; margin-top:8px;" name="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Bienvenido <?php echo $_SESSION['nombre_usuario'] ?></button>
         </div>
         <br><br><br>
