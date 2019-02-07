@@ -206,7 +206,24 @@ class UsuarioController
       header('Location:index.php');
     }
 
+    public function CambiarPassword()
+    {
+       $u = new Usuario();
+       $antigua = $_REQUEST['passActual'];
+       $nueva = $_REQUEST['passNueva'];
+       $id = $_REQUEST['id'];
 
+       $u = $this->model_us->ListarID($id);
+       if ($u->password == $antigua)
+       {
+         $this->model_us->ActualizarPassword($nueva,$id);
+         echo '<script language="javascript">alert("Se cambio la contraseña"); window.location.href="?c=Usuario&a=Compras";</script>';
+       }
+       else
+       {
+             echo '<script language="javascript">alert("Error al cambiar la contraseña"); window.location.href="?c=Usuario&a=Compras";</script>';
+       }
+    }
 
     public function IngresarCompra()
     {
@@ -375,7 +392,8 @@ class UsuarioController
           $s = new Stock();
           $de = new Despachosemanal();
 
-         $d->cliente = $_REQUEST['cliente'];
+
+          $d->cliente = $_REQUEST['cliente'];
           $d->tipoDocumento = $_REQUEST['tipoDocumento'];
           $d->facturaNro = $_REQUEST['facturaNro'];
           $d->fechaEmision = $_REQUEST['fechaEmision'];

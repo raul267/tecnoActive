@@ -691,3 +691,23 @@ $(function()
         swal("Exito al Registrar");
 
       }
+
+      function MostrarContraseñaActual()
+      {
+          var x = document.getElementById("passActual");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+      }
+
+      function MostrarContraseñaNueva()
+      {
+          var x = document.getElementById("passNueva");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+      }

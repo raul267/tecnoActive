@@ -14,7 +14,7 @@
     <title></title>
   </head>
   <body>
-    <div class="topnav" id="myTopnav" style="width:100%; ">
+    <div class="topnav" id="myTopnav" style="width:100%;background: rgba(0,0,0,0.9);width: 100%;position: fixed;z-index: 100; ">
       <a href="?c=Usuario&a=Admin">Inicio</a>
       <a href="?c=Usuario&a=Compras">Compras</a>
       <a href="?c=Usuario&a=Embarques">Embarques</a>

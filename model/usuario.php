@@ -30,6 +30,13 @@
          return $sql->fetchAll(PDO::FETCH_OBJ);
      }
 
+     public function ListarID($id)
+     {
+       $sql = $this->conn->prepare("SELECT * from usuario where idUsuario = ?");
+       $sql->execute(array($id));
+       return $sql->fetch(PDO::FETCH_OBJ);
+     }
+
      public function ListarNombre($nombre)
      {
        $sql = $this->conn->prepare("SELECT * from usuario where nombre = ?");
@@ -41,6 +48,12 @@
      {
        $sql = $this->conn->prepare("UPDATE `usuario` SET `ultimaConexion`=? WHERE idUsuario = ?");
        $sql->execute(array($ultimaConexion,$id));
+     }
+
+     public function ActualizarPassword($pass,$id)
+     {
+       $sql = $this->conn->prepare("UPDATE `usuario` SET `password`=? WHERE idUsuario = ?");
+       $sql->execute(array($pass,$id));
      }
 
      public function Delete($id)
