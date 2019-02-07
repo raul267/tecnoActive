@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
     <link rel="stylesheet" href="assets/menu/pagina.css">
     <link rel="stylesheet" href="assets/pagina/css/bootstrap.css">
     <link rel="stylesheet" href="assets/pagina/css/miCSS.css">
@@ -15,6 +16,9 @@
   </head>
   <body>
     <div class="topnav" id="myTopnav" style="width:100%; background: rgba(0,0,0,0.9);width: 100%;position: fixed;z-index: 100;">
+      <?php if ($_SESSION['tipo'] == 0): ?>
+        <a href="?c=Usuario&a=Admin">Inicio</a>
+      <?php endif; ?>
       <a href="?c=Usuario&a=Compras">Compras</a>
       <a href="?c=Usuario&a=Embarques">Embarques</a>
       <a href="?c=Usuario&a=Inventario">Inventario</a>
@@ -28,7 +32,10 @@
       <label style="color:white;"><?php if ($_SESSION['ultima'] !=null): ?>
         Tu ultima coneccíon fue : <?php echo $_SESSION['ultima']; ?>
       <?php endif; ?></label>
-          <button type="button" class="btn btn-primary btn-sm"style="float:right; margin:8px;" name="button" class="btn btn-success" data-toggle="modal" data-target="#modalpass">Cambiar contraseña</button>
+      <?php if ($_SESSION['tipo'] == 1): ?>
+        <button type="button" class="btn btn-primary btn-sm"style="float:right; margin:8px;" name="button" class="btn btn-success" data-toggle="modal" data-target="#modalpass">Cambiar contraseña</button>
+      <?php endif; ?>
+
           <button type="button" class="btn btn-success"style="float:right; margin-top:8px;" name="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Bienvenido <?php echo $_SESSION['nombre_usuario'] ?></button>
         </div>
         <br><br><br>

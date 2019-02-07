@@ -49,7 +49,7 @@ class UsuarioController
       $u = new Usuario();
       $p = new Producto();
 
-      require_once 'view/headerAdmin.php';
+      require_once 'view/header.php';
       require_once 'view/admin.php';
       require_once 'view/footer.php';
 
@@ -176,6 +176,7 @@ class UsuarioController
             $_SESSION['nombre_usuario'] = $u->nombre;
             $_SESSION['id_usuario'] = $u->idUsuario;
             $_SESSION['ultima'] = $u->ultimaConexion;
+            $_SESSION['tipo'] = $u->tipoUsuario;
 
             header('Location: index.php?c=Usuario&a=Admin');
 
@@ -183,11 +184,14 @@ class UsuarioController
           }
           else
           {
-            header('Location: index.php?c=Usuario&a=Compras');
+
             $_SESSION['nombre_usuario'] = $u->nombre;
             $_SESSION['id_usuario'] = $u->idUsuario;
             $_SESSION['ultima'] = $u->ultimaConexion;
+            $_SESSION['tipo'] = $u->tipoUsuario;
+
             $this->model_us->ActualizarConeccion($ultimaConexion,$u->idUsuario);
+            header('Location: index.php?c=Usuario&a=Compras');
           }
 
       }
