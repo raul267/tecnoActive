@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/pagina/datatables.min.css"/>
     <link rel="stylesheet" type="text/css" href="assets/pagina/datatables.min.js"/>
     <script src="assets/pagina/js/sweet-alert.js"></script>
+    <link rel="shortcut icon" href="assets/login/images/fondoLogin.ico" />
 
     <meta charset="utf-8">
     <title></title>

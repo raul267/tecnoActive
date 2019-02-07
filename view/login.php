@@ -25,6 +25,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="assets/login/css/main.css">
+	<link rel="shortcut icon" href="assets/login/images/fondoLogin.ico" />
 <!--===============================================================================================-->
 </head>
 
