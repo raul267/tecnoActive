@@ -19,8 +19,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($in->Listar() as $row): ?>
+                <?php $x = 0;foreach ($in->Listar() as $row): ?>
                   <tr>
+                    <?php $x++; ?>
                     <td><?php echo $row->bl ?></td>}
                     <td><?php echo $row->fechaPedido ?></td>
                     <td><?php echo $row->idProducto ?></td>
@@ -38,7 +39,7 @@
                      <form class="" action="?c=Usuario&a=InternarPartes&bl=<?php echo $row->bl ?>&total=<?php echo $row->porInternar ?>" method="post">
                       <label>Puedes internar hasta <?php echo $row->porInternar ?>:</label>
                       <input type="hidden" id="vPorInternar" value="<?php echo $row->porInternar ?>">
-                      <input type="text" name="cantidadInternar" id="cantidadInternar"><br>
+                      <input type="text" name="cantidadInternar<?php echo $x?>" id="cantidadInternar<?php echo $x?>"><br>
                     <?php endif; ?> <?php if ($row->nProvision !=null && $row->internado ==0): ?>
                       <input style="margin-top:10px;" type="submit" id="btnInternar" value="Internar" class="btn btn-danger">
                     <?php endif; ?>
@@ -68,6 +69,7 @@
 
                 <?php endforeach; ?>
 
+
               </tbody>
               <tfoot>
                  <tr>
@@ -85,6 +87,7 @@
                   </tr>
               </tfoot>
               </table>
+              <input type="hidden" name="cfor2" id="cfor2" value="<?php echo $x ?>">
           </div>
 
 

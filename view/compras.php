@@ -63,7 +63,7 @@
               </tfoot>
               </table>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" >
             <div class="row">
               <div class="col-md-6 text-center">
                   <label>Productos comprados</label>

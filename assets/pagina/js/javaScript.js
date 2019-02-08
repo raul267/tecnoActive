@@ -83,6 +83,7 @@
       }
     }
 
+
     // Para cambiar el estado del boton agreagar embarque
     $(function()
       {
@@ -90,47 +91,34 @@
          {
             $('#btn').attr('disabled',false);
          })
-        /* var x = document.getElementById("cfor").value;
-         console.log(x);
+         var x = document.getElementById("cfor").value;
 
          for (var i = 1; i <=x; i++)
          {
-           $("#cantidadKG"+i).on("keyup",function()
-           {
-             var cantidad = 0;
-             var total = 0;
-
-             cantidad = parseFloat(document.getElementById("cantidadKG"+i));
-             total = parseFloat(document.getElementById("ttotal"+i));
-
-             console.log("hola"+i);
-
-             if (total < cantidad)
+           $("#cantidadKG"+i).on("keyup",{value:i},function(event)
              {
-                alert("La cantidad no puede ser mayor que el stock");
-             }
+               var cantidad = 0;
+               var total = 0;
+               var e = event.data.value;
+                 cantidad = parseFloat($("#cantidadKG"+e).val());
+                 total = parseFloat($("#ttotal"+e).val());
 
+                 console.log(cantidad);
+                 console.log(total);
 
-           })
-         }*/
-
-
-         $("#cantidadInternar").on("keyup",function()
-         {
-            var cantidad = 0;
-            var porInternar = 0;
-
-            cantidad = parseFloat($("#cantidadInternar").val());
-            porInternar = parseFloat($("#vPorInternar").val());
-
-            console.log(cantidad);
-            console.log(porInternar);
-            if (porInternar  < cantidad)
-            {
-                alert("No puede superar "+porInternar);
-
-            }
-         })
+                 if (total < cantidad)
+                 {
+                    alert("La cantidad no puede ser mayor que el stock");
+                 }
+             });
+         }
+         var o = $("#cfor2").val();
+         console.log(o);
+        for (var r = 1; r <=o; r++)
+        $("#cantidadInternar"+r).on("keyup",{value:r},function(event)
+        {
+          console.log(r);
+        })
        });
 
     function ValidadCompras()
