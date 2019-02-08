@@ -6,16 +6,16 @@
             <thead>
                 <tr>
                   <th>Contrato</th>
-                  <th>Fecha Provision</th>
+                  <th>Fecha Provisión</th>
                   <th>Producto</th>
                   <th>Toneladas</th>
-                  <th>N° Provision</th>
+                  <th>N° Provisión</th>
                   <th>$ Transferido a AGA</th>
                   <th>N ident DI</th>
                   <th>Fecha pago DI</th>
                   <th>FA</th>
                   <th>PDF</th>
-                  <th>Accion</th>
+                  <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -72,16 +72,16 @@
               <tfoot>
                  <tr>
                    <th>Contrato</th>
-                   <th>Fecha Provision</th>
+                   <th>Fecha Provisión</th>
                    <th>Producto</th>
                    <th>Toneladas</th>
-                   <th>N° Provision</th>
+                   <th>N° Provisión</th>
                    <th>$ Transferido a AGA</th>
                    <th>N ident DI</th>
                    <th>Fecha pago DI</th>
                    <th>FA</th>
                    <th>PDF</th>
-                   <th>Accion</th>
+                   <th>Acción</th>
                   </tr>
               </tfoot>
               </table>

@@ -1,4 +1,4 @@
- required<div class="col-md-12 text-center"><h1>Registrar Internacion</h1></div>
+ <div class="col-md-12 text-center"><h1>Registrar Internacion</h1></div>
   <div class="col-md-12" style="background-color:black;"></div>
     <div class="container">
      <div class="" style="margin-top:30px;">
@@ -7,18 +7,18 @@
           <input type="hidden" name="bl" value="<?php echo $_REQUEST['bl'] ?>">
           <div class="row">
             <div class="col-md-3">
-              <label>N° Provision</label>
+              <label>N° Provisión</label>
               <input type="text" class=""name="nProvision" id="nProvision" value="" required>
             </div>
             <div class="col-md-3">
-              <label>Transeferido AGA</label>
+              <label>Transferido AGA</label>
               <input type="text" class=""name="transferido" id="transferido" value="" required>
             </div>
           </div>
 
           <div class="row" style="margin-top:10px;">
             <div class="col-md-3">
-              <label>Fecha Provision</label>
+              <label>Fecha Provisión</label>
               <input type="date" class=""name="fechaProvision" id="fechaProvision" value="" required>
             </div>
             <div class="col-md-3">

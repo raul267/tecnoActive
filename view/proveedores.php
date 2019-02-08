@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 <th>Proveedor</th>
-                <th>Fecha generacion</th>
+                <th>Fecha generación</th>
                 <th>Fecha pago</th>
                 <th>Valor neto</th>
                 <th>Abrir</th>
@@ -32,7 +32,7 @@
           <tfoot>
             <tr>
               <th>Proveedor</th>
-              <th>Fecha generacion</th>
+              <th>Fecha generación</th>
               <th>Fecha pago</th>
               <th>Valor neto</th>
               <th>Abrir</th>

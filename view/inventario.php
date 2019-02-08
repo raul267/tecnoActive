@@ -15,12 +15,12 @@
                 <th>PRODUCTO</th>
                 <th>CNT</th>
                 <th>LOTE</th>
-                <th>INGRESO ALMACEN</th>
+                <th>INGRESO ALMACÉN</th>
                 <th>INTERNADAS</th>
                 <th>POR INTERNAR</th>
                 <th>DESPACHADAS</th>
                 <th>STOCK</th>
-                <th>RESOLUCION</th>
+                <th>RESOLUCIÓN</th>
 
             </tr>
         </thead>
@@ -57,12 +57,12 @@
               <th>PRODUCTO</th>
               <th>CNT</th>
               <th>LOTE</th>
-              <th>INGRESO ALMACEN</th>
+              <th>INGRESO ALMACÉN</th>
               <th>INTERNADAS</th>
               <th>POR INTERNAR</th>
               <th>DESPACHADAS</th>
               <th>STOCK</th>
-              <th>RESOLUCION</th>
+              <th>RESOLUCIÓN</th>
             </tr>
           </tfoot>
       </table>
@@ -77,12 +77,12 @@
                   <th>NAVE</th>
                   <th>PRODUCTO</th>
                   <th>CNT</th>
-                  <th>INGRESO ALMACEN</th>
+                  <th>INGRESO ALMACÉN</th>
                   <th>INTERNADAS</th>
                   <th>POR INTERNAR</th>
                   <th>DESPACHADAS</th>
                   <th>STOCK</th>
-                  <th>Despachar</th>
+                  <th>DESPACHAR</th>
 
               </tr>
           </thead>
@@ -141,7 +141,7 @@
                                   <div class="col-md-2">
                                     <label>Bl</label>
                                     <select class="" name="ddlbl" id="ddlbl" required>
-                                      <option value="">Seleccinoe un bl</option>
+                                      <option value="">Seleccione un bl</option>
                                       <?php foreach ($s->ListarBlDespacho($row->lote) as $a): ?>
                                         <option value="<?php echo $a->bl?>"><?php echo $a->bl.' || '.$a->stock.' Toneladas'?></option>
                                       <?php endforeach; ?>
@@ -172,14 +172,14 @@
 
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-3" style="">
-                                    <label>factura nro</label>
+                                    <label>Factura Nro.</label>
                                     <input type="text" class=""name="facturaNro" id="facturaNro" value="" required>
                                   </div>
                                 </div>
 
                                 <div class="row" style="margin-top:10px;">
                                   <div class="col-md-3">
-                                    <label>Fecha Emision</label>
+                                    <label>Fecha Emisión</label>
                                     <input type="date" name="fechaEmision" id="fechaEmision" value="" required>
                                   </div>
                                 </div>
@@ -198,7 +198,7 @@
                                 </div>
                                 <div class="row">
                                   <div class="col-md-2">
-                                    <label>Cantidad(toneladas)</label>
+                                    <label>Cantidad (toneladas)</label>
                                     <input type="text" name="cantidadKG" id="cantidadKG" required>
                                   </div>
                                 </div>
@@ -218,7 +218,7 @@
 
                 </tr>
               <?php endforeach; ?>
-
+              <input type="hidden" name="cfor" id="cfor" value="<?php echo $x ?>">
             </tbody>
             <tfoot>
               <tr>
@@ -226,12 +226,12 @@
                 <th>NAVE</th>
                 <th>PRODUCTO</th>
                 <th>CNT</th>
-                <th>INGRESO ALMACEN</th>
+                <th>INGRESO ALMACÉN</th>
                 <th>INTERNADAS</th>
                 <th>POR INTERNAR</th>
                 <th>DESPACHADAS</th>
                 <th>STOCK</th>
-                <th>Despachar</th>
+                <th>DESPACHAR</th>
               </tr>
             </tfoot>
 

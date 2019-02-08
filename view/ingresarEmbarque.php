@@ -6,7 +6,7 @@
     <input type="hidden" name="cantBl" id="cantBl" value="1">
     <input type="hidden" name="idEmbarque" id="idEmbarque"value="<?php echo $_REQUEST['id']; ?>">
     <label>BL</label>
-    <div id="nBl" class="col-md-12"><div class="col-md-9"><input type="text" placeholder="bl"id="bl1" required  name="bl1"/> <input type="text" required placeholder="cantidad(toneladas)" id="cantidad1" name="cantidad1"/></div></div><div id="blDisponible"></div>
+    <div id="nBl" class="col-md-12"><div class="col-md-9"><input type="text" placeholder="bl"id="bl1" required  name="bl1"/> <input type="text" required placeholder="cantidad (toneladas)" id="cantidad1" name="cantidad1"/></div></div><div id="blDisponible"></div>
     <div class="col-md-2 text-center" style="margin-top:10px;"><button type="button" class="btn btn-primary btn-sm" onclick="AgregarBl()"><span class="glyphicon glyphicon-plus"></span></button></div>
     <div class="col-md-2 text-center" style="margin-top:10px;"><button type="button" class="btn btn-primary btn-sm" onclick="EliminarBl()"><span class="glyphicon glyphicon-minus"></span></button></div>
 
@@ -16,7 +16,7 @@
     <br>
     <div class="col-md-7">
       <div class="col-md-6">
-        <label>Linea</label>
+        <label>Línea</label>
         <input type="text" id="linea" name="linea"  value="" required/>
       </div>
       <div class="col-md-6" style="margin-top:10px;">
@@ -49,7 +49,7 @@
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
-          <label>consignee</label>
+          <label>Consignee</label>
           <td><input type="text" id="consignee" name="consignee" required/></td>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
@@ -60,7 +60,7 @@
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
-          <label>T Maritimo</label>
+          <label>T Marítimo</label>
           <input type="text" id="tMaritimo" name="tMaritimo" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
@@ -75,14 +75,14 @@
           <input type="text" id="gateIn" name="gateIn" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">
-          <label>Dias Lbres</label>
+          <label>Días Libres</label>
           <input type="text" id="diasLibres" name="diasLibres" required/>
         </div>
       </div>
 <br>
       <div class="col-md-7">
         <div class="col-md-6">
-          <label>Deposito Dev.Vacio</label>
+          <label>Depósito Dev.Vacío</label>
           <input type="text" id="depositoDevVacio" name="depositoDevVacio" required/>
         </div>
         <div class="col-md-6" style="margin-top:10px;">

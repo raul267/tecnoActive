@@ -32,7 +32,7 @@
                     <th>Proveedor</th>
                     <th>CNT</th>
                     <th>Fecha Inicio</th>
-                    <th>Fecha Termino</th>
+                    <th>Fecha Término</th>
                     <th>Embarques</th>
                 </tr>
             </thead>
@@ -57,7 +57,7 @@
                    <th>Proveedor</th>
                    <th>CNT</th>
                    <th>Fecha Inicio</th>
-                   <th>Fecha Termino</th>
+                   <th>Fecha Término</th>
                    <th>Embarques</th>
                  </tr>
               </tfoot>

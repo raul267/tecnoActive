@@ -467,7 +467,7 @@ class UsuarioController
        $p->valor = $_REQUEST['valor'];
 
        $this->model_pro->Insertar($p);
-       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
+       echo '<script language="javascript">alert("Exito al guardar"); window.location.href="index.php?c=Usuario&a=Admin";</script>';
     }
 
 
@@ -480,14 +480,14 @@ class UsuarioController
        $p->idProducto = $_REQUEST['id'];
        $this->model_pro->Update($p);
 
-       echo '<script language="javascript">alert("Exito al modificar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
+       echo '<script language="javascript">alert("Exito al modificar"); window.location.href="index.php?c=Usuario&a=Admin";</script>';
     }
 
     public function EliminarProducto()
     {
 
       $this->model_pro->Delete($_REQUEST['id']);
-      echo '<script language="javascript">alert("Exito al eliminar"); window.location.href="index.php?c=Usuario&a=AdminProductos";</script>';
+      echo '<script language="javascript">alert("Exito al eliminar"); window.location.href="index.php?c=Usuario&a=Admin";</script>';
     }
 
     public function EliminarUsuario()

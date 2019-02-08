@@ -5,12 +5,12 @@
     <div class="row" style="margin-top:80px;">
       <div class="row">
         <div class="col-md-2">
-          <label>id Compra</label>
+          <label>ID Compra</label>
           <input type="text"  required class=""name="idCompra" id="idCompra" value="" >
         </div>
         <div class="col-md-1" style="margin-left:5px;" id="divDisponible" name="divDisponible"></div>
         <div class="col-md-3">
-          <label>Cantidad(toneladas)</label>
+          <label>Cantidad (toneladas)</label>
           <input type="text" required class=""name="cantidadPedido" id="cantidadPedido" value="" >
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div class="col-md-2" style="margin-right:100px;">
           <label>Producto:</label>
           <select  id="idProducto" name="idProducto" required>
-            <option value="0">Selecciona un producto</option>
+            <option value="0">Seleccione un producto</option>
             <?php foreach ($producto->Listar() as $row): ?>
               <option value="<?php echo $row->idProducto; ?>"><?php echo $row->idProducto; ?></option>
             <?php endforeach; ?>
@@ -38,7 +38,7 @@
           <input required type="date" name="fechaInicio" id="fechaInicio" value="" >
         </div>
         <div class="col-md-3">
-          <label>Fecha Termino</label>
+          <label>Fecha Término</label>
           <input required type="date" name="fechaTermino" id="fechaTermino" value="" >
         </div>
       </div>

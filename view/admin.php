@@ -5,7 +5,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <th>Valor</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
@@ -28,7 +28,7 @@
           <tfoot>
              <tr>
                <th>ID</th>
-               <th>Descripcion</th>
+               <th>Descripción</th>
                <th>Valor</th>
                <th>Editar</th>
                <th>Eliminar</th>
@@ -47,7 +47,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Ultima Coneccion</th>
+                <th>Última Conección</th>
                 <th>Eliminar</th>
 
             </tr>
@@ -66,7 +66,7 @@
           <tfoot>
              <tr>
                <th>ID</th>
-               <th>Ultima Coneccion</th>
+               <th>Última Conección</th>
                <th>Eliminar</th>
              </tr>
           </tfoot>

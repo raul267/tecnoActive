@@ -20,7 +20,7 @@
       var i = document.getElementById("cantBl").value;
       i = parseInt(i) + 1;
       document.getElementById("cantBl").value = i;
-        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" required id="bl'+i+'" name="bl'+i+'"/><input placeholder="cantidad(toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
+        $("#nBl").append('<br><br><div class="col-md-9" style="margin-top:10px;"><input placeholder="bl "type="text" required id="bl'+i+'" name="bl'+i+'"/><input placeholder="cantidad (toneladas)" required type="text" id="cantidad'+i+'" name="cantidad'+i+'"/></div>');
     }
     function EliminarBl()
     {
@@ -90,20 +90,30 @@
          {
             $('#btn').attr('disabled',false);
          })
+        /* var x = document.getElementById("cfor").value;
+         console.log(x);
 
-         $("#cantidadKG").on("keyup",function()
+         for (var i = 1; i <=x; i++)
          {
-           var cantidad = 0;
-           var total = 0;
-
-           cantidad = parseFloat($("#cantidadKG").val());
-           total = parseFloat($("#ttotal").val());
-
-           if (total < cantidad)
+           $("#cantidadKG"+i).on("keyup",function()
            {
-              alert("La cantidad no puede ser mayor que el stock");
-           }
-         })
+             var cantidad = 0;
+             var total = 0;
+
+             cantidad = parseFloat(document.getElementById("cantidadKG"+i));
+             total = parseFloat(document.getElementById("ttotal"+i));
+
+             console.log("hola"+i);
+
+             if (total < cantidad)
+             {
+                alert("La cantidad no puede ser mayor que el stock");
+             }
+
+
+           })
+         }*/
+
 
          $("#cantidadInternar").on("keyup",function()
          {

@@ -1,4 +1,4 @@
- required<div class="col-md-12 text-center"><h1>Algo con los provedores</h1></div>
+ <div class="col-md-12 text-center"><h1>Algo con los provedores</h1></div>
   <div class="col-md-12" style="background-color:black;"></div>
 <div class="container">
   <form action="?c=Usuario&a=GuardarProveedores" border="1" style="" enctype="multipart/form-data" method="post">
@@ -14,7 +14,7 @@
 
       <div class="row" style="margin-top:10px;">
         <div class="col-md-3">
-          <label>Fecha Generacion</label>
+          <label>Fecha Generación</label>
           <input type="date" name="fechaGeneracion" id="fechaGeneracion" value="" required>
         </div>
         <div class="col-md-3">
@@ -29,7 +29,7 @@
           <input type="text" name="valor" id="valor" value="" required>
         </div>
         <div class="col-md-3">
-          <label>Sube tu factura</label>
+          <label>Sube tu Factura</label>
           <input type="file" name="factura" id="factura" value="" required>
         </div>
       </div>

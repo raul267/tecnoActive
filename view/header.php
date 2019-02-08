@@ -12,7 +12,7 @@
     <script src="assets/pagina/js/sweet-alert.js"></script>
     <link rel="shortcut icon" href="assets/login/images/fondoLogin.ico" />
     <meta charset="utf-8">
-    <title></title>
+    <title>PDV Chile</title>
   </head>
   <body>
     <div class="topnav" id="myTopnav" style="width:100%; background: rgba(0,0,0,0.9);width: 100%;position: fixed;z-index: 100;">
@@ -29,8 +29,8 @@
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
-      <label style="color:white;"><?php if ($_SESSION['ultima'] !=null): ?>
-        Tu ultima coneccíon fue : <?php echo $_SESSION['ultima']; ?>
+      <label style="color:white; margin-top:15px;"><?php if ($_SESSION['ultima'] !=null): ?>
+        Tu última coneccíón fue : <?php echo $_SESSION['ultima']; ?>
       <?php endif; ?></label>
       <?php if ($_SESSION['tipo'] == 1): ?>
         <button type="button" class="btn btn-primary btn-sm"style="float:right; margin:8px;" name="button" class="btn btn-success" data-toggle="modal" data-target="#modalpass">Cambiar contraseña</button>

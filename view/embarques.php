@@ -20,8 +20,8 @@
                   <th>OCEAN FREIGHT(U)</th>
                   <th>coMODATO(U)</th>
                   <th>GATE IN (U)</th>
-                  <th>DIAS LIBRES (U)</th>
-                  <th>DEPOSITO DEV.VACIO</th>
+                  <th>DÍAS LIBRES (U)</th>
+                  <th>DEPÓSITO DEV.VACÍO</th>
                   <th>Estado</th>
                   <th>Llego</th>
                 </tr>
@@ -75,8 +75,8 @@
                    <th>OCEAN FREIGHT(U)</th>
                    <th>coMODATO(U)</th>
                    <th>GATE IN (U)</th>
-                   <th>DIAS LIBRES (U)</th>
-                   <th>DEPOSITO DEV.VACIO</th>
+                   <th>DÍAS LIBRES (U)</th>
+                   <th>DEPÓSITO DEV.VACÍO</th>
                    <th>Estado</th>
                    <th>Llego</th>
                  </tr>
