@@ -112,14 +112,25 @@
                  }
              });
          }
-         var o = $("#cfor2").val();
-         console.log(o);
-        for (var r = 1; r <=o; r++)
-        $("#cantidadInternar"+r).on("keyup",{value:r},function(event)
-        {
-          console.log(r);
-        })
        });
+
+
+       $(function()
+        {
+          var o = $("#cfor2").val();
+          for (var i = 1; i <=o; i++)
+          {
+            $("#cantidadInternar"+i).on("keyup",{value:i},function(event)
+              {
+                var e  = event.data.value;
+                console.log("boton "+e);
+              });
+          }
+
+
+
+
+        });
 
     function ValidadCompras()
     {
