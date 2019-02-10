@@ -103,12 +103,10 @@
                  cantidad = parseFloat($("#cantidadKG"+e).val());
                  total = parseFloat($("#ttotal"+e).val());
 
-                 console.log(cantidad);
-                 console.log(total);
 
                  if (total < cantidad)
                  {
-                    alert("La cantidad no puede ser mayor que el stock");
+                    alert("La cantidad no puede ser mayor a "+total);
                  }
              });
          }
@@ -123,7 +121,14 @@
             $("#cantidadInternar"+i).on("keyup",{value:i},function(event)
               {
                 var e  = event.data.value;
-                console.log("boton "+e);
+                var vPorInternar = parseFloat($("#vPorInternar"+e).val());
+                var cantidadInternar = parseFloat($("#cantidadInternar"+e).val());
+
+              if (vPorInternar < cantidadInternar)
+              {
+                  alert("La cantidad no puede ser mayor a "+vPorInternar);
+              }
+
               });
           }
 
