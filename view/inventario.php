@@ -149,6 +149,7 @@
 
                                   </div>
                                 </div>
+                                <input type="hidden" name="x" id="x" value="<?php echo $x ?>">
                                 <input type="hidden" name="lote" id="lote" value="<?php echo $row->lote ?>">
                                 <input type="hidden" name="idProducto" id="idProducto"value="<?php echo $row->idProducto ?>">
                                 <input type="hidden" name="ttotal<?php echo $x?>>" id="ttotal<?php echo $x?>" value="<?php echo $row->stock ?>">
@@ -199,7 +200,7 @@
                                 <div class="row">
                                   <div class="col-md-2">
                                     <label>Cantidad (toneladas)</label>
-                                    <input type="text" name="cantidadG<?php echo $x ?>" id="cantidadKG<?php echo $x ?>" required>
+                                    <input type="text" name="cantidadKG<?php echo $x ?>" id="cantidadKG<?php echo $x ?>" required>
                                   </div>
                                 </div>
 

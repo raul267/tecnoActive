@@ -395,6 +395,7 @@ class UsuarioController
           $d = new Despacho();
           $s = new Stock();
           $de = new Despachosemanal();
+          $x = $_REQUEST['x'];
 
 
           $d->cliente = $_REQUEST['cliente'];
@@ -404,12 +405,12 @@ class UsuarioController
           $d->fechaEntrega = $_REQUEST['fechaEntrega'];
           $d->montoTotal = $_REQUEST['montoTotal'];
           $d->idProducto = $_REQUEST['idProducto'];
-          $d->cantidadKG = $_REQUEST['cantidadKG'];
+          $d->cantidadKG = $_REQUEST['cantidadKG'.$x];
 
          $bl = $_REQUEST['ddlbl'];
          $s = $this->model_s->ListarPorInternar($bl);
-         $s->despachadas = $s->despachadas + $_REQUEST['cantidadKG'];
-         $s->stock = $s->stock - $_REQUEST['cantidadKG'];
+         $s->despachadas = $s->despachadas + $_REQUEST['cantidadKG'.$x];
+         $s->stock = $s->stock - $_REQUEST['cantidadKG'.$x];
 
 
           $this->model_des->Insertar($d);
@@ -527,10 +528,11 @@ class UsuarioController
       $b = new Bl();
       $s = new Stock();
       $bl = $_REQUEST['bl'];
+      $canti = $_REQUEST['canti'];
       $s = $this->model_s->ListarPorInternar($bl);
 
         $total = $_REQUEST['total'];
-        $cInternar = $_REQUEST['cantidadInternar'];
+        $cInternar = $_REQUEST['cantidadInternar'.$canti];
 
        //Cambiar estado dependiendo la cantidad de internacion
        if ($s->porInternar == $cInternar)
@@ -539,9 +541,9 @@ class UsuarioController
           "Internado";
        }
 
-         $s->internadas = $s->internadas + $cInternar;
-         $s->porInternar = $s->porInternar - $cInternar;
-         $this->model_s->Internar($s->internadas,$s->porInternar,$bl);
+        $s->internadas = $s->internadas + $cInternar;
+        $s->porInternar = $s->porInternar - $cInternar;
+        $this->model_s->Internar($s->internadas,$s->porInternar,$bl);
          Header('Location: index.php?c=Usuario&a=AGA');
     }
 

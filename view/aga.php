@@ -36,7 +36,7 @@
                     <?php endif; ?></th>
 
                     <td><?php if ($row->nProvision !=null && $row->internado ==0): ?>
-                     <form class="" action="?c=Usuario&a=InternarPartes&bl=<?php echo $row->bl ?>&total=<?php echo $row->porInternar ?>" method="post">
+                     <form class="" action="?c=Usuario&a=InternarPartes&bl=<?php echo $row->bl ?>&total=<?php echo $row->porInternar ?>&canti=<?php echo $x ?>" method="post">
                       <label>Puedes internar hasta <?php echo $row->porInternar ?>:</label>
                       <input type="hidden" id="vPorInternar<?php echo $x?>" value="<?php echo $row->porInternar ?>">
                       <input type="text" name="cantidadInternar<?php echo $x?>" id="cantidadInternar<?php echo $x?>"><br>
